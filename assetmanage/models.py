@@ -41,6 +41,11 @@ ASSET_TYPES = (
             ("postermicro", "Microsoft Poster Art"),
         )
          ),
+        ("Notes", (
+            ("qcreport", "Qc Report"),
+            ("baton", "Baton Report"),
+        )
+         ),
     )
 
 
