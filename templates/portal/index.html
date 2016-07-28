@@ -1,0 +1,27 @@
+{% extends "portal/base.html" %}
+
+{% block title %}TcsPT - Home{% endblock %}
+
+{% block body %}
+
+    <h1 class="tab20">Technicolor Creative Services</h1>
+
+    <h2 class="tab40">Production Tools</h2>
+
+    <br><p class="tab20">Montreal time: {{ mtl_time }}</p>
+
+    <br><p class="tab20"><strong>Quick Links:</strong></p>
+    <p class="tab40"><a href="{% url 'projectmanage:index' %}">Project Management</a></p>
+    <p class="tab40"><a href="{% url 'assetmanage:index' %}">Asset Management</a></p>
+    <p class="tab40"><a href="#">Prequal</a></p>
+    <p class="tab40"><a href="#">Qc</a></p>
+    <p class="tab40"><a href="#">Packaging</a></p>
+    <p class="tab40"><a href="#">Metadata</a></p>
+    <p class="tab40"><a href="#">Data Wrangling</a></p>
+
+    <br><h3 class="tab20">About:</h3>
+    <p class="tab40"><strong>Welcome to Technicolor Creative Services Production Tools.</strong></p>
+    <p class="tab40">The objective of this site is to provide each department with a unique set of tools, designed to answer their specific needs, while sharing information through a common database.</p>
+    <br><br><p class="tab40">Developped by Simon Lachaîne.</p>
+
+{% endblock %}

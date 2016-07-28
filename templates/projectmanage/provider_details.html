@@ -1,0 +1,59 @@
+{% extends "projectmanage/base.html" %}
+
+{% block title %}TcsPT - Project Management{% endblock %}
+
+{% block body %}
+
+    <h3 class="tab20">Provider: {{ provider.name }}</h3>
+
+    <h5 class="tab40"><a href="{% url 'projectmanage:provider_update' provider.id %}">Edit</a></h5>
+    <h5 class="tab40"><a href="{% url 'projectmanage:provider_delete' provider.id %}">Delete</a></h5>
+
+    <br><h4 class="tab20">Details:</h4>
+    <p class="tab40">iTunes Code: {{ provider.itunes_code }}</p>
+    <p class="tab40">iTunes Connect Username: {{ provider.itc_user }}</p>
+    <p class="tab40">iTunes Connect Password: {{ provider.itc_password }}</p><br>
+
+    <h4 class="tab20">Projects:</h4>
+    {% if provider.project_set.all %}
+        <ul>
+            {% for project in provider.project_set.all %}
+
+                    <li class="tab40"><a href="{% url 'projectmanage:project_details' project.id %}">{{ project.title }}</a></li>
+
+            {% endfor %}
+
+            <br><li class="tab40"><a href="{% url 'projectmanage:project_add' %}"><strong>Add Project</strong></a></li>
+        </ul>
+    {% else %}
+        <ul>
+
+            <li class="tab40">No projects to display</li>
+            <br><li class="tab40"><a href="{% url 'projectmanage:project_add' %}"><strong>Add Project</strong></a></li>
+
+        </ul>
+    {% endif %}
+
+    <br><h4 class="tab20">Assets:</h4>
+    {% if provider.asset_set.all %}
+        <ul>
+            {% for asset in provider.asset_set.all %}
+
+                    <li class="tab40"><a href="{% url 'assetmanage:asset_details' asset.id %}">{{ asset.filename }}</a></li>
+
+            {% endfor %}
+
+            <br><li class="tab40"><a href="{% url 'assetmanage:asset_add' %}"><strong>Add Asset</strong></a></li>
+        </ul>
+    {% else %}
+
+        <ul>
+
+            <li class="tab40">No assets to display</li>
+            <br><li class="tab40"><a href="{% url 'assetmanage:asset_add' %}"><strong>Add Asset</strong></a></li>
+
+        </ul>
+
+    {% endif %}
+
+{% endblock %}

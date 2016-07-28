@@ -1,0 +1,19 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Add Asset{% endblock %}
+
+{% block body %}
+
+    <h3 class="tab20">Select the type of asset to add:</h3>
+
+        <ul>
+
+            <li><a href="{% url 'assetmanage:asset_select' %}">Video</a></li>
+            <li><a href="{% url 'assetmanage:asset_select' %}">Audio</a></li>
+            <li><a href="#">Subtitle</a></li>
+            <li><a href="#">Image</a></li>
+            <li><a href="{% url 'assetmanage:asset_add' %}">Other</a></li>
+
+        </ul>
+
+{% endblock %}

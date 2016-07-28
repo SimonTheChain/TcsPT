@@ -1,0 +1,27 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Asset Management{% endblock %}
+
+{% block body %}
+
+    <h3 class="tab20">Filename: {{ asset.filename }}</h3>
+    <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' asset.provider.id %}">{{ asset.provider.name }}</a></h4>
+    <h4 class="tab20">Project: <a href="{% url 'projectmanage:project_details' asset.project.id %}">{{ asset.project.title }}</a></h4>
+    <h5 class="tab40"><a href="{% url 'assetmanage:asset_update' asset.id %}">Edit</a></h5>
+    <h5 class="tab40"><a href="{% url 'assetmanage:asset_delete' asset.id %}">Delete</a></h5>
+
+    <br><h4 class="tab20">Details:</h4>
+    <p class="tab40">File Location: {{ asset.fichier }}</p>
+    <p class="tab40">File Size: {{ asset.fichier.size|filesizeformat }}</p>
+    <p class="tab40">File Checksum: {{ asset.file_md5 }}</p>
+    <p class="tab40">File Type: {{ asset.type }}</p><br>
+
+    <h4 class="tab20">Status: {{ asset.get_status_display }}</h4><br>
+
+    {% if "poster" in asset.type %}
+
+        <img src="{{ asset.fichier.url }}" class="img-responsive">
+
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Asset Management{% endblock %}
+
+{% block body %}
+
+    <div>
+        <h1 class="tab20">Technicolor Creative Services</h1>
+
+        <h2 class="tab40">Production Tools - Asset Management</h2>
+
+        <br><p class="tab20">Montreal time: {{ mtl_time }}</p>
+
+    </div>
+
+    <div>
+        <br><p class="tab20"><strong>Quick Links:</strong></p>
+        <p class="tab40"><a href="#">Videos</a></p>
+        <p class="tab40"><a href="#">Audios</a></p>
+        <p class="tab40"><a href="#">Subtitles</a></p>
+        <p class="tab40"><a href="#">Images</a></p>
+        <p class="tab40"><a href="#">Other Assets</a></p>
+        <p class="tab40"><a href="{% url 'assetmanage:asset_create' %}"><strong>Add Asset</strong></a></p>
+    </div>
+
+{% endblock %}

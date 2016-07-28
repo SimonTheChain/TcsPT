@@ -1,0 +1,15 @@
+{% extends "projectmanage/base.html" %}
+
+{% block title %}TcsPT - Project Management{% endblock %}
+
+{% block body %}
+
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ provider.name }}"?</p>
+        <input class="btn btn-link"
+                       type="button" value="Cancel"
+                       onclick="window.history.go(-1);"/>
+        <input class="btn btn-danger" type="submit" value="Confirm"/>
+    </form>
+
+{% endblock %}

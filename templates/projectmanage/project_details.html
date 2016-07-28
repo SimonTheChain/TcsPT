@@ -1,0 +1,43 @@
+{% extends "projectmanage/base.html" %}
+
+{% block title %}TcsPT - Project Management{% endblock %}
+
+{% block body %}
+
+    <h3 class="tab20">Title: {{ project.title }}</h3>
+    <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' project.provider.id %}">{{ project.provider.name }}</a></h4>
+    <h5 class="tab40"><a href="{% url 'projectmanage:project_update' project.id %}">Edit</a></h5>
+    <h5 class="tab40"><a href="{% url 'projectmanage:project_delete' project.id %}">Delete</a></h5>
+
+    <br><p class="tab20"><strong>Deliver for:</strong></p>
+    <p class="tab40">iTunes: {{ project.itunes }}</p>
+    <p class="tab40">Google: {{ project.google }}</p>
+    <p class="tab40">Sasktel: {{ project.sasktel }}</p>
+    <p class="tab40">Netflix: {{ project.netflix }}</p>
+
+    <br><h4 class="tab20"><strong>Status: {{ project.get_status_display }}</strong></h4>
+
+    <br><h4 class="tab20">Assets:</h4>
+    {% if project.asset_set.all %}
+        <ul>
+            {% for asset in project.asset_set.all %}
+
+                    <li class="tab40"><a href="{% url 'assetmanage:asset_details' asset.id %}">{{ asset.filename }}</a></li>
+
+            {% endfor %}
+
+            <br><li class="tab40"><a href="{% url 'assetmanage:asset_add' %}"><strong>Add Asset</strong></a></li>
+
+        </ul>
+    {% else %}
+
+        <ul>
+
+            <li class="tab40">No assets to display</li>
+            <br><li class="tab40"><a href="{% url 'assetmanage:asset_add' %}"><strong>Add Asset</strong></a></li>
+
+        </ul>
+
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Add Asset{% endblock %}
+
+{% block body %}
+
+    <h3 class="tab20">Test</h3>
+
+        <ul>
+
+            <li>User: {{ user|default:"Variable not reached" }}</li>
+            <li>Files: {{ files|default:"Variable not reached" }}</li>
+            <li>Path: {{ path|default:"Variable not reached" }}</li>
+
+        </ul>
+
+{% endblock %}
