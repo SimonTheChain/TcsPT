@@ -11,9 +11,9 @@
     <br><p class="tab20">Montreal time: {{ mtl_time }}</p>
 
     <br><p class="tab20"><strong>Quick Links:</strong></p>
-    <p class="tab40"><a href="#">Providers</a></p>
-    <p class="tab40"><a href="#">Projects</a></p>
-    <p class="tab40"><a href="#">Add Provider</a></p>
-    <p class="tab40"><a href="#">Add Project</a></p>
+    <p class="tab40"><a href="{% url 'projectmanage:providers' %}">Providers</a></p>
+    <p class="tab40"><a href="{% url 'projectmanage:projects' %}">Projects</a></p>
+    <p class="tab40"><a href="{% url 'projectmanage:provider_add' %}">Add Provider</a></p>
+    <p class="tab40"><a href="{% url 'projectmanage:project_add' %}">Add Project</a></p>
 
 {% endblock %}
