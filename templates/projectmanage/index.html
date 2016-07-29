@@ -12,11 +12,11 @@
 
     <div>
         {% load tz %}
-        <br><p class="tab20"><strong>Montreal:</strong> {{ time_now|timezone:"America/Montreal" }}</p>
+        <br><p class="tab20"><strong>Los Angeles:</strong> {{ time_now|timezone:"America/Los_Angeles" }}</p>
+        <p class="tab20"><strong>Montreal:</strong> {{ time_now|timezone:"America/Montreal" }}</p>
         <p class="tab20"><strong>London:</strong> {{ time_now|timezone:"Europe/London" }}</p>
         <p class="tab20"><strong>Bangalore:</strong> {{ time_now|timezone:"Asia/Kolkata" }}</p>
         <p class="tab20"><strong>Sydney:</strong> {{ time_now|timezone:"Australia/Sydney" }}</p>
-        <p class="tab20"><strong>Los Angeles:</strong> {{ time_now|timezone:"America/Los_Angeles" }}</p>
     </div>
 
     <div>
@@ -24,8 +24,8 @@
         <ul>
             <li><a href="{% url 'projectmanage:providers' %}">Providers</a></li>
             <li><a href="{% url 'projectmanage:projects' %}">Projects</a></li>
-            <li><a href="{% url 'projectmanage:provider_add' %}">Add Provider</a></li>
-            <li><a href="{% url 'projectmanage:project_add' %}">Add Project</a></li>
+            <br><li><a href="{% url 'projectmanage:provider_add' %}"><strong>Add Provider</strong></a></li>
+            <li><a href="{% url 'projectmanage:project_add' %}"><strong>Add Project</strong></a></li>
         </ul>
     </div>
 
