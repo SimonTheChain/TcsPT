@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.files.uploadhandler import TemporaryFileUploadHandler
 
 from .forms import AssetForm, AssetTestForm
 from .models import Asset, AssetTest, ImageAsset
@@ -42,7 +43,31 @@ def asset_create(request):
 
 @login_required(login_url="portal/login")
 def asset_select(request):
-    return render(request, 'assetmanage/asset_select.html')
+    if request.method == 'POST':
+        print("1")
+        fichier = request.FILES["asset_file"]
+        print(fichier)
+        print(fichier.name)
+
+        form = AssetTestForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            print("2")
+            form.save(commit=False)
+            temp_file_obj = TemporaryFileUploadHandler(form.cleaned_data['file_path'])
+            form.instance.file_size = temp_file_obj.chunk_size
+            form.instance.file_name = form.cleaned_data['file_path'].split("/")[-1]
+            form.save()
+            return HttpResponseRedirect('/assetmanage/assets/')
+
+        print(form.errors)
+
+    else:
+        print("4")
+        form = AssetTestForm()
+
+    return render(request, 'assetmanage/asset_select.html', {'form': form})
+    #  return render(request, 'assetmanage/asset_select.html')
 
 
 # @login_required(login_url="portal/login")
@@ -54,16 +79,21 @@ def asset_select(request):
 @login_required(login_url="portal/login")
 def asset_test(request):
     if request.method == 'POST':
+        print("1")
         form = AssetTestForm(request.POST)
 
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
+            print("2")
+            form.save(commit=False)
+            temp_file_obj = TemporaryFileUploadHandler(form.cleaned_data["file_path"])
+            form.file_size = temp_file_obj.chunk_size
+            form.save()
             return HttpResponseRedirect('/assetmanage/assets/')
 
-    # if a GET (or any other method) we'll create a blank form
+        print("3")
+
     else:
+        print("4")
         form = AssetTestForm()
 
     return render(request, 'assetmanage/asset_select.html', {'form': form})
