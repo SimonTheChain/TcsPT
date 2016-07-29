@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Asset, ImageAsset, AssetTest
+from .models import Asset
 
 
 admin.site.register(Asset)
-admin.site.register(ImageAsset)
-admin.site.register(AssetTest)

@@ -10,7 +10,7 @@
         <ul>
 
             {% for asset in assets_list %}
-                <li><a href="{% url 'assetmanage:asset_details' asset.id %}">{{ asset.filename }}</a></li>
+                <li><a href="{% url 'assetmanage:asset_details' asset.id %}">{{ asset.file_name }}</a></li>
             {% endfor %}
             <br><li><a href="{% url 'assetmanage:asset_add' %}"><strong>Add Asset</strong></a></li>
 

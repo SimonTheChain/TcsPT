@@ -4,16 +4,29 @@
 
 {% block body %}
 
-    <h1 class="tab20">Technicolor Creative Services</h1>
+    <div>
+        <h1 class="tab20">Technicolor Creative Services</h1>
 
-    <h2 class="tab40">Production Tools - Project Management</h2>
+        <h2 class="tab40">Production Tools - Project Management</h2>
+    </div>
 
-    <br><p class="tab20">Montreal time: {{ mtl_time }}</p>
+    <div>
+        {% load tz %}
+        <br><p class="tab20"><strong>Montreal:</strong> {{ time_now|timezone:"America/Montreal" }}</p>
+        <p class="tab20"><strong>London:</strong> {{ time_now|timezone:"Europe/London" }}</p>
+        <p class="tab20"><strong>Bangalore:</strong> {{ time_now|timezone:"Asia/Kolkata" }}</p>
+        <p class="tab20"><strong>Sydney:</strong> {{ time_now|timezone:"Australia/Sydney" }}</p>
+        <p class="tab20"><strong>Los Angeles:</strong> {{ time_now|timezone:"America/Los_Angeles" }}</p>
+    </div>
 
-    <br><p class="tab20"><strong>Quick Links:</strong></p>
-    <p class="tab40"><a href="{% url 'projectmanage:providers' %}">Providers</a></p>
-    <p class="tab40"><a href="{% url 'projectmanage:projects' %}">Projects</a></p>
-    <p class="tab40"><a href="{% url 'projectmanage:provider_add' %}">Add Provider</a></p>
-    <p class="tab40"><a href="{% url 'projectmanage:project_add' %}">Add Project</a></p>
+    <div>
+        <br><h4 class="tab20">Quick Links:</h4>
+        <ul>
+            <li><a href="{% url 'projectmanage:providers' %}">Providers</a></li>
+            <li><a href="{% url 'projectmanage:projects' %}">Projects</a></li>
+            <li><a href="{% url 'projectmanage:provider_add' %}">Add Provider</a></li>
+            <li><a href="{% url 'projectmanage:project_add' %}">Add Project</a></li>
+        </ul>
+    </div>
 
 {% endblock %}

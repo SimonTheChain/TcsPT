@@ -2,12 +2,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+import pytz
 
 
 @login_required(login_url="portal/login")
 def index(request):
-    mtl_now = timezone.now()
-    return render(request, "portal/index.html", {"mtl_time": mtl_now})
+    time_now = timezone.now()
+    return render(request, "portal/index.html", {"time_now": time_now})
 
 
 def logout_user(request):

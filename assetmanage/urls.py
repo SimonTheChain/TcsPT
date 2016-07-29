@@ -19,14 +19,8 @@ urlpatterns = [
     #  /assetmanage/asset/1/
     url(r'^asset/(?P<pk>[0-9]+)/$', views.AssetDetailsView.as_view(), name="asset_details"),
 
-    #  /assetmanage/asset/select/
-    url(r'^asset/select/$', views.asset_select, name="asset_select"),
-
     #  /assetmanage/asset/create/
     url(r'^asset/create/$', views.asset_create, name="asset_create"),
-
-    #  /assetmanage/asset/test/
-    url(r'^asset/test/$', views.asset_test, name="asset_test"),
 
     #  /assetmanage/asset/add/
     url(r'^asset/add/$', views.AssetCreate.as_view(), name="asset_add"),
@@ -36,11 +30,5 @@ urlpatterns = [
 
     #  /assetmanage/asset/1/delete/
     url(r'^asset/(?P<pk>[0-9]+)/delete/$', views.AssetDelete.as_view(), name="asset_delete"),
-
-    #  /assetmanage/images/
-    url(r'^images/$', views.ImagesView.as_view(), name="images"),
-
-    #  /assetmanage/image/add/
-    url(r'^image/add/$', views.ImageCreate.as_view(), name="image_add"),
 
 ]

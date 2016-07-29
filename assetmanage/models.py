@@ -1,7 +1,5 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from imagekit.models import ImageSpecField, ProcessedImageField
-from imagekit.processors import SmartResize
 from projectmanage.models import Provider, Project
 import os
 
@@ -72,59 +70,18 @@ ASSET_STATUS = (
     )
 
 
-class AssetTest(models.Model):
-    file_path = models.FilePathField(path=r"C:\Users\Simon\Pictures\poster_arts", default="")
-    file_name = models.CharField(max_length=250, default="")
-    file_size = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.file_path
-
-
 class Asset(models.Model):
+    file_name = models.CharField(max_length=250, default="")
+    file_path = models.CharField(max_length=250, default="")
+    file_size = models.IntegerField(default=0)
     file_md5 = models.CharField(max_length=32, default="", blank=True)
     type = models.CharField(max_length=25, choices=ASSET_TYPES, default="feature")
     status = models.CharField(max_length=25, choices=ASSET_STATUS, default="datadownready")
-    fichier = models.FileField(default="")
     project = models.ForeignKey(Project, blank=True, null=True)  # on_delete=models.CASCADE
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse("assetmanage:asset_details", kwargs={"pk": self.pk})
 
-    def filename(self):
-        return os.path.basename(self.fichier.name)
-
     def __str__(self):
-        return os.path.basename(self.fichier.name)
-
-
-class ImageAsset(models.Model):
-    file_path = models.FilePathField(path=r"C:\Users\Simon\Pictures\poster_arts", default="")
-
-    thumbnail = ProcessedImageField(
-        upload_to=file_path,
-        processors=[SmartResize(100, 50)],
-        format='PNG',
-        options={'quality': 60})
-
-    itunes = ProcessedImageField(
-        upload_to="uploads/poster/itunes/%Y/%m/%d/",
-        processors=[SmartResize(2000, 3000)],
-        format='JPEG',
-        options={'quality': 100})
-
-    sasktel = ProcessedImageField(
-        upload_to="uploads/poster/%Y/%m/%d/",
-        processors=[SmartResize(160, 229)],
-        format='JPEG',
-        options={'quality': 100})
-
-    project = models.ForeignKey(Project, blank=True, null=True)  # on_delete=models.CASCADE
-    provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
-
-    def get_absolute_url(self):
-        return reverse("assetmanage:image_details", kwargs={"pk": self.pk})
-
-    def __str__(self):
-        return self.file_path
+        return self.file_name

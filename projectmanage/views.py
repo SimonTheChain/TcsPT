@@ -11,8 +11,8 @@ from .models import Provider, Project
 
 @login_required(login_url="portal/login")
 def index(request):
-    mtl_now = timezone.now()
-    return render(request, "projectmanage/index.html", {"mtl_time": mtl_now})
+    time_now = timezone.now()
+    return render(request, "projectmanage/index.html", {"time_now": time_now})
 
 
 @login_required(login_url="portal/login")
