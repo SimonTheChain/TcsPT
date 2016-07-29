@@ -77,14 +77,14 @@ class AssetCreate(LoginRequiredMixin, CreateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Asset
-    fields = ["file_name", "file_path", "type", "status", "project", "provider"]
+    fields = ["file_name", "file_path", "type", "file_size", "file_md5", "project", "provider", "status"]
 
 
 class AssetUpdate(LoginRequiredMixin, UpdateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Asset
-    fields = ["file_name", "file_path", "type", "status", "project", "provider"]
+    fields = ["file_name", "file_path", "type", "file_size", "file_md5", "project", "provider", "status"]
 
 
 class AssetDelete(LoginRequiredMixin, DeleteView):

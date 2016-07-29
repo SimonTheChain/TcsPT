@@ -1,6 +1,6 @@
 {% extends "assetmanage/base.html" %}
 
-{% block title %}TcsPT - Asset Management{% endblock %}
+{% block title %}TcsPT - Asset Details{% endblock %}
 
 {% block body %}
 
@@ -11,17 +11,11 @@
     <h5 class="tab40"><a href="{% url 'assetmanage:asset_delete' asset.id %}">Delete</a></h5>
 
     <br><h4 class="tab20">Details:</h4>
-    <p class="tab40">File Location: {{ asset.file_path }}</p>
-    <p class="tab40">File Size: {{ asset.file_size|filesizeformat }}</p>
-    <p class="tab40">File Checksum: {{ asset.file_md5 }}</p>
-    <p class="tab40">File Type: {{ asset.type }}</p><br>
+    <p class="tab40">Path: {{ asset.file_path }}</p>
+    <p class="tab40">Size: {{ asset.file_size|filesizeformat }}</p>
+    <p class="tab40">Md5 Checksum: {{ asset.file_md5 }}</p>
+    <p class="tab40">Asset Type: {{ asset.get_type_display }}</p><br>
 
-    <h4 class="tab20">Status: {{ asset.get_status_display }}</h4><br>
-
-    {% if "poster" in asset.type %}
-
-        <img src="{{ asset.fichier.url }}" class="img-responsive">
-
-    {% endif %}
+    <br><h4 class="tab20"><strong>Status: {{ asset.get_status_display }}</strong></h4><br>
 
 {% endblock %}
