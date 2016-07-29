@@ -70,6 +70,13 @@ ASSET_STATUS = (
     )
 
 
+AUDIO_CHANNELS = (
+        ("noaudio", "Not used"),
+        ("audioleft", "Left"),
+        ("audioright", "Right"),
+    )
+
+
 class Asset(models.Model):
     file_name = models.CharField(max_length=250, default="")
     file_path = models.CharField(max_length=250, default="")
@@ -85,3 +92,36 @@ class Asset(models.Model):
 
     def __str__(self):
         return self.file_name
+
+
+class Video(models.Model):
+    format = models.CharField(max_length=25, default="")
+    crop_top = models.IntegerField(default=4)
+    crop_bottom = models.IntegerField(default=4)
+    crop_right = models.IntegerField(default=4)
+    crop_left = models.IntegerField(default=4)
+    asset = models.OneToOneField(Asset, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse("assetmanage:asset_details", kwargs={"pk": self.pk})
+
+    def __str__(self):
+        return self.asset.file_name
+
+
+class Audio(models.Model):
+    channel_1 = models.CharField(max_length=25, default="")
+    channel_2 = models.CharField(max_length=25, default="")
+    channel_3 = models.CharField(max_length=25, default="")
+    channel_4 = models.CharField(max_length=25, default="")
+    channel_5 = models.CharField(max_length=25, default="")
+    channel_6 = models.CharField(max_length=25, default="")
+    channel_7 = models.CharField(max_length=25, default="")
+    channel_8 = models.CharField(max_length=25, default="")
+    asset = models.OneToOneField(Asset, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse("assetmanage:asset_details", kwargs={"pk": self.pk})
+
+    def __str__(self):
+        return self.asset.file_name

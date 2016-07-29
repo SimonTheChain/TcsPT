@@ -37,9 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #  site
     'portal',
     'assetmanage',
     'projectmanage',
+
+    #  thrid-party
+    'django_extensions',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -124,5 +130,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/uploads/'
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
