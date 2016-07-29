@@ -1,0 +1,26 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Images{% endblock %}
+
+{% block body %}
+
+    {% if images_list %}
+        <h3 class="tab20">List of images ({{ images_list.count }}):</h3>
+
+        <ul>
+
+            {% for image in images_list %}
+                <li><a href="{% url 'assetmanage:image_details' image.id %}">{{ image.filename }}</a></li>
+            {% endfor %}
+            <br><li><a href="{% url 'assetmanage:image_add' %}"><strong>Add Image</strong></a></li>
+
+        </ul>
+
+    {% else %}
+        <h3 class="tab20">No images to display</h3>
+
+        <br><p class="tab40"><a href="{% url 'assetmanage:image_add' %}"><strong>Add Image</strong></a></p>
+
+    {% endif %}
+
+{% endblock %}

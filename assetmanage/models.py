@@ -103,15 +103,21 @@ class ImageAsset(models.Model):
         processors=[ResizeToFill(100, 50)],
         format='JPEG',
         options={'quality': 60})
-    itunes = ProcessedImageField(upload_to="media/itunes/%Y/%m/%d/", processors=[ResizeToFill(2000, 3000)], format='JPEG',
-                                    options={'quality': 100})
-    sasktel = ProcessedImageField(upload_to="media/sasktel/%Y/%m/%d/", processors=[ResizeToFill(160, 229)], format='JPEG',
-                                 options={'quality': 100})
+    itunes = ProcessedImageField(
+        upload_to="media/itunes/%Y/%m/%d/",
+        processors=[ResizeToFill(2000, 3000)],
+        format='JPEG',
+        options={'quality': 100})
+    sasktel = ProcessedImageField(
+        upload_to="media/sasktel/%Y/%m/%d/",
+        processors=[ResizeToFill(160, 229)],
+        format='JPEG',
+        options={'quality': 100})
     project = models.ForeignKey(Project, blank=True, null=True)  # on_delete=models.CASCADE
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        return reverse("assetmanage:asset_details", kwargs={"pk": self.pk})
+        return reverse("assetmanage:image_details", kwargs={"pk": self.pk})
 
     def filename(self):
         return os.path.basename(self.thumbnail.name)

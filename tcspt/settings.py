@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'portal',
     'assetmanage',
     'projectmanage',
+    'imagekit',
 ]
 
 MIDDLEWARE_CLASSES = [

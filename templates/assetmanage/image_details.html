@@ -1,0 +1,18 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Image Details{% endblock %}
+
+{% block body %}
+
+    <h3 class="tab20">Filename: {{ image.filename }}</h3>
+    <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' image.provider.id %}">{{ image.provider.name }}</a></h4>
+    <h4 class="tab20">Project: <a href="{% url 'projectmanage:project_details' image.project.id %}">{{ image.project.title }}</a></h4>
+    <h5 class="tab40"><a href="#">Edit</a></h5>
+    <h5 class="tab40"><a href="#">Delete</a></h5>
+
+    <br><h4 class="tab20">Details:</h4>
+    <p class="tab40">File Location: {{ image.thumbnail }}</p>
+
+    <img src="{{ image.thumbnail.url }}" class="img-responsive">
+
+{% endblock %}

@@ -37,4 +37,10 @@ urlpatterns = [
     #  /assetmanage/asset/1/delete/
     url(r'^asset/(?P<pk>[0-9]+)/delete/$', views.AssetDelete.as_view(), name="asset_delete"),
 
+    #  /assetmanage/images/
+    url(r'^images/$', views.ImagesView.as_view(), name="images"),
+
+    #  /assetmanage/image/add/
+    url(r'^image/add/$', views.ImageCreate.as_view(), name="image_add"),
+
 ]

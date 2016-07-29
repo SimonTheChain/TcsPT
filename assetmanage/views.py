@@ -8,7 +8,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import AssetForm, AssetTestForm
-from .models import Asset, AssetTest
+from .models import Asset, AssetTest, ImageAsset
 
 
 @login_required(login_url="portal/login")
@@ -119,3 +119,41 @@ class AssetDelete(LoginRequiredMixin, DeleteView):
     redirect_field_name = 'redirect_to'
     model = Asset
     success_url = reverse_lazy("assetmanage:assets")
+
+
+class ImagesView(LoginRequiredMixin, generic.ListView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = "assetmanage/images.html"
+    context_object_name = "images_list"
+
+    def get_queryset(self):
+        return ImageAsset.objects.all()
+
+
+class ImageDetailsView(LoginRequiredMixin, generic.DetailView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = ImageAsset
+    template_name = "assetmanage/image_details.html"
+
+
+class ImageCreate(LoginRequiredMixin, CreateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = ImageAsset
+    fields = ["provider", "project", "thumbnail", "itunes", "sasktel"]
+
+
+class ImageUpdate(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = ImageAsset
+    fields = ["provider", "project", "thumbnail", "itunes", "sasktel"]
+
+
+class ImageDelete(LoginRequiredMixin, DeleteView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = ImageAsset
+    success_url = reverse_lazy("assetmanage:images")
