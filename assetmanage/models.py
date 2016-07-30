@@ -99,8 +99,8 @@ NOTE_TYPES = (
 
 class Asset(models.Model):
     file_name = models.CharField(max_length=250, default="")
-    file_path = models.CharField(max_length=250, default="")
-    file_size = models.IntegerField(default=0)
+    file_path = models.CharField(max_length=250, default="", blank=True)
+    file_size = models.IntegerField(default=0, blank=True)
     file_md5 = models.CharField(max_length=32, default="", blank=True)
     type = models.CharField(max_length=25, choices=ASSET_TYPES, default="feature")
     status = models.CharField(max_length=25, choices=ASSET_STATUS, default="datadownready")
@@ -160,7 +160,7 @@ class Subtitle(models.Model):
         return self.asset.file_name
 
 
-class Images(models.Model):
+class Image(models.Model):
     width = models.IntegerField(default=0)
     length = models.IntegerField(default=0)
     asset = models.OneToOneField(Asset, on_delete=models.CASCADE)
@@ -172,7 +172,7 @@ class Images(models.Model):
         return self.asset.file_name
 
 
-class Notes(models.Model):
+class Note(models.Model):
     type = models.CharField(max_length=25, choices=NOTE_TYPES, default="")
     comments = models.CharField(max_length=1000, default="")
     asset = models.OneToOneField(Asset, on_delete=models.CASCADE)
