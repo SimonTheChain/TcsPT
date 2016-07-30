@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from projectmanage.models import Provider, Project
-import os
 
 
 ASSET_TYPES = (
@@ -74,6 +73,27 @@ AUDIO_CHANNELS = (
         ("noaudio", "Not used"),
         ("audioleft", "Left"),
         ("audioright", "Right"),
+        ("audiocenter", "Center"),
+        ("audiolfe", "L.F.E."),
+        ("audiobackleft", "Surround left"),
+        ("audiobackright", "Surround Right"),
+        ("audiolefttotal", "Left total"),
+        ("audiorighttotal", "Right total"),
+        ("audiomono", "Mono"),
+    )
+
+
+LOCALES = (
+        ("enca", "en-CA"),
+        ("enus", "en-US"),
+        ("frca", "fr-CA"),
+        ("frfr", "fr-FR"),
+    )
+
+
+NOTE_TYPES = (
+        ("qcreport", "Qc report"),
+        ("baton", "Baton report"),
     )
 
 
@@ -95,6 +115,7 @@ class Asset(models.Model):
 
 
 class Video(models.Model):
+    locale = models.CharField(max_length=25, choices=LOCALES, default="")
     format = models.CharField(max_length=25, default="")
     crop_top = models.IntegerField(default=4)
     crop_bottom = models.IntegerField(default=4)
@@ -110,14 +131,50 @@ class Video(models.Model):
 
 
 class Audio(models.Model):
-    channel_1 = models.CharField(max_length=25, default="")
-    channel_2 = models.CharField(max_length=25, default="")
-    channel_3 = models.CharField(max_length=25, default="")
-    channel_4 = models.CharField(max_length=25, default="")
-    channel_5 = models.CharField(max_length=25, default="")
-    channel_6 = models.CharField(max_length=25, default="")
-    channel_7 = models.CharField(max_length=25, default="")
-    channel_8 = models.CharField(max_length=25, default="")
+    locale = models.CharField(max_length=25, choices=LOCALES, default="")
+    channel_1 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
+    channel_2 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
+    channel_3 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
+    channel_4 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
+    channel_5 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
+    channel_6 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
+    channel_7 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
+    channel_8 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
+    asset = models.OneToOneField(Asset, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse("assetmanage:asset_details", kwargs={"pk": self.pk})
+
+    def __str__(self):
+        return self.asset.file_name
+
+
+class Subtitle(models.Model):
+    locale = models.CharField(max_length=25, choices=LOCALES, default="")
+    asset = models.OneToOneField(Asset, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse("assetmanage:asset_details", kwargs={"pk": self.pk})
+
+    def __str__(self):
+        return self.asset.file_name
+
+
+class Images(models.Model):
+    width = models.IntegerField(default=0)
+    length = models.IntegerField(default=0)
+    asset = models.OneToOneField(Asset, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse("assetmanage:asset_details", kwargs={"pk": self.pk})
+
+    def __str__(self):
+        return self.asset.file_name
+
+
+class Notes(models.Model):
+    type = models.CharField(max_length=25, choices=NOTE_TYPES, default="")
+    comments = models.CharField(max_length=1000, default="")
     asset = models.OneToOneField(Asset, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
