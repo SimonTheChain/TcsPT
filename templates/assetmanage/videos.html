@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    {% if assets_list %}
+    {% if videos_list %}
         <h3 class="tab20">List of videos ({{ videos_list.count }}):</h3>
 
         <ul>
@@ -12,14 +12,14 @@
             {% for video in videos_list %}
                 <li><a href="#">{{ video.asset.file_name }}</a></li>
             {% endfor %}
-            <br><li><a href="{% url 'assetmanage:asset_add' %}"><strong>Add Asset</strong></a></li>
+            <br><li><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
 
         </ul>
 
     {% else %}
         <h3 class="tab20">No videos to display</h3>
 
-        <br><p class="tab40"><a href="{% url 'assetmanage:asset_add' %}"><strong>Add Asset</strong></a></p>
+        <br><p class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></p>
 
     {% endif %}
 

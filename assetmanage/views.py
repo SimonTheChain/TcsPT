@@ -119,7 +119,7 @@ class VideosView(LoginRequiredMixin, generic.ListView):
     context_object_name = "videos_list"
 
     def get_queryset(self):
-        return Asset.objects.all()
+        return Video.objects.all()
 
 
 class CreateVideoAsset(CreateView):

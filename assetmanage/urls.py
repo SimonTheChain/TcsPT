@@ -13,6 +13,9 @@ urlpatterns = [
     #  /assetmanage/assets/
     url(r'^assets/$', views.AssetsView.as_view(), name="assets"),
 
+    #  /assetmanage/assets/
+    url(r'^videos/$', views.VideosView.as_view(), name="videos"),
+
     #  /assetmanage/search/
     url(r'^search/$', views.search, name="search"),
 
