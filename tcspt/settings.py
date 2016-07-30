@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'portal',
     'assetmanage',
     'projectmanage',
+    'metadata',
 
     #  thrid-party
     'django_extensions',

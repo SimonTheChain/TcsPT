@@ -22,7 +22,7 @@
         <ul>
             {% for asset in project.asset_set.all %}
 
-                    <li class="tab40"><a href="{% url 'assetmanage:asset_details' asset.id %}">{{ asset.filename }}</a></li>
+                    <li class="tab40"><a href="{% url 'assetmanage:asset_details' asset.id %}">{{ asset.file_name }}</a></li>
 
             {% endfor %}
 

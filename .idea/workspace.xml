@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18af5fbe-d3b1-4c5a-944e-21cd0ff837a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/assetmanage/video_add.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/assetmanage/asset_create.html" afterPath="$PROJECT_DIR$/templates/assetmanage/asset_select.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetmanage/admin.py" afterPath="$PROJECT_DIR$/assetmanage/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetmanage/forms.py" afterPath="$PROJECT_DIR$/assetmanage/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetmanage/urls.py" afterPath="$PROJECT_DIR$/assetmanage/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetmanage/views.py" afterPath="$PROJECT_DIR$/assetmanage/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tcspt/settings.py" afterPath="$PROJECT_DIR$/tcspt/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/assetmanage/base.html" afterPath="$PROJECT_DIR$/templates/assetmanage/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/assetmanage/index.html" afterPath="$PROJECT_DIR$/templates/assetmanage/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectmanage/project_details.html" afterPath="$PROJECT_DIR$/templates/projectmanage/project_details.html" />
     </list>
     <ignored path="tcspt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,14 +27,26 @@
     <favorites_list name="tcspt" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.6717886">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assetmanage/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="44" />
+                <state relative-caret-position="-527">
+                  <caret line="53" column="48" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
+                  <folding>
+                    <element signature="e#0#28#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="project_details.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/projectmanage/project_details.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="272">
+                  <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -79,11 +84,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/metadata/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="72" column="66" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="66" />
+                <state relative-caret-position="691">
+                  <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
@@ -153,7 +158,6 @@
         <option value="$PROJECT_DIR$/templates/projectmanage/provider_confirm_delete.html" />
         <option value="$PROJECT_DIR$/templates/projectmanage/search.html" />
         <option value="$PROJECT_DIR$/templates/projectmanage/provider_details.html" />
-        <option value="$PROJECT_DIR$/templates/projectmanage/project_details.html" />
         <option value="$PROJECT_DIR$/templates/assetmanage/asset_confirm_delete.html" />
         <option value="$PROJECT_DIR$/templates/projectmanage/project_form.html" />
         <option value="$PROJECT_DIR$/templates/projectmanage/provider_form.html" />
@@ -179,7 +183,6 @@
         <option value="$PROJECT_DIR$/templates/projectmanage/base.html" />
         <option value="$PROJECT_DIR$/templates/projectmanage/index.html" />
         <option value="$PROJECT_DIR$/templates/portal/index.html" />
-        <option value="$PROJECT_DIR$/assetmanage/models.py" />
         <option value="$PROJECT_DIR$/assetmanage/admin.py" />
         <option value="$PROJECT_DIR$/templates/assetmanage/asset_add.html" />
         <option value="$PROJECT_DIR$/templates/assetmanage/asset_select.html" />
@@ -192,6 +195,8 @@
         <option value="$PROJECT_DIR$/projectmanage/admin.py" />
         <option value="$PROJECT_DIR$/tcspt/settings.py" />
         <option value="$PROJECT_DIR$/metadata/models.py" />
+        <option value="$PROJECT_DIR$/assetmanage/models.py" />
+        <option value="$PROJECT_DIR$/templates/projectmanage/project_details.html" />
       </list>
     </option>
   </component>
@@ -261,7 +266,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tcspt" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -275,7 +280,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="metadata" />
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projectmanage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcspt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcspt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcspt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -662,7 +685,21 @@
       <option name="project" value="LOCAL" />
       <updated>1469843801675</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Started app metadata&#10;Added models to metadata">
+      <created>1469856387047</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1469856387047</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixes">
+      <created>1469858291091</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1469858291091</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -711,7 +748,9 @@
     <MESSAGE value="Installed Django Extensions" />
     <MESSAGE value="Added models to assets" />
     <MESSAGE value="Added forms to assets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added forms to assets" />
+    <MESSAGE value="Started app metadata&#10;Added models to metadata" />
+    <MESSAGE value="Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -790,13 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/projectmanage/project_details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="83" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
         </state>
       </provider>
     </entry>
@@ -1086,8 +1118,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tcspt/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1100,21 +1132,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assetmanage/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/metadata/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="72" column="66" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="66" />
+        <state relative-caret-position="691">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assetmanage/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-527">
+          <caret line="53" column="48" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/projectmanage/project_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
