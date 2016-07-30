@@ -26,6 +26,9 @@ urlpatterns = [
     #  url(r'^video/add/$', views.add_video, name="video_add"),
     url(r'^video/add/$', views.CreateVideoAsset.as_view(), name="video_add"),
 
+    #  /assetmanage/assets/
+    url(r'^videos/$', views.AssetsView.as_view(), name="assets"),
+
     #  /assetmanage/asset/add/
     url(r'^asset/add/$', views.AssetCreate.as_view(), name="asset_add"),
 

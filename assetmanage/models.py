@@ -112,8 +112,8 @@ class Asset(models.Model):
 
 
 class Video(models.Model):
-    locale = models.CharField(max_length=25, choices=LOCALES, default="")
-    format = models.CharField(max_length=25, default="")
+    locale = models.CharField(max_length=25, choices=LOCALES, default="enus")
+    format = models.CharField(max_length=25, default="", blank=True, null=True)
     crop_top = models.IntegerField(default=4)
     crop_bottom = models.IntegerField(default=4)
     crop_right = models.IntegerField(default=4)

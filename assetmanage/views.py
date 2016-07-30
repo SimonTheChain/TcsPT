@@ -112,6 +112,16 @@ class AssetDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("assetmanage:assets")
 
 
+class VideosView(LoginRequiredMixin, generic.ListView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = "assetmanage/videos.html"
+    context_object_name = "videos_list"
+
+    def get_queryset(self):
+        return Asset.objects.all()
+
+
 class CreateVideoAsset(CreateView):
     form_class = VideoAssetForm
     success_url = reverse_lazy("portal:index")
@@ -123,3 +133,17 @@ class CreateVideoAsset(CreateView):
         video.asset = asset
         video.save()
         return redirect(self.get_success_url())
+
+
+class UpdateVideoAsset(UpdateView):
+    model = Video
+    form_class = VideoAssetForm
+    template_name = "assetmanage/video_add.html"
+
+    def get_form_kwargs(self):
+        kwargs = super(UpdateVideoAsset, self).get_form_kwargs()
+        kwargs.update(instance={
+            "video": self.object,
+            "asset": self.object.asset,
+        })
+        return kwargs
