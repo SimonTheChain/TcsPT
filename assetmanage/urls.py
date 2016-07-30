@@ -19,8 +19,11 @@ urlpatterns = [
     #  /assetmanage/asset/1/
     url(r'^asset/(?P<pk>[0-9]+)/$', views.AssetDetailsView.as_view(), name="asset_details"),
 
-    #  /assetmanage/asset/create/
-    url(r'^asset/create/$', views.asset_create, name="asset_create"),
+    #  /assetmanage/asset/select/
+    url(r'^asset/select/$', views.asset_select, name="asset_select"),
+
+    #  /assetmanage/video/add/
+    url(r'^video/add/$', views.add_video, name="video_add"),
 
     #  /assetmanage/asset/add/
     url(r'^asset/add/$', views.AssetCreate.as_view(), name="asset_add"),

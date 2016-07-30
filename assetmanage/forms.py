@@ -32,6 +32,7 @@ class VideoForm(forms.ModelForm):
             "crop_left",
             "asset",
         )
+        exclude = ('asset',)
 
 
 class AudioForm(forms.ModelForm):
@@ -50,6 +51,7 @@ class AudioForm(forms.ModelForm):
             "channel_8",
             "asset",
         )
+        exclude = ('asset',)
 
 
 class SubtitleForm(forms.ModelForm):
@@ -60,6 +62,7 @@ class SubtitleForm(forms.ModelForm):
             "locale",
             "asset",
         )
+        exclude = ('asset',)
 
 
 class ImageForm(forms.ModelForm):
@@ -71,6 +74,7 @@ class ImageForm(forms.ModelForm):
             "length",
             "asset",
         )
+        exclude = ('asset',)
 
 
 class NoteForm(forms.ModelForm):
@@ -82,3 +86,4 @@ class NoteForm(forms.ModelForm):
             "comments",
             "asset",
         )
+        exclude = ('asset',)

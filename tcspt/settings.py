@@ -132,8 +132,3 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/uploads/'
-
-GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
-}
