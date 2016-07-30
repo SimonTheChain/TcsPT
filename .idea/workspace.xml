@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="18af5fbe-d3b1-4c5a-944e-21cd0ff837a4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetmanage/urls.py" afterPath="$PROJECT_DIR$/assetmanage/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetmanage/views.py" afterPath="$PROJECT_DIR$/assetmanage/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/administration/base.html" afterPath="$PROJECT_DIR$/templates/administration/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/assetmanage/base.html" afterPath="$PROJECT_DIR$/templates/assetmanage/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/assetmanage/index.html" afterPath="$PROJECT_DIR$/templates/assetmanage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/assetmanage/videos.html" afterPath="$PROJECT_DIR$/templates/assetmanage/videos.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal/base.html" afterPath="$PROJECT_DIR$/templates/portal/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectmanage/base.html" afterPath="$PROJECT_DIR$/templates/projectmanage/base.html" />
     </list>
     <ignored path="tcspt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,20 +79,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/assetmanage/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="31" column="67" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
+            <state relative-caret-position="442">
+              <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/administration/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="1581">
               <caret line="93" column="29" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
               <folding />
             </state>
@@ -203,8 +196,8 @@
         <option value="$PROJECT_DIR$/assetmanage/urls.py" />
         <option value="$PROJECT_DIR$/templates/assetmanage/videos.html" />
         <option value="$PROJECT_DIR$/templates/assetmanage/index.html" />
-        <option value="$PROJECT_DIR$/templates/assetmanage/base.html" />
         <option value="$PROJECT_DIR$/templates/administration/base.html" />
+        <option value="$PROJECT_DIR$/templates/assetmanage/base.html" />
       </list>
     </option>
   </component>
@@ -292,7 +285,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="administration" />
+              <option name="myItemId" value="assetmanage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -737,7 +730,14 @@
       <option name="project" value="LOCAL" />
       <updated>1469910927806</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Functional sections are now in bold in the nav bar">
+      <created>1469914326595</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1469914326595</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -793,7 +793,8 @@
     <MESSAGE value="Added administration app" />
     <MESSAGE value="Push retry" />
     <MESSAGE value="Added potential capabilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added potential capabilities" />
+    <MESSAGE value="Functional sections are now in bold in the nav bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Functional sections are now in bold in the nav bar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1201,18 +1202,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/assetmanage/base.html">
+    <entry file="file://$PROJECT_DIR$/templates/administration/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="67" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
+        <state relative-caret-position="1581">
+          <caret line="93" column="29" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/administration/base.html">
+    <entry file="file://$PROJECT_DIR$/templates/assetmanage/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="93" column="29" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
+        <state relative-caret-position="442">
+          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
           <folding />
         </state>
       </provider>
