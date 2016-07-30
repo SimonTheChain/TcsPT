@@ -43,6 +43,11 @@ INSTALLED_APPS = [
     'assetmanage',
     'projectmanage',
     'metadata',
+    'administration',
+
+    #  thrid-party
+    'django_extensions',
+
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -23,7 +23,8 @@ urlpatterns = [
     url(r'^asset/select/$', views.asset_select, name="asset_select"),
 
     #  /assetmanage/video/add/
-    url(r'^video/add/$', views.add_video, name="video_add"),
+    #  url(r'^video/add/$', views.add_video, name="video_add"),
+    url(r'^video/add/$', views.CreateVideoAsset.as_view(), name="video_add"),
 
     #  /assetmanage/asset/add/
     url(r'^asset/add/$', views.AssetCreate.as_view(), name="asset_add"),

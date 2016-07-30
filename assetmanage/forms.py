@@ -1,4 +1,6 @@
 from django import forms
+from collections import OrderedDict
+from betterforms.multiform import MultiForm, MultiModelForm
 
 from .models import Asset, Video, Audio, Subtitle, Image, Note
 
@@ -87,3 +89,42 @@ class NoteForm(forms.ModelForm):
             "asset",
         )
         exclude = ('asset',)
+
+
+class TestAssetForm(forms.ModelForm):
+
+    class Meta:
+        model = Asset
+        fields = (
+            "file_name",
+            "file_path",
+            "file_size",
+            "file_md5",
+            "type",
+            "status",
+            "project",
+            "provider",
+        )
+
+
+class TestVideoForm(forms.ModelForm):
+
+    class Meta:
+        model = Video
+        fields = (
+            "locale",
+            "format",
+            "crop_top",
+            "crop_bottom",
+            "crop_right",
+            "crop_left",
+            "asset",
+        )
+        exclude = ('asset',)
+
+
+class VideoAssetForm(MultiModelForm):
+    form_classes = OrderedDict([
+        ("asset", TestAssetForm),
+        ("video", TestVideoForm),
+    ])

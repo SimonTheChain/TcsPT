@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^portal/', include("portal.urls", namespace="portal")),
     url(r'^assetmanage/', include("assetmanage.urls", namespace="assetmanage")),
     url(r'^projectmanage/', include("projectmanage.urls", namespace="projectmanage")),
+    url(r'^administration/', include("administration.urls", namespace="administration")),
 ]
 
 if settings.DEBUG:

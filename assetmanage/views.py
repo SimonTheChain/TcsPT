@@ -2,13 +2,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, redirect
 from django.utils import timezone
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.files.uploadhandler import TemporaryFileUploadHandler
 
-from .forms import AssetForm, VideoForm, AudioForm, SubtitleForm, ImageForm, NoteForm
+from .forms import AssetForm, VideoForm, AudioForm, SubtitleForm, ImageForm, NoteForm, VideoAssetForm
 from .models import Asset, Video, Audio, Subtitle, Image, Note
 
 
@@ -110,3 +110,16 @@ class AssetDelete(LoginRequiredMixin, DeleteView):
     redirect_field_name = 'redirect_to'
     model = Asset
     success_url = reverse_lazy("assetmanage:assets")
+
+
+class CreateVideoAsset(CreateView):
+    form_class = VideoAssetForm
+    success_url = reverse_lazy("portal:index")
+    template_name = "assetmanage/video_add.html"
+
+    def form_valid(self, form):
+        asset = form["asset"].save()
+        video = form["video"].save(commit=False)
+        video.asset = asset
+        video.save()
+        return redirect(self.get_success_url())

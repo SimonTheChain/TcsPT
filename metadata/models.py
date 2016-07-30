@@ -74,3 +74,15 @@ class MetadataSasktel(models.Model):
 
     def __str__(self):
         return self.metadata_main.studio_release_title
+
+
+class CastCrew(models.Model):
+    first_name = models.CharField(max_length=25, default="")
+    last_name = models.CharField(max_length=25, default="")
+    apple_id = models.IntegerField(default=0)
+
+    def get_absolute_url(self):
+        return reverse("assetmanage:asset_details", kwargs={"pk": self.pk})
+
+    def __str__(self):
+        return self.first_name + self.last_name

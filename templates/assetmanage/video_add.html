@@ -15,8 +15,7 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
 
-                        {{ asset_form.as_p }}
-                        {{ video_form.as_p }}
+                        {{ form.as_p }}
 
                         <input type="submit" value="Submit" />
                     </form>
