@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18af5fbe-d3b1-4c5a-944e-21cd0ff837a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/administration/global_database_image.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/administration/static/administration/images/tcspt_db.png" afterPath="$PROJECT_DIR$/administration/static/administration/images/tcspt_db_project.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/administration/database_image.html" afterPath="$PROJECT_DIR$/templates/administration/project_database_image.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administration/static/administration/images/Thumbs.db" afterPath="$PROJECT_DIR$/administration/static/administration/images/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/administration/static/administration/images/tcspt_db_global.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administration/urls.py" afterPath="$PROJECT_DIR$/administration/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administration/views.py" afterPath="$PROJECT_DIR$/administration/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/administration/database.html" afterPath="$PROJECT_DIR$/templates/administration/database.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal/index.html" afterPath="$PROJECT_DIR$/templates/portal/index.html" />
     </list>
     <ignored path="tcspt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -839,7 +832,14 @@
       <option name="project" value="LOCAL" />
       <updated>1470005041350</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added an image of the global database to Administration">
+      <created>1470006633358</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1470006633358</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -878,7 +878,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update" />
     <MESSAGE value="Started implementation of imagekit" />
     <MESSAGE value="Added &quot;Components&quot; to portal/index.html" />
     <MESSAGE value="Abandoned FilePathField operations&#10;Reworked the timezones display" />
@@ -903,7 +902,8 @@
     <MESSAGE value="Modified the news details to show the author's name" />
     <MESSAGE value="Removed a doubled &quot;prequal&quot; on the portal navbar" />
     <MESSAGE value="Made the database image zoomable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made the database image zoomable" />
+    <MESSAGE value="Added an image of the global database to Administration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added an image of the global database to Administration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
