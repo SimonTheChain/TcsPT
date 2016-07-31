@@ -20,7 +20,7 @@ def index(request):
 
 @login_required(login_url="portal/login")
 def search(request):
-    return render(request, 'assetmanage/search.html')
+    return render(request, 'portal/search.html')
 
 
 @login_required(login_url="portal/login")

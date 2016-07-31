@@ -30,6 +30,7 @@ MODEL_MAP = {
 }
 
 
+@login_required(login_url="portal/login")
 def search(request):
     objects = []
 

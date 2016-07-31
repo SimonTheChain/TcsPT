@@ -1,0 +1,14 @@
+{% extends "portal/base.html" %}
+
+{% block title %}TcsPT - Search{% endblock %}
+
+{% block body %}
+
+    <div class="tab40">
+    <form action="/portal/search/" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Search">
+    </form>
+    </div>
+
+{% endblock %}
