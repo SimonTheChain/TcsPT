@@ -73,7 +73,7 @@ class Project(models.Model):
         return self.title
 
 
-class Rejections(models.Model):
+class Rejection(models.Model):
     platform = models.CharField(max_length=250, choices=PLATFORMS, default="itunes")
     reason = models.CharField(max_length=1000, default="")
     action = models.CharField(max_length=1000, default="", blank=True, null=True)

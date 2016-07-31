@@ -23,7 +23,20 @@
         {% endif %}
 
         <p class="tab40">{{ post.text|linebreaksbr }}</p>
+
+        {% if post.name == "" %}
+
+            <p class="tab40">Author: {{ post.author }}</p>
+
+        {% else %}
+
+            <p class="tab40">Author: {{ post.name }}</p>
+
+        {% endif %}
+
+        <div class="tab40">
         <a class="btn btn-default" href="{% url 'news:post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        </div>
 
     </div>
 
