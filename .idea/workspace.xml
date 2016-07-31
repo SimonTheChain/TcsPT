@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18af5fbe-d3b1-4c5a-944e-21cd0ff837a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/news/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portal/utils.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/news/post_edit.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/portal/search_results.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/urls.py" afterPath="$PROJECT_DIR$/news/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/views.py" afterPath="$PROJECT_DIR$/news/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/urls.py" afterPath="$PROJECT_DIR$/portal/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/views.py" afterPath="$PROJECT_DIR$/portal/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/administration/base.html" afterPath="$PROJECT_DIR$/templates/administration/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/assetmanage/base.html" afterPath="$PROJECT_DIR$/templates/assetmanage/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/news/base.html" afterPath="$PROJECT_DIR$/templates/news/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/news/post_detail.html" afterPath="$PROJECT_DIR$/templates/news/post_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal/base.html" afterPath="$PROJECT_DIR$/templates/portal/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal/index.html" afterPath="$PROJECT_DIR$/templates/portal/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectmanage/base.html" afterPath="$PROJECT_DIR$/templates/projectmanage/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal/login.html" afterPath="$PROJECT_DIR$/templates/portal/login.html" />
     </list>
     <ignored path="tcspt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,7 +62,7 @@
           <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/administration/base.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="872">
+                <state relative-caret-position="835">
                   <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
                   <folding />
                 </state>
@@ -87,11 +73,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/assetmanage/base.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="510">
                   <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/portal/login.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="510">
+                  <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -115,7 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/assetmanage/imageasset_form.html" />
         <option value="$PROJECT_DIR$/templates/assetmanage/asset_test.html" />
         <option value="$PROJECT_DIR$/projectmanage/views.py" />
         <option value="$PROJECT_DIR$/templates/assetmanage/asset_details.html" />
@@ -166,6 +161,7 @@
         <option value="$PROJECT_DIR$/templates/projectmanage/base.html" />
         <option value="$PROJECT_DIR$/templates/news/base.html" />
         <option value="$PROJECT_DIR$/templates/administration/base.html" />
+        <option value="$PROJECT_DIR$/templates/portal/login.html" />
       </list>
     </option>
   </component>
@@ -253,25 +249,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projectmanage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tcspt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tcspt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="administration" />
+              <option name="myItemId" value="portal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -737,7 +715,14 @@
       <option name="project" value="LOCAL" />
       <updated>1469935949326</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Changed the navbar for bootstrap buttons and icons">
+      <created>1469989231054</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1469989231054</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -796,7 +781,8 @@
     <MESSAGE value="Functional sections are now in bold in the nav bar" />
     <MESSAGE value="Fixed link in notes" />
     <MESSAGE value="Started implementation of News app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started implementation of News app" />
+    <MESSAGE value="Changed the navbar for bootstrap buttons and icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the navbar for bootstrap buttons and icons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -805,14 +791,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/assetmanage/asset_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/assetmanage/asset_select.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1221,18 +1199,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/assetmanage/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/administration/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="872">
+        <state relative-caret-position="835">
           <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/assetmanage/base.html">
+    <entry file="file://$PROJECT_DIR$/templates/portal/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
