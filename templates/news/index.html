@@ -1,0 +1,52 @@
+{% extends "news/base.html" %}
+
+
+{% block title %} TcsPT - News {% endblock %}
+
+{% block body %}
+
+    <div>
+        <h1 class="tab20">Technicolor Creative Services</h1>
+
+        <h2 class="tab40">Production Tools - News</h2>
+    </div>
+
+    <div>
+        {% load tz %}
+        <br><p class="tab20"><strong>Los Angeles:</strong> {{ time_now|timezone:"America/Los_Angeles" }}</p>
+        <p class="tab20"><strong>Montreal:</strong> {{ time_now|timezone:"America/Montreal" }}</p>
+        <p class="tab20"><strong>London:</strong> {{ time_now|timezone:"Europe/London" }}</p>
+        <p class="tab20"><strong>Bangalore:</strong> {{ time_now|timezone:"Asia/Kolkata" }}</p>
+        <p class="tab20"><strong>Sydney:</strong> {{ time_now|timezone:"Australia/Sydney" }}</p>
+    </div>
+
+    <div>
+        <br><h4 class="tab20">Quick Links:</h4>
+        <ul>
+            <li><a href="{% url 'projectmanage:index' %}">Projects</a></li>
+            <li><a href="{% url 'assetmanage:index' %}">Assets</a></li>
+            <li><a href="#">Prequal</a></li>
+            <li><a href="#">Qc</a></li>
+            <li><a href="#">Packaging</a></li>
+            <li><a href="#">Metadata</a></li>
+            <li><a href="#">Data Wrangling</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3 class="tab20">News</h3>
+    </div>
+
+    <div>
+        {% for news_post in news %}
+
+            <div class="post">
+                <h4><a href="{{ news_post.get_absolute_url }}">{{ news_post.title|default:"Title variable not reached" }}</a></h4>
+                <p> {{ news_post.description }} </p>
+                <p class="tab20">Posted on<time datetime="{{ news_post.created|date:"c" }}">{{ news_post.created|date }}</time></p>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

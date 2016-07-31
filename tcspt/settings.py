@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'projectmanage',
     'metadata',
     'administration',
+    'news',
 
     #  thrid-party
     'django_extensions',

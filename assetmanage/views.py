@@ -57,6 +57,7 @@ def asset_select(request):
 
 
 #  https://collingrady.wordpress.com/2008/02/18/editing-multiple-objects-in-django-with-newforms/
+@login_required(login_url="portal/login")
 def add_video(request):
     if request.method == "POST":
         aform = AssetForm(request.POST, instance=Asset())
@@ -122,7 +123,9 @@ class VideosView(LoginRequiredMixin, generic.ListView):
         return Video.objects.all()
 
 
-class CreateVideoAsset(CreateView):
+class CreateVideoAsset(LoginRequiredMixin, CreateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
     form_class = VideoAssetForm
     success_url = reverse_lazy("portal:index")
     template_name = "assetmanage/video_add.html"
@@ -135,7 +138,9 @@ class CreateVideoAsset(CreateView):
         return redirect(self.get_success_url())
 
 
-class UpdateVideoAsset(UpdateView):
+class UpdateVideoAsset(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
     model = Video
     form_class = VideoAssetForm
     template_name = "assetmanage/video_add.html"

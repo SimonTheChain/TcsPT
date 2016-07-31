@@ -3,12 +3,15 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.autodiscover()
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^portal/', include("portal.urls", namespace="portal")),
     url(r'^assetmanage/', include("assetmanage.urls", namespace="assetmanage")),
     url(r'^projectmanage/', include("projectmanage.urls", namespace="projectmanage")),
     url(r'^administration/', include("administration.urls", namespace="administration")),
+    url(r'news/', include("news.urls", namespace="news")),
 ]
 
 if settings.DEBUG:
