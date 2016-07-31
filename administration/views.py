@@ -12,3 +12,8 @@ def index(request):
 @login_required(login_url="portal/login")
 def database(request):
     return render(request, "administration/database.html")
+
+
+@login_required(login_url="portal/login")
+def database_image(request):
+    return render(request, "administration/database_image.html")

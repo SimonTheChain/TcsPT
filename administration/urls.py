@@ -13,4 +13,7 @@ urlpatterns = [
     #  /administration/database/
     url(r'^database/$', views.database, name="database"),
 
+    #  /administration/database_image/
+    url(r'^database/image/$', views.database_image, name="database_image"),
+
 ]

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18af5fbe-d3b1-4c5a-944e-21cd0ff837a4" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/assetmanage/search.html" afterPath="$PROJECT_DIR$/templates/portal/search.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/administration/database_image.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetmanage/views.py" afterPath="$PROJECT_DIR$/assetmanage/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/views.py" afterPath="$PROJECT_DIR$/portal/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal/base.html" afterPath="$PROJECT_DIR$/templates/portal/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administration/urls.py" afterPath="$PROJECT_DIR$/administration/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administration/views.py" afterPath="$PROJECT_DIR$/administration/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/administration/database.html" afterPath="$PROJECT_DIR$/templates/administration/database.html" />
     </list>
     <ignored path="tcspt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +32,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/portal/views.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="136">
@@ -40,6 +40,48 @@
                   <folding>
                     <element signature="e#0#59#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/administration/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+                  <folding>
+                    <element signature="e#0#35#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="database.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/administration/database.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="60" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="60" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/administration/base.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1003">
+                  <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="database_image.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/administration/database_image.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -56,35 +98,25 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/administration/urls.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/portal/search.html">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/administration/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/portal/base.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="277">
-                  <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="provider_confirm_delete.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/projectmanage/provider_confirm_delete.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+                <state relative-caret-position="425">
+                  <caret line="25" column="62" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="62" />
                   <folding />
                 </state>
               </provider>
@@ -108,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/assetmanage/asset_details.html" />
         <option value="$PROJECT_DIR$/assetmanage/admin.py" />
         <option value="$PROJECT_DIR$/templates/assetmanage/asset_add.html" />
         <option value="$PROJECT_DIR$/templates/assetmanage/asset_select.html" />
@@ -122,8 +153,6 @@
         <option value="$PROJECT_DIR$/templates/admin/index.html" />
         <option value="$PROJECT_DIR$/admin/urls.py" />
         <option value="$PROJECT_DIR$/templates/admin/database.html" />
-        <option value="$PROJECT_DIR$/administration/views.py" />
-        <option value="$PROJECT_DIR$/administration/urls.py" />
         <option value="$PROJECT_DIR$/templates/projectmanage/index.html" />
         <option value="$PROJECT_DIR$/templates/assetmanage/assets.html" />
         <option value="$PROJECT_DIR$/templates/administration/index.html" />
@@ -149,7 +178,6 @@
         <option value="$PROJECT_DIR$/templates/news/base.html" />
         <option value="$PROJECT_DIR$/templates/administration/base.html" />
         <option value="$PROJECT_DIR$/templates/portal/login.html" />
-        <option value="$PROJECT_DIR$/templates/administration/database.html" />
         <option value="$PROJECT_DIR$/projectmanage/models.py" />
         <option value="$PROJECT_DIR$/projectmanage/admin.py" />
         <option value="$PROJECT_DIR$/news/models.py" />
@@ -159,6 +187,10 @@
         <option value="$PROJECT_DIR$/templates/portal/search.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/templates/portal/base.html" />
+        <option value="$PROJECT_DIR$/administration/views.py" />
+        <option value="$PROJECT_DIR$/templates/administration/database.html" />
+        <option value="$PROJECT_DIR$/administration/urls.py" />
+        <option value="$PROJECT_DIR$/templates/administration/database_image.html" />
       </list>
     </option>
   </component>
@@ -246,7 +278,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projectmanage" />
+              <option name="myItemId" value="administration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -260,11 +292,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="portal" />
+              <option name="myItemId" value="administration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -751,7 +779,14 @@
       <option name="project" value="LOCAL" />
       <updated>1469997331543</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Removed a doubled &quot;prequal&quot; on the portal navbar">
+      <created>1470002142771</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1470002142771</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -790,7 +825,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added links to the quick links section of projectmanage/index.html" />
     <MESSAGE value="Reordered the navbar of assetmanage/base.html&#10;Added links to the quick links section of assetmanage/index.html" />
     <MESSAGE value="Update" />
     <MESSAGE value="Started implementation of imagekit" />
@@ -815,7 +849,8 @@
     <MESSAGE value="Moved the edit button for news" />
     <MESSAGE value="Created table Rejections in Projects" />
     <MESSAGE value="Modified the news details to show the author's name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified the news details to show the author's name" />
+    <MESSAGE value="Removed a doubled &quot;prequal&quot; on the portal navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed a doubled &quot;prequal&quot; on the portal navbar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -824,16 +859,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assetmanage/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#24#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/projectmanage/provider_details.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="566">
@@ -898,39 +923,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/administration/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/assetmanage/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/administration/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/administration/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1120,14 +1117,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/administration/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="835">
-          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/news/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
@@ -1148,14 +1137,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/administration/database.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1216,32 +1197,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/projectmanage/provider_confirm_delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/portal/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/portal/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -1257,6 +1212,82 @@
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/portal/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/projectmanage/provider_confirm_delete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/administration/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/administration/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="62" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/administration/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/administration/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/administration/database.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="60" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/administration/database_image.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
