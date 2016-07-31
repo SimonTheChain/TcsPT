@@ -4,12 +4,18 @@
 
 {% block body %}
 
+{% load staticfiles %}
     <div>
     
-        <h3 class="tab20">Database:</h3>
-        {% load staticfiles %}
-        <a href="{% url 'administration:database_image' %}"><img src="{% static "administration/images/tcspt_db.png" %}" class="img-responsive"></a>
+        <h3 class="tab20">Project Database:</h3>
+        <a href="{% url 'administration:project_database_image' %}"><img src="{% static "administration/images/tcspt_db_project.png" %}" class="img-responsive"></a>
     
+    </div>
+    <div>
+
+        <h3 class="tab20">Global Database:</h3>
+        <a href="{% url 'administration:global_database_image' %}"><img src="{% static "administration/images/tcspt_db_global.png" %}" class="img-responsive"></a>
+
     </div>
 
 {% endblock %}

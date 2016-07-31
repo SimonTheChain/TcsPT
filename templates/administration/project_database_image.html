@@ -1,0 +1,14 @@
+{% extends "administration/base.html" %}
+
+{% block title %}TcsPT - Database{% endblock %}
+
+{% block body %}
+
+    <div>
+    
+        {% load staticfiles %}
+        <a href="{% url 'administration:database' %}"><img src="{% static "administration/images/tcspt_db_project.png" %}"></a>
+    
+    </div>
+
+{% endblock %}

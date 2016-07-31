@@ -33,7 +33,7 @@
     </div>
 
     <div>
-        <br><h3 class="tab20">Latest News:</h3>
+        <br><h3 class="tab20">Latest <a href="{% url 'news:post_list' %}">News:</a></h3>
         {% load tz %}
         {% for post in posts %}
             {% if forloop.counter <= 3 %}

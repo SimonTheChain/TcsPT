@@ -15,5 +15,10 @@ def database(request):
 
 
 @login_required(login_url="portal/login")
-def database_image(request):
-    return render(request, "administration/database_image.html")
+def project_database_image(request):
+    return render(request, "administration/project_database_image.html")
+
+
+@login_required(login_url="portal/login")
+def global_database_image(request):
+    return render(request, "administration/global_database_image.html")
