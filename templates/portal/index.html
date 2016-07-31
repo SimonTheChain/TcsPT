@@ -36,7 +36,7 @@
         <br><h3 class="tab20">Latest News:</h3>
         {% load tz %}
         {% for post in posts %}
-            {% if forloop.counter < 3 %}
+            {% if forloop.counter <= 3 %}
             <div>
                 <h4 class="tab40"><a href="{% url 'news:post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
                 <p class="tab40">published: {{ post.published_date|timezone:"America/Montreal" }}</p>

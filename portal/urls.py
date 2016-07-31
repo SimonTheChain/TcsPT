@@ -14,11 +14,7 @@ urlpatterns = [
     url(r'^login/$', views.login_user, name='login'),
     url(r'^logout/$', views.logout_user, name='logout'),
 
-    #  /portal/login/
-    # url(r'^login/$', views.UserFormView.as_view(), name="login"),
-
-    # url(r'^login/$', 'django.contrib.auth.views.login', {
-    #     'template_name': 'portal/login.html'
-    # }),
+    #  /portal/search/
+    url(r'^portal/search/$', views.search, name="search"),
 
 ]

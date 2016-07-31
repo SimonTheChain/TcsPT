@@ -22,6 +22,7 @@
 
         {% endif %}
 
+        <a class="btn btn-default" href="{% url 'news:post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <p class="tab40">{{ post.text|linebreaksbr }}</p>
 
     </div>

@@ -1,0 +1,17 @@
+{% extends "portal/base.html" %}
+
+{% block title %}TcsPT - Search{% endblock %}
+
+{% block body %}
+
+    <h3 class="tab20">Search Results for "{{ search_string }}"</h3>
+
+    <ul>
+    {% for object in objects %}
+
+        <li class="tab40">{{ object }}</li>
+
+    {% endfor %}
+    </ul>
+
+{% endblock %}

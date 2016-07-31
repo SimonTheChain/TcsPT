@@ -21,96 +21,60 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{% url 'portal:index' %}">TcsPT</a>
+            <ul class="nav nav-pills">
+                <li role="presentation">
+                    <a href="{% url 'portal:index' %}">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></a></li>
+            </ul>
         </div>
 
         <!-- Items -->
         <div class="collapse navbar-collapse" id="TopNavBar">
             <ul class="nav navbar-nav">
-                <li class="">
-                    <a href="{% url 'assetmanage:videos' %}">
-                        <span></span>&nbsp; <strong>Videos</strong>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span></span>&nbsp; Audios
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span></span>&nbsp; Subtitles
-                    </a>
-                </li>
-                <li class="">
-                    <a href="">
-                        <span></span>&nbsp; Images
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span></span>&nbsp; Notes
-                    </a>
-                </li>
+                <ul class="nav nav-pills">
+                    <li role="presentation"><a href="{% url 'assetmanage:videos' %}"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>  Videos</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>  Audios</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-subtitles" aria-hidden="true"></span>  Subtitles</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>  Images</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  Notes</a></li>
+                </ul>
             </ul>
             <form class="navbar-form navbar-left" role="search" method="get" action="#">
                 <div class="form-group">
                     <input type="text" class="form-control" name="q" value="">
                 </div>
-                <button type="submit" class="btn btn-default">Search</button>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">Search</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'assetmanage:search' %}">Advanced Search</a></li>
+                    </ul>
+                </div>
+
             </form>
             <ul class="nav navbar-nav navbar-left">
-                <li class="">
-                    <a href="{% url 'assetmanage:search' %}">
-                        <span class="glyphicons glyphicons-plus" aria-hidden="true"></span>&nbsp; Advanced Search
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{% url 'assetmanage:asset_select' %}">
-                        <span class="glyphicons glyphicons-plus" aria-hidden="true"></span>&nbsp; Add Asset
-                    </a>
-                </li>
+                <ul class="nav nav-pills">
+                    <li role="presentation">
+                        <a href="{% url 'assetmanage:asset_select' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Asset</a></li>
+                </ul>
 
             </ul>
-
-
             <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                    <a href="{% url 'projectmanage:index' %}">
-                        <span></span>&nbsp; <strong>Projects</strong>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span></span>&nbsp; Prequal
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span></span>&nbsp; Qc
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span></span>&nbsp; Packaging
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span></span>&nbsp; Metadata
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span></span>&nbsp; Data Wrangling
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{% url 'portal:logout' %}">
-                        <span></span>&nbsp; <strong>Logout</strong>
-                    </a>
-                </li>
-
+                <ul class="nav nav-pills">
+                    <li role="presentation">
+                        <a href="{% url 'projectmanage:index' %}"><strong>Projects</strong></a></li>
+                    <li role="presentation"><a href="#">Prequal</a></li>
+                    <li role="presentation"><a href="#">Qc</a></li>
+                    <li role="presentation"><a href="#">Packaging</a></li>
+                    <li role="presentation"><a href="#">Metadata</a></li>
+                    <li role="presentation"><a href="#">Data Wrangling</a></li>
+                    <li role="presentation">
+                        <a href="{% url 'portal:logout' %}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>
+                </ul>
             </ul>
 
         </div>
