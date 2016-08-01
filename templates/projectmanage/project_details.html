@@ -4,6 +4,33 @@
 
 {% block body %}
 
+    {% if project.status == "prequalready" or project.status == "qcready" or project.status == "packready" or project.status == "metaready" %}
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              <span style="color:black">{{ project.get_status_display }}</span>
+          </div>
+        </div>
+
+    {% elif project.status == "prequalprogress" or project.status == "qcprogress" or project.status == "packprogress" or project.status == "metaprogress" %}
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              {{ project.get_status_display }}
+          </div>
+        </div>
+
+    {% elif project.status == "prequaldone" or project.status == "qcdone" or project.status == "packdone" or project.status == "metadone" %}
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              {{ project.get_status_display }}
+          </div>
+        </div>
+
+    {% endif %}
+
+
     <h3 class="tab20">Title: {{ project.title }}</h3>
     <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' project.provider.id %}">{{ project.provider.name }}</a></h4>
     <h5 class="tab40"><a href="{% url 'projectmanage:project_update' project.id %}">Edit</a></h5>
@@ -14,8 +41,6 @@
     <p class="tab40">Google: {{ project.google }}</p>
     <p class="tab40">Sasktel: {{ project.sasktel }}</p>
     <p class="tab40">Netflix: {{ project.netflix }}</p>
-
-    <br><h4 class="tab20"><strong>Status: {{ project.get_status_display }}</strong></h4>
 
     <br><h4 class="tab20">Assets:</h4>
     {% if project.asset_set.all %}
