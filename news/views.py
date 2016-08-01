@@ -27,7 +27,6 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.name = request.user.first_name + " " + request.user.last_name
-            post.published_date = timezone.now()
             post.save()
             return redirect('news:post_detail', pk=post.pk)
     else:
@@ -43,7 +42,6 @@ def post_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
             post.save()
             return redirect('news:post_detail', pk=post.pk)
     else:
@@ -56,3 +54,8 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('news:post_list')
+
+
+def post_draft_list(request):
+    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    return render(request, 'news/post_draft_list.html', {'posts': posts})

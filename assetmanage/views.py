@@ -127,7 +127,6 @@ class CreateVideoAsset(LoginRequiredMixin, CreateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     form_class = VideoAssetForm
-    success_url = reverse_lazy("portal:index")
     template_name = "assetmanage/video_add.html"
 
     def form_valid(self, form):
@@ -135,7 +134,7 @@ class CreateVideoAsset(LoginRequiredMixin, CreateView):
         video = form["video"].save(commit=False)
         video.asset = asset
         video.save()
-        return redirect(self.get_success_url())
+        return redirect(reverse_lazy("assetmanage:videos"))
 
 
 class UpdateVideoAsset(LoginRequiredMixin, UpdateView):
@@ -152,3 +151,17 @@ class UpdateVideoAsset(LoginRequiredMixin, UpdateView):
             "asset": self.object.asset,
         })
         return kwargs
+
+
+class VideoDetailView(generic.DetailView):
+    context_object_name = "video_details"
+    model = Asset
+
+    def get_context_data(self, **kwargs):
+        """
+        This has been overridden to add `car` to the templates context,
+        so you can use {{ car }} etc. within the template
+        """
+        context = super(VideoDetailView, self).get_context_data(**kwargs)
+        context["video"] = Video.objects.all()
+        return context

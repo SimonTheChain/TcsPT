@@ -1,0 +1,22 @@
+{% extends 'news/base.html' %}
+
+{% block body %}
+
+    <div>
+        <br><h3 class="tab20">News</h3>
+    </div>
+
+    {% load tz %}
+    {% for post in posts %}
+
+        <div>
+            <br><h4 class="tab20"><a href="{% url 'news:post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
+            <p class="tab20">created: {{ post.created_date|timezone:"America/Montreal" }}</p>
+            <p class="tab20">published: {{ post.published_date|timezone:"America/Montreal" }}</p>
+            <p class="tab40">{{ post.text|linebreaksbr }}</p>
+        </div>
+
+    {% endfor %}
+
+
+{% endblock %}
