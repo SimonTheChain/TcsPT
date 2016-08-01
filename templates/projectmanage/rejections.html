@@ -1,0 +1,25 @@
+{% extends "projectmanage/base.html" %}
+
+{% block title %}TcsPT - Rejections{% endblock %}
+
+{% block body %}
+
+    {% if rejections_list %}
+        <h3 class="tab20">List of rejections ({{ rejections_list.count }}):</h3>
+        <ul>
+
+            {% for rejection in rejections_list %}
+                <li><a href="{% url 'projectmanage:rejection_details' rejection.id %}">{{ rejection.project.title }}</a></li>
+            {% endfor %}
+            <br><li><a href="{% url 'projectmanage:rejection_add' %}"><strong>Add Rejection</strong></a></li>
+
+        </ul>
+
+    {% else %}
+        <h3 class="tab20">No rejections to display</h3>
+
+        <br><p class="tab40"><a href="{% url 'projectmanage:rejection_add' %}"><strong>Add Rejection</strong></a></p>
+
+    {% endif %}
+
+{% endblock %}

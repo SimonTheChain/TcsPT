@@ -1,0 +1,15 @@
+{% extends "projectmanage/base.html" %}
+
+{% block title %}TcsPT - Delete Rejection{% endblock %}
+
+{% block body %}
+
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete this rejection for "{{ rejection.project.title }}"?</p>
+        <input class="btn btn-link"
+                       type="button" value="Cancel"
+                       onclick="window.history.go(-1);"/>
+        <input class="btn btn-danger" type="submit" value="Confirm"/>
+    </form>
+
+{% endblock %}

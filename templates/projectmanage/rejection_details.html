@@ -1,0 +1,38 @@
+{% extends "projectmanage/base.html" %}
+
+{% block title %}TcsPT - Rejection Details{% endblock %}
+
+{% block body %}
+
+    {% if rejection.status == "open" %}
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              <span>{{ rejection.get_status_display }}</span>
+          </div>
+        </div>
+
+    {% else %}
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              {{ rejection.get_status_display }}
+          </div>
+        </div>
+
+    {% endif %}
+
+
+    <div>
+        <h3 class="tab20">Title: <a href="{% url 'projectmanage:project_details' rejection.project.id %}">{{ rejection.project.title }}</a></h3>
+        <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' rejection.provider.id %}">{{ rejection.provider.name }}</a></h4>
+        <h5 class="tab40"><a href="{% url 'projectmanage:rejection_update' rejection.id %}">Edit</a></h5>
+        <h5 class="tab40"><a href="{% url 'projectmanage:rejection_delete' rejection.id %}">Delete</a></h5>
+
+        <br><p class="tab20"><strong>Details:</strong></p>
+        <p class="tab40">Platform: {{ rejection.platform }}</p>
+        <p class="tab40">Reason: {{ rejection.reason }}</p>
+        <p class="tab40">Action: {{ rejection.action }}</p>
+    </div>
+
+{% endblock %}

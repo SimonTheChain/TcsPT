@@ -42,4 +42,19 @@ urlpatterns = [
     #  /projectmanage/project/1/delete/
     url(r'^project/(?P<pk>[0-9]+)/delete/$', views.ProjectDelete.as_view(), name="project_delete"),
 
+    #  /projectmanage/rejections/
+    url(r'^rejections/$', views.RejectionsView.as_view(), name="rejections"),
+
+    #  /projectmanage/rejection/1/
+    url(r'^rejection/(?P<pk>[0-9]+)/$', views.RejectionDetailsView.as_view(), name="rejection_details"),
+
+    #  /projectmanage/rejection/add/
+    url(r'^rejection/add/$', views.RejectionCreate.as_view(), name="rejection_add"),
+
+    #  /projectmanage/rejection/1/update/
+    url(r'^rejection/(?P<pk>[0-9]+)/update/$', views.RejectionUpdate.as_view(), name="rejection_update"),
+
+    #  /projectmanage/rejection/1/delete/
+    url(r'^rejection/(?P<pk>[0-9]+)/delete/$', views.RejectionDelete.as_view(), name="rejection_delete"),
+
 ]

@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .models import Provider, Project
+from .models import Provider, Project, Rejection
 
 
 @login_required(login_url="portal/login")
@@ -94,3 +94,41 @@ class ProjectDelete(LoginRequiredMixin, DeleteView):
     redirect_field_name = 'redirect_to'
     model = Project
     success_url = reverse_lazy("portal:projects")
+
+
+class RejectionsView(LoginRequiredMixin, generic.ListView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = "projectmanage/rejections.html"
+    context_object_name = "rejections_list"
+
+    def get_queryset(self):
+        return Rejection.objects.all()
+
+
+class RejectionDetailsView(LoginRequiredMixin, generic.DetailView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Rejection
+    template_name = "projectmanage/rejection_details.html"
+
+
+class RejectionCreate(LoginRequiredMixin, CreateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Rejection
+    fields = ["provider", "project", "platform", "reason", "action", "status"]
+
+
+class RejectionUpdate(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Rejection
+    fields = ["provider", "project", "platform", "reason", "action", "status"]
+
+
+class RejectionDelete(LoginRequiredMixin, DeleteView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Rejection
+    success_url = reverse_lazy("projectmanage:rejections")

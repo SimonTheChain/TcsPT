@@ -65,4 +65,28 @@
 
     {% endif %}
 
+    <br><h4 class="tab20">Rejections:</h4>
+    {% if project.rejection_set.all %}
+        <ul>
+            {% for rejection in project.rejection_set.all %}
+
+                    <li class="tab40"><a href="{% url 'projectmanage:rejection_details' rejection.id %}">{{ rejection.get_status_display }} - {{ rejection.reason }}</a></li>
+
+            {% endfor %}
+
+            <br><li class="tab40"><a href="{% url 'projectmanage:rejection_add' %}"><strong>Add Rejection</strong></a></li>
+
+        </ul>
+    {% else %}
+
+        <ul>
+
+            <li class="tab40">No rejections to display</li>
+            <br><li class="tab40"><a href="{% url 'projectmanage:rejection_add' %}"><strong>Add Rejection</strong></a></li>
+
+        </ul>
+
+    {% endif %}
+
+
 {% endblock %}

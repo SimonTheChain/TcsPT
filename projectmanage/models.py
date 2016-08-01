@@ -82,7 +82,7 @@ class Rejection(models.Model):
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        return reverse("projectmanage:project_details", kwargs={"pk": self.pk})
+        return reverse("projectmanage:rejection_details", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.project.title
