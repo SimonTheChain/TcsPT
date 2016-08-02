@@ -42,7 +42,7 @@ def search(request):
     )
 
 
-@login_required(login_url="portal/login")
+@login_required(login_url="portal/log")
 def index(request):
     time_now = timezone.now()
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')

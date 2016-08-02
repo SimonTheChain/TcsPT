@@ -25,32 +25,13 @@
 
             <br><li class="tab40"><a href="{% url 'projectmanage:project_add' %}"><strong>Add Project</strong></a></li>
         </ul>
+
     {% else %}
+
         <ul>
 
             <li class="tab40">No projects to display</li>
             <br><li class="tab40"><a href="{% url 'projectmanage:project_add' %}"><strong>Add Project</strong></a></li>
-
-        </ul>
-    {% endif %}
-
-    <br><h4 class="tab20">Assets:</h4>
-    {% if provider.asset_set.all %}
-        <ul>
-            {% for asset in provider.asset_set.all %}
-
-                    <li class="tab40"><a href="{% url 'assetmanage:asset_details' asset.id %}">{{ asset.file_name }}</a></li>
-
-            {% endfor %}
-
-            <br><li class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
-        </ul>
-    {% else %}
-
-        <ul>
-
-            <li class="tab40">No assets to display</li>
-            <br><li class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
 
         </ul>
 
