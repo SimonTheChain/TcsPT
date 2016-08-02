@@ -43,11 +43,11 @@
     <p class="tab40">Netflix: {{ project.netflix }}</p>
 
     <br><h4 class="tab20">Assets:</h4>
-    {% if project.asset_set.all %}
+    {% if project.video_set.all %}
         <ul>
-            {% for asset in project.asset_set.all %}
+            {% for video in project.video_set.all %}
 
-                    <li class="tab40"><a href="{% url 'assetmanage:asset_details' asset.id %}">{{ asset.file_name }}</a></li>
+                    <li class="tab40"><a href="{% url 'assetmanage:video_details' video.id %}">{{ video.file_name }}</a></li>
 
             {% endfor %}
 
