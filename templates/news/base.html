@@ -57,15 +57,17 @@
 
             </form>
 
+            {% if user.is_staff %}
             <ul class="nav navbar-nav navbar-left">
                 <ul class="nav nav-pills">
                     <li role="presentation">
                         <a href="{% url 'news:post_new' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong>News</strong></a></li>
                     <li role="presentation">
-                        <a href="{% url 'news:post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a href="{% url 'news:post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span> <strong>Drafts</strong></a>
                     </li>
                 </ul>
             </ul>
+            {% endif %}
 
             <ul class="nav navbar-nav navbar-right">
                 <ul class="nav nav-pills">

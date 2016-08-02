@@ -56,6 +56,21 @@ def post_remove(request, pk):
     return redirect('news:post_list')
 
 
+@login_required(login_url="portal/login")
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'news/post_draft_list.html', {'posts': posts})
+
+
+@login_required(login_url="portal/login")
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('news:post_detail', pk=pk)
+
+
+@login_required(login_url="portal/login")
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('news:post_list')
