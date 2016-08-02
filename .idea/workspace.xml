@@ -26,18 +26,36 @@
     <favorites_list name="tcspt" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="project_details.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/projectmanage/project_details.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.7249231">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="project_details.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/projectmanage/project_details.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="374">
+                  <caret line="22" column="280" selection-start-line="22" selection-start-column="280" selection-end-line="22" selection-end-column="280" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/projectmanage/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="561">
+                  <caret line="41" column="26" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -189,6 +207,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projectmanage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcspt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcspt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -755,7 +787,14 @@
       <option name="project" value="LOCAL" />
       <updated>1470143547905</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Modified the project details to display videos in the assets">
+      <created>1470143736329</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1470143736329</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -794,7 +833,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixes" />
     <MESSAGE value="Added files to git" />
     <MESSAGE value="Removed django extensions from settings" />
     <MESSAGE value="Added administration app" />
@@ -819,7 +857,8 @@
     <MESSAGE value="Redesigned the database" />
     <MESSAGE value="Added drafts and publish to News" />
     <MESSAGE value="Made the &quot;Videos&quot; link bold" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made the &quot;Videos&quot; link bold" />
+    <MESSAGE value="Modified the project details to display videos in the assets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified the project details to display videos in the assets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1130,14 +1169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectmanage/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/assetmanage/videos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1234,10 +1265,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projectmanage/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="41" column="26" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/projectmanage/project_details.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <caret line="22" column="280" selection-start-line="22" selection-start-column="280" selection-end-line="22" selection-end-column="280" />
           <folding />
         </state>
       </provider>
