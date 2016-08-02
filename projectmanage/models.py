@@ -27,6 +27,21 @@ PROJECT_STATUS = (
             ("metadone", "Metadata Done"),
         )
          ),
+        ("Data Wrangling", (
+            ("datadownready", "Ready for Download"),
+            ("datadownloading", "Downloading"),
+            ("datadownloaded", "Downloaded"),
+            ("datacopyready", "Ready for Copy"),
+            ("datacopyinng", "Copying"),
+            ("datacopied", "Copy Done"),
+            ("dataupready", "Ready for Upload"),
+            ("datauploading", "Uploading"),
+            ("datauploaded", "Uploaded"),
+            ("dataarchready", "Ready for Archival"),
+            ("dataarchiving", "Archiving"),
+            ("dataarchived", "Archived"),
+        )
+         ),
     )
 
 
@@ -78,8 +93,7 @@ class Rejection(models.Model):
     reason = models.CharField(max_length=1000, default="")
     action = models.CharField(max_length=1000, default="", blank=True, null=True)
     status = models.CharField(max_length=25, choices=REJECTION_STATUS, default="open")
-    project = models.ForeignKey(Project)
-    provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse("projectmanage:rejection_details", kwargs={"pk": self.pk})

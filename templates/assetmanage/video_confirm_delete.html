@@ -1,11 +1,11 @@
 {% extends "assetmanage/base.html" %}
 
-{% block title %}TcsPT - Asset Management{% endblock %}
+{% block title %}TcsPT - Delete Video{% endblock %}
 
 {% block body %}
 
     <form action="" method="post">{% csrf_token %}
-        <p>Are you sure you want to delete "{{ asset.filename }}"?</p>
+        <p>Are you sure you want to delete "{{ video.file_name }}"?</p>
         <input class="btn btn-link"
                        type="button" value="Cancel"
                        onclick="window.history.go(-1);"/>

@@ -25,7 +25,7 @@
 
     <div>
         <h3 class="tab20">Title: <a href="{% url 'projectmanage:project_details' rejection.project.id %}">{{ rejection.project.title }}</a></h3>
-        <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' rejection.provider.id %}">{{ rejection.provider.name }}</a></h4>
+        <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' rejection.project.provider.id %}">{{ rejection.project.provider.name }}</a></h4>
         <h5 class="tab40"><a href="{% url 'projectmanage:rejection_update' rejection.id %}">Edit</a></h5>
         <h5 class="tab40"><a href="{% url 'projectmanage:rejection_delete' rejection.id %}">Delete</a></h5>
 

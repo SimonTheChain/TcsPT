@@ -86,14 +86,14 @@ class ProviderDelete(LoginRequiredMixin, DeleteView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Provider
-    success_url = reverse_lazy("portal:providers")
+    success_url = reverse_lazy("projectmanage:providers")
 
 
 class ProjectDelete(LoginRequiredMixin, DeleteView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Project
-    success_url = reverse_lazy("portal:projects")
+    success_url = reverse_lazy("projectmanage:projects")
 
 
 class RejectionsView(LoginRequiredMixin, generic.ListView):
@@ -117,14 +117,14 @@ class RejectionCreate(LoginRequiredMixin, CreateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Rejection
-    fields = ["provider", "project", "platform", "reason", "action", "status"]
+    fields = ["project", "platform", "reason", "action", "status"]
 
 
 class RejectionUpdate(LoginRequiredMixin, UpdateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Rejection
-    fields = ["provider", "project", "platform", "reason", "action", "status"]
+    fields = ["project", "platform", "reason", "action", "status"]
 
 
 class RejectionDelete(LoginRequiredMixin, DeleteView):

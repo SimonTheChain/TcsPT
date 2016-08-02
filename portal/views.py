@@ -3,19 +3,15 @@ from django.shortcuts import render, render_to_response, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .utils import generic_search
-from assetmanage.models import Asset, Video, Audio, Subtitle, Image, Note
+from assetmanage.models import Video, Audio, Subtitle, Image, Note
 from projectmanage.models import Provider, Project
-from metadata.models import MetadataMain, MetadataEN, MetadataFR, MetadataItunes, MetadataSasktel
+from metadata.models import Metadata
 from news.models import Post
 
 
 QUERY = "search-query"
 
 MODEL_MAP = {
-    Asset: [
-        "file_name",
-        "type",
-    ],
     Video: [
         "locale",
         "format",

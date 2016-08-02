@@ -43,14 +43,14 @@
 
             {% endfor %}
 
-            <br><li class="tab40"><a href="{% url 'assetmanage:asset_add' %}"><strong>Add Asset</strong></a></li>
+            <br><li class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
         </ul>
     {% else %}
 
         <ul>
 
             <li class="tab40">No assets to display</li>
-            <br><li class="tab40"><a href="{% url 'assetmanage:asset_add' %}"><strong>Add Asset</strong></a></li>
+            <br><li class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
 
         </ul>
 

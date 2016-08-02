@@ -10,7 +10,7 @@
         <ul>
 
             {% for video in videos_list %}
-                <li><a href="#">{{ video.asset.file_name }}</a></li>
+                <li><a href="{% url 'assetmanage:video_details' video.id %}">{{ video.file_name }}</a></li>
             {% endfor %}
             <br><li><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
 
