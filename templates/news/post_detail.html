@@ -29,15 +29,15 @@
 
         {% endif %}
 
-        <p class="tab40">{{ post.text|linebreaksbr }}</p>
+        <br><p class="tab40">{{ post.text|linebreaksbr }}</p>
 
         {% if post.name == "" %}
 
-            <p class="tab40">Author: {{ post.author }}</p>
+            <p class="tab40">Author: <strong>{{ post.author }}</strong></p>
 
         {% else %}
 
-            <p class="tab40">Author: {{ post.name }}</p>
+            <p class="tab40">Author: <strong>{{ post.name }}</strong></p>
 
         {% endif %}
 
@@ -48,5 +48,34 @@
         {% endif %}
 
     </div>
+
+    <hr>
+
+    <a class="btn btn-default tab20" href="{% url 'news:add_comment' pk=post.pk %}">Add comment</a>
+
+    {% for comment in post.comments.all %}
+
+        <div class="comment">
+            <div class="date">{{ comment.created_date|timezone:"America/Montreal" }}</div>
+
+            <p class="tab20">{{ comment.text|linebreaks }}</p>
+
+            {% if comment.name == "" %}
+
+                <p class="tab40">Author: <strong>{{ comment.author }}</strong></p>
+
+            {% else %}
+
+                <p class="tab40">Author: <strong>{{ comment.name }}</strong></p>
+
+            {% endif %}
+
+        </div>
+
+    {% empty %}
+
+        <p class="tab40">No comments</p>
+
+    {% endfor %}
 
 {% endblock %}

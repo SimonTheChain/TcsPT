@@ -1,0 +1,14 @@
+{% extends 'news/base.html' %}
+
+{% block title %}TcsPT - Comment{% endblock %}
+
+{% block body %}
+
+    <h3 class="tab20">New comment</h3>
+
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Send</button>
+    </form>
+
+{% endblock %}

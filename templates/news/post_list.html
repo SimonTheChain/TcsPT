@@ -43,6 +43,7 @@
             <br><h4 class="tab20"><a href="{% url 'news:post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
             <p class="tab20">published: {{ post.published_date|timezone:"America/Montreal" }}</p>
             <p class="tab40">{{ post.text|linebreaksbr }}</p>
+            <a class="tab40" href="{% url 'news:post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
         </div>
 
     {% endfor %}
