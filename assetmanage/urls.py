@@ -13,8 +13,8 @@ urlpatterns = [
     #  /assetmanage/asset/select/
     url(r'^asset/select/$', views.asset_select, name="asset_select"),
 
-    #  /assetmanage/video/xml/
-    url(r'^video/(?P<pk>[0-9]+)/xml/$', views.video_xml, name="video_xml"),
+    #  /assetmanage/video/xml/download
+    url(r'^video/(?P<pk>[0-9]+)/xml/download/$', views.download_video_xml, name="download_video_xml"),
 
     #  /assetmanage/videos/
     url(r'^videos/$', views.VideosView.as_view(), name="videos"),

@@ -6,6 +6,8 @@ from django.utils import timezone
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core import serializers
+from django.http import HttpResponse
+import os
 
 from .models import Video, Audio, Subtitle, Image, Note
 
@@ -22,9 +24,12 @@ def asset_select(request):
 
 
 @login_required(login_url="portal/login")
-def video_xml(request, pk):
+def download_video_xml(request, pk):
     data = serializers.serialize("xml", [Video.objects.get(pk=pk), ])
-    return render(request, 'assetmanage/video_xml.html', {'data': data})
+    filename = os.path.splitext(Video.objects.get(pk=pk).file_name)[0]
+    response = HttpResponse(data, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=%s.xml' % filename
+    return response
 
 
 class VideosView(LoginRequiredMixin, generic.ListView):
