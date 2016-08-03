@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core import serializers
 
 from .models import Video, Audio, Subtitle, Image, Note
 
@@ -18,6 +19,12 @@ def index(request):
 @login_required(login_url="portal/login")
 def asset_select(request):
     return render(request, 'assetmanage/asset_select.html')
+
+
+@login_required(login_url="portal/login")
+def video_xml(request, pk):
+    data = serializers.serialize("xml", [Video.objects.get(pk=pk), ])
+    return render(request, 'assetmanage/video_xml.html', {'data': data})
 
 
 class VideosView(LoginRequiredMixin, generic.ListView):

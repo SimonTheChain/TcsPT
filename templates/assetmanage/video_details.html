@@ -28,6 +28,7 @@
         <h4 class="tab20">Project: <a href="{% url 'projectmanage:project_details' video.project.id %}">{{ video.project.title }}</a></h4>
         <h5 class="tab40"><a href="{% url 'assetmanage:video_update' video.id %}">Edit</a></h5>
         <h5 class="tab40"><a href="{% url 'assetmanage:video_delete' video.id %}">Delete</a></h5>
+        <h5 class="tab40"><a href="{% url 'assetmanage:video_xml' video.id %}">Generate xml</a></h5>
     </div>
 
     <div>
