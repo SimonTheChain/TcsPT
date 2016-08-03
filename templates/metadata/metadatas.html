@@ -1,0 +1,26 @@
+{% extends "metadata/base.html" %}
+
+{% block title %}TcsPT - Metadata{% endblock %}
+
+{% block body %}
+
+    {% if metadatas_list %}
+        <h3 class="tab20">List of metadatas ({{ metadatas_list.count }}):</h3>
+
+        <ul>
+
+            {% for metadata in metadatas_list %}
+                <li><a href="{% url 'metadata:metadata_details' metadata.id %}">{{ metadata.studio_release_title }}</a></li>
+            {% endfor %}
+            <br><li><a href="{% url 'metadata:metadata_add' %}"><strong>Add Metadata</strong></a></li>
+
+        </ul>
+
+    {% else %}
+        <h3 class="tab20">No metadata to display</h3>
+
+        <br><p class="tab40"><a href="{% url 'metadata:metadata_add' %}"><strong>Add Metadata</strong></a></p>
+
+    {% endif %}
+
+{% endblock %}

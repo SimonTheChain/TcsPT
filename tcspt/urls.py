@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^projectmanage/', include("projectmanage.urls", namespace="projectmanage")),
     url(r'^administration/', include("administration.urls", namespace="administration")),
     url(r'news/', include("news.urls", namespace="news")),
+    url(r'metadata/', include("metadata.urls", namespace="metadata")),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,15 @@
+{% extends "metadata/base.html" %}
+
+{% block title %}TcsPT - Delete Metadata{% endblock %}
+
+{% block body %}
+
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete the metadata for "{{ metadata.studio_release_title }}"?</p>
+        <input class="btn btn-link"
+                       type="button" value="Cancel"
+                       onclick="window.history.go(-1);"/>
+        <input class="btn btn-danger" type="submit" value="Confirm"/>
+    </form>
+
+{% endblock %}

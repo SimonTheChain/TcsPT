@@ -1,0 +1,16 @@
+body{
+    background: white url("images/background.jpg");
+    padding-top: 70px;
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.tab20{
+    margin-left: 20px;
+}
+
+.tab40{
+    margin-left: 40px;
+}

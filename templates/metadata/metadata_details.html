@@ -1,0 +1,53 @@
+{% extends "metadata/base.html" %}
+
+{% block title %}TcsPT - Metadata Details{% endblock %}
+
+{% block body %}
+
+    <div class="tab20">
+        <h3>Provider: {{ metadata.project.provider.name }}</h3>
+        <h3>Project: {{ metadata.project.title }}</h3>
+    </div>
+
+    <div class="tab40">
+        <h5><a href="{% url 'metadata:metadata_update' metadata.id %}">Edit</a></h5>
+        <h5><a href="{% url 'metadata:metadata_delete' metadata.id %}">Delete</a></h5>
+    </div>
+
+    <div class="tab20">
+        <br><h4>General Details:</h4>
+        <div class="tab40">
+            <p>Studio release title: {{ metadata.studio_release_title }}</p>
+            <p>Theatrical release date: {{ metadata.release_date }}</p>
+            <p>Production company: {{ metadata.production_company }}</p>
+            <br><p>Title EN: {{ metadata.title_en }}</p>
+            <p>Synopsis long EN: {{ metadata.synopsis_long_en }}</p>
+            <p>Synopsis short EN: {{ metadata.synopsis_short_en }}</p>
+            <br><p>Title FR: {{ metadata.title_fr }}</p>
+            <p>Synopsis long FR: {{ metadata.synopsis_long_fr }}</p>
+            <p>Synopsis short FR: {{ metadata.synopsis_short_fr }}</p>
+        </div>
+    </div>
+    <div class="tab20">
+        <br><h4>iTunes Details:</h4>
+        <div class="tab40">
+            <p>EST start date: {{ metadata.itunes_est_start_date }}</p>
+            <p>EST end date: {{ metadata.itunes_est_end_date }}</p>
+            <p>VOD start date: {{ metadata.itunes_vod_start_date }}</p>
+            <p>VOD end date: {{ metadata.itunes_vod_end_date }}</p>
+            <p>SD price tier: {{ metadata.itunes_sd_price_tier }}</p>
+            <p>HD price tier: {{ metadata.itunes_hd_price_tier }}</p>
+        </div>
+    </div>
+    <div class="tab20">
+        <br><h4>Sasktel Details:</h4>
+        <div class="tab40">
+            <p>Licensing start date: {{ metadata.sasktel_license_start_date }}</p>
+            <p>Licensing end date: {{ metadata.sasktel_license_end_date }}</p>
+            <p>Sasktel rating: {{ metadata.sasktel_rating }}</p>
+            <p>SD price: {{ metadata.sasktel_sd_price }}</p>
+            <p>HD price: {{ metadata.sasktel_hd_price }}</p>
+        </div>
+    </div>
+
+{% endblock %}
