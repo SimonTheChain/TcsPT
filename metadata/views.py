@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.core import serializers
+from django.http import HttpResponse
 
 from .models import Metadata
 from projectmanage.models import Project
@@ -15,6 +17,14 @@ def index(request):
     time_now = timezone.now()
     projects = Project.objects.all()
     return render(request, "metadata/index.html", {"time_now": time_now, "projects": projects})
+
+
+@login_required(login_url="portal/login")
+def download_raw_xml(request, pk):
+    data = serializers.serialize("xml", [Metadata.objects.get(pk=pk), ])
+    response = HttpResponse(data, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=metadata.xml'
+    return response
 
 
 class MetadatasView(LoginRequiredMixin, generic.ListView):
@@ -84,6 +94,50 @@ class MetadataUpdate(LoginRequiredMixin, UpdateView):
         "itunes_vod_end_date",
         "itunes_sd_price_tier",
         "itunes_hd_price_tier",
+        "sasktel_license_start_date",
+        "sasktel_license_end_date",
+        "sasktel_rating",
+        "sasktel_sd_price",
+        "sasktel_hd_price",
+    ]
+
+
+class MetadataGeneral(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Metadata
+    fields = [
+        "studio_release_title",
+        "release_date",
+        "production_company",
+        "title_en",
+        "synopsis_long_en",
+        "synopsis_short_en",
+        "title_fr",
+        "synopsis_long_fr",
+        "synopsis_short_fr",
+    ]
+
+
+class MetadataItunes(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Metadata
+    fields = [
+        "itunes_est_start_date",
+        "itunes_est_end_date",
+        "itunes_vod_start_date",
+        "itunes_vod_end_date",
+        "itunes_sd_price_tier",
+        "itunes_hd_price_tier",
+    ]
+
+
+class MetadataSasktel(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Metadata
+    fields = [
         "sasktel_license_start_date",
         "sasktel_license_end_date",
         "sasktel_rating",

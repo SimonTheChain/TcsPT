@@ -89,6 +89,7 @@ class ProjectOperator(LoginRequiredMixin, UpdateView):
     model = Project
     fields = ["operator", ]
 
+
 class ProjectStatus(LoginRequiredMixin, UpdateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'

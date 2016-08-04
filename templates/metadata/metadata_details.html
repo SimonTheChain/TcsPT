@@ -14,8 +14,19 @@
         <h5><a href="{% url 'metadata:metadata_delete' metadata.id %}">Delete</a></h5>
     </div>
 
+    <div>
+        <br><h4 class="tab20">Generate Xml:</h4>
+        <div class="list-group">
+            <a href="{% url 'metadata:download_raw_xml' metadata.id %}" class="list-group-item active">Raw</a>
+            <a href="#" class="list-group-item">iTunes</a>
+            <a href="#" class="list-group-item">Google</a>
+            <a href="#" class="list-group-item">Sasktel</a>
+            <a href="#" class="list-group-item">Netflix</a>
+        </div>
+    </div>
+
     <div class="tab20">
-        <br><h4>General Details:</h4>
+        <br><h4><a href="{% url 'metadata:metadata_general' metadata.id %}">General Details:</a></h4>
         <div class="tab40">
             <p><strong>Studio release title:</strong> {{ metadata.studio_release_title }}</p>
             <p><strong>Theatrical release date:</strong> {{ metadata.release_date }}</p>
@@ -29,7 +40,7 @@
         </div>
     </div>
     <div class="tab20">
-        <br><h4>iTunes Details:</h4>
+        <br><h4><a href="{% url 'metadata:metadata_itunes' metadata.id %}">iTunes Details:</a></h4>
         <div class="tab40">
             <p><strong>EST start date:</strong> {{ metadata.itunes_est_start_date }}</p>
             <p><strong>EST end date:</strong> {{ metadata.itunes_est_end_date }}</p>
@@ -40,7 +51,7 @@
         </div>
     </div>
     <div class="tab20">
-        <br><h4>Sasktel Details:</h4>
+        <br><h4><a href="{% url 'metadata:metadata_sasktel' metadata.id %}">Sasktel Details:</a></h4>
         <div class="tab40">
             <p><strong>Licensing start date:</strong> {{ metadata.sasktel_license_start_date }}</p>
             <p><strong>Licensing end date:</strong> {{ metadata.sasktel_license_end_date }}</p>
