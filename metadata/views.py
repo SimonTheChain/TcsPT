@@ -7,12 +7,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
 from .models import Metadata
+from projectmanage.models import Project
 
 
 @login_required(login_url="portal/login")
 def index(request):
     time_now = timezone.now()
-    return render(request, "metadata/index.html", {"time_now": time_now})
+    projects = Project.objects.all()
+    return render(request, "metadata/index.html", {"time_now": time_now, "projects": projects})
 
 
 class MetadatasView(LoginRequiredMixin, generic.ListView):

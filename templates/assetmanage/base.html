@@ -31,13 +31,7 @@
         <!-- Items -->
         <div class="collapse navbar-collapse" id="TopNavBar">
             <ul class="nav navbar-nav">
-                <ul class="nav nav-pills">
-                    <li role="presentation"><a href="{% url 'assetmanage:videos' %}"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>  <strong>Videos</strong></a></li>
-                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>  Audios</a></li>
-                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-subtitles" aria-hidden="true"></span>  Subtitles</a></li>
-                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>  Images</a></li>
-                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  Notes</a></li>
-                </ul>
+
             </ul>
             <form class="navbar-form navbar-left" role="search" method="get" action="#">
                 <div class="form-group">
@@ -56,29 +50,65 @@
                 </div>
 
             </form>
-            <ul class="nav navbar-nav navbar-left">
-                <ul class="nav nav-pills">
-                    <li role="presentation">
-                        <a href="{% url 'assetmanage:asset_select' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Asset</a></li>
-                </ul>
+            <div class="nav navbar-nav navbar-left">
+                <div class="nav nav-pills">
+                    <ul class="nav nav-pills">
+                    <li role="presentation"><a href="{% url 'assetmanage:videos' %}"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>  <strong>Videos</strong></a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>  Audios</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-subtitles" aria-hidden="true"></span>  Subtitles</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>  Images</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  Notes</a></li>
 
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
+                    <li role="presentation">
+                        <a href="{% url 'assetmanage:asset_select' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong>Asset</strong></a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="nav navbar-nav navbar-right">
                 <ul class="nav nav-pills">
                     <li role="presentation">
-                        <a href="{% url 'projectmanage:index' %}"><strong>Projects</strong></a></li>
-                    <li role="presentation"><a href="#">Prequal</a></li>
-                    <li role="presentation"><a href="#">Qc</a></li>
-                    <li role="presentation"><a href="#">Packaging</a></li>
-                    <li role="presentation"><a href="{% url 'metadata:index' %}"><strong>Metadata</strong></a></li>
-                    <li role="presentation"><a href="#">Data Wrangling</a></li>
+                        <a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 5</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <strong>Communications</strong> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'news:post_list' %}"><strong>News</strong></a></a></li>
+                        <li role="presentation"><a href="#">Wiki</a></li>
+                        <li role="presentation"><a href="#">Forums</a></li>
+                        <li role="presentation"><a href="#">Chat</a></li>
+                    </ul>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <strong>Production</strong> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Prequal</a></li>
+                        <li><a href="#">Qc</a></li>
+                        <li><a href="#">Packaging</a></li>
+                        <li><a href="{% url 'metadata:index' %}"><strong>Metadata</strong></a></li>
+                        <li><a href="#">Data Wrangling</a></li>
+                    </ul>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <strong>Management</strong> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Tasks</a></li>
+                        <li><a href="{% url 'projectmanage:index' %}"><strong>Projects</strong></a></li>
+                        <li><a href="{% url 'assetmanage:index' %}"><strong>Assets</strong></a></li>
+                        <li><a href="{% url 'administration:index' %}"><strong>Administration</strong></a></li>
+                    </ul>
                     <li role="presentation">
                         <a href="{% url 'portal:logout' %}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>
                 </ul>
-            </ul>
+
+            </div>
 
         </div>
-    </div>
+
+        </div>
 </nav>
 
 {% block body %}

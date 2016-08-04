@@ -12,7 +12,8 @@ from .models import Provider, Project, Rejection
 @login_required(login_url="portal/login")
 def index(request):
     time_now = timezone.now()
-    return render(request, "projectmanage/index.html", {"time_now": time_now})
+    projects = Project.objects.all()
+    return render(request, "projectmanage/index.html", {"time_now": time_now, "projects": projects})
 
 
 @login_required(login_url="portal/login")
@@ -65,7 +66,7 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Project
-    fields = ["title", "itunes", "google", "sasktel", "netflix", "status", "provider"]
+    fields = ["title", "itunes", "google", "sasktel", "netflix", "status", "provider", "operator", ]
 
 
 class ProviderUpdate(LoginRequiredMixin, UpdateView):
@@ -79,7 +80,20 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Project
-    fields = ["title", "itunes", "google", "sasktel", "netflix", "status", "provider"]
+    fields = ["title", "itunes", "google", "sasktel", "netflix", "status", "provider", "operator", ]
+
+
+class ProjectOperator(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Project
+    fields = ["operator", ]
+
+class ProjectStatus(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Project
+    fields = ["status", ]
 
 
 class ProviderDelete(LoginRequiredMixin, DeleteView):

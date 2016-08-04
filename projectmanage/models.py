@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 
@@ -79,6 +80,7 @@ class Project(models.Model):
     sasktel = models.BooleanField(default=False)
     netflix = models.BooleanField(default=False)
     status = models.CharField(max_length=25, choices=PROJECT_STATUS, default="prequalready")
+    operator = models.ForeignKey(User, blank=True, null=True)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

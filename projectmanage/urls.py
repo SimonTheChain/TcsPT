@@ -36,6 +36,12 @@ urlpatterns = [
     #  /projectmanage/project/1/update/
     url(r'^project/(?P<pk>[0-9]+)/update/$', views.ProjectUpdate.as_view(), name="project_update"),
 
+    #  /projectmanage/project/1/operator/
+    url(r'^project/(?P<pk>[0-9]+)/operator/$', views.ProjectOperator.as_view(), name="project_operator"),
+
+    #  /projectmanage/project/1/status/
+    url(r'^project/(?P<pk>[0-9]+)/status/$', views.ProjectStatus.as_view(), name="project_status"),
+
     #  /projectmanage/provider/1/delete/
     url(r'^provider/(?P<pk>[0-9]+)/delete/$', views.ProviderDelete.as_view(), name="provider_delete"),
 

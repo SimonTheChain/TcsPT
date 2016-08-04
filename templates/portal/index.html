@@ -20,19 +20,6 @@
     </div>
 
     <div>
-        <br><h4 class="tab20">Quick Links:</h4>
-        <ul>
-            <li><a href="{% url 'projectmanage:index' %}">Projects</a></li>
-            <li><a href="{% url 'assetmanage:index' %}">Assets</a></li>
-            <li><a href="#">Prequal</a></li>
-            <li><a href="#">Qc</a></li>
-            <li><a href="#">Packaging</a></li>
-            <li><a href="{% url 'metadata:index' %}">Metadata</a></li>
-            <li><a href="#">Data Wrangling</a></li>
-        </ul>
-    </div>
-
-    <div>
         <br><h3 class="tab20">Latest <a href="{% url 'news:post_list' %}">News:</a></h3>
         {% load tz %}
         {% for post in posts %}

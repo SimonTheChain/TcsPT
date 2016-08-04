@@ -32,18 +32,19 @@
     </div>
 
     <div>
-        <br><h4 class="tab20">Details:</h4>
+        <br><h4 class="tab20">File Details:</h4>
         <p class="tab40">Path: {{ video.file_path }}</p>
         <p class="tab40">Size: {{ video.file_size|filesizeformat }}</p>
         <p class="tab40">Md5 Checksum: {{ video.file_md5 }}</p>
-        <p class="tab40">Asset Type: {{ video.get_type_display }}</p><br>
+
+        <br><h4 class="tab20">Video Details:</h4>
+        <p class="tab40">Asset Type: {{ video.get_type_display }}</p>
         <p class="tab40">Locale: {{ video.get_locale_display }}</p>
         <p class="tab40">Format: {{ video.get_format_display }}</p>
         <p class="tab40">Crop Top: {{ video.crop_top }}</p>
         <p class="tab40">Crop Bottom: {{ video.crop_bottom }}</p>
         <p class="tab40">Crop Right: {{ video.crop_right }}</p>
         <p class="tab40">Crop Left: {{ video.crop_left }}</p>
-        <p class="tab40">Type: {{ video.get_type_display }}</p>
     </div>
 
 {% endblock %}

@@ -35,6 +35,8 @@
     <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' project.provider.id %}">{{ project.provider.name }}</a></h4>
     <h5 class="tab40"><a href="{% url 'projectmanage:project_update' project.id %}">Edit</a></h5>
     <h5 class="tab40"><a href="{% url 'projectmanage:project_delete' project.id %}">Delete</a></h5>
+    <h5 class="tab40">Assigned to: <a href="{% url 'projectmanage:project_operator' project.id %}">{{ project.operator }}</a></h5>
+    <h5 class="tab40">Change <a href="{% url 'projectmanage:project_status' project.id %}">Status</a></h5>
 
     <br><p class="tab20"><strong>Deliver for:</strong></p>
     <p class="tab40">iTunes: {{ project.itunes }}</p>
