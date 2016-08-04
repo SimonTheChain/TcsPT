@@ -8,10 +8,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.core import serializers
 from django.http import HttpResponse
 from itertools import chain
+import xml.dom.minidom
 
 from .models import Metadata
 from projectmanage.models import Project
-from assetmanage.models import Video
 
 
 @login_required(login_url="portal/login")
@@ -36,9 +36,10 @@ def download_itunes_xml(request, pk):
     meta_list = [metadata]
 
     combined = list(chain(meta_list, videos))
-
     data = serializers.serialize("xml", combined)
-    response = HttpResponse(data, content_type='text/xml')
+    dom = xml.dom.minidom.parseString(data).toprettyxml()
+
+    response = HttpResponse(dom, content_type='text/xml')
     response['Content-Disposition'] = 'attachment; filename=metadata.xml'
     return response
 

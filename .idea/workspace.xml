@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="18af5fbe-d3b1-4c5a-944e-21cd0ff837a4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetmanage/models.py" afterPath="$PROJECT_DIR$/assetmanage/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metadata/static/metadata/style.css" afterPath="$PROJECT_DIR$/metadata/static/metadata/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metadata/urls.py" afterPath="$PROJECT_DIR$/metadata/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metadata/views.py" afterPath="$PROJECT_DIR$/metadata/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/metadata/metadata_details.html" afterPath="$PROJECT_DIR$/templates/metadata/metadata_details.html" />
     </list>
     <ignored path="tcspt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/metadata/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+            <state relative-caret-position="510">
+              <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -65,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="metadata_details.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="metadata_details.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/metadata/metadata_details.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
@@ -150,8 +146,8 @@
         <option value="$PROJECT_DIR$/metadata/static/metadata/style.css" />
         <option value="$PROJECT_DIR$/assetmanage/models.py" />
         <option value="$PROJECT_DIR$/metadata/urls.py" />
-        <option value="$PROJECT_DIR$/metadata/views.py" />
         <option value="$PROJECT_DIR$/templates/metadata/metadata_details.html" />
+        <option value="$PROJECT_DIR$/metadata/views.py" />
       </list>
     </option>
   </component>
@@ -859,7 +855,14 @@
       <option name="project" value="LOCAL" />
       <updated>1470291008423</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Added Metadata as a Foreign Key to Video&#10;Combined Metadata and Video for iTunes xml download">
+      <created>1470297462202</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1470297462202</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -898,7 +901,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Functional sections are now in bold in the nav bar" />
     <MESSAGE value="Fixed link in notes" />
     <MESSAGE value="Started implementation of News app" />
     <MESSAGE value="Changed the navbar for bootstrap buttons and icons" />
@@ -923,7 +925,8 @@
     <MESSAGE value="Changed the nabar&#10;Added operator to project" />
     <MESSAGE value="Redesigned the metadata details page" />
     <MESSAGE value="Added the option to download raw xml for metadata&#10;Added views to update parts of the metadata" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the option to download raw xml for metadata&#10;Added views to update parts of the metadata" />
+    <MESSAGE value="Added Metadata as a Foreign Key to Video&#10;Combined Metadata and Video for iTunes xml download" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Metadata as a Foreign Key to Video&#10;Combined Metadata and Video for iTunes xml download" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1314,21 +1317,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metadata/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/metadata/metadata_details.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="104" selection-start-line="20" selection-start-column="104" selection-end-line="20" selection-end-column="104" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metadata/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
