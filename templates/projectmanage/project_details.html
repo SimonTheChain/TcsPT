@@ -44,7 +44,12 @@
     <p class="tab40">Sasktel: {{ project.sasktel }}</p>
     <p class="tab40">Netflix: {{ project.netflix }}</p>
 
-    <br><h4 class="tab20"><a href="{% url 'metadata:metadata_details' project.metadata.id %}">Metadata</a></h4>
+
+    {% if project.metadata.id %}
+        <br><h4 class="tab20"><a href="{% url 'metadata:metadata_details' project.metadata.id %}">Metadata</a></h4>
+    {% else %}
+        <br><h4 class="tab20"><a href="{% url 'metadata:metadata_add' %}">Create Metadata</a></h4>
+    {% endif %}
 
     <br><h4 class="tab20">Assets:</h4>
     {% if project.video_set.all %}

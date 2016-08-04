@@ -23,14 +23,17 @@ def index(request):
 
 @login_required(login_url="portal/login")
 def download_raw_xml(request, pk):
+    #  create the objects to process
     metadata = Metadata.objects.get(pk=pk)
-    videos = metadata.video_set.all()
-    meta_list = [metadata]
+    videos = metadata.video_set.filter('''?''')
+    meta_list = [metadata, ]
 
+    #  convert tables to xml
     combined = list(chain(meta_list, videos))
     data = serializers.serialize("xml", combined)
     dom = xml.dom.minidom.parseString(data).toprettyxml()
 
+    #  send the xml for download
     response = HttpResponse(dom, content_type='text/xml')
     response['Content-Disposition'] = 'attachment; filename=metadata.xml'
     return response
