@@ -180,3 +180,59 @@ class AudioDelete(LoginRequiredMixin, DeleteView):
     redirect_field_name = 'redirect_to'
     model = Audio
     success_url = reverse_lazy("assetmanage:audios")
+
+
+class SubtitlesView(LoginRequiredMixin, generic.ListView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = "assetmanage/subtitles.html"
+    context_object_name = "subtitles_list"
+
+    def get_queryset(self):
+        return Subtitle.objects.all()
+
+
+class SubtitleDetailsView(LoginRequiredMixin, generic.DetailView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Subtitle
+    template_name = "assetmanage/subtitle_details.html"
+
+
+class SubtitleCreate(LoginRequiredMixin, CreateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Subtitle
+    fields = [
+        "project",
+        "type",
+        "file_name",
+        "file_path",
+        "file_size",
+        "file_md5",
+        "locale",
+        "status",
+    ]
+
+
+class SubtitleUpdate(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Subtitle
+    fields = [
+        "project",
+        "type",
+        "file_name",
+        "file_path",
+        "file_size",
+        "file_md5",
+        "locale",
+        "status",
+    ]
+
+
+class SubtitleDelete(LoginRequiredMixin, DeleteView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Subtitle
+    success_url = reverse_lazy("assetmanage:subtitles")

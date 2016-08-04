@@ -140,8 +140,8 @@ class Subtitle(models.Model):
     locale = models.CharField(max_length=25, choices=LOCALES, default="enus")
     project = models.ForeignKey(Project, default=1)
 
-    # def get_absolute_url(self):
-    #     return reverse("assetmanage:subtitle_details", kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse("assetmanage:subtitle_details", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.file_name

@@ -49,4 +49,19 @@ urlpatterns = [
     #  /assetmanage/audio/1/delete/
     url(r'^audio/(?P<pk>[0-9]+)/delete/$', views.AudioDelete.as_view(), name="audio_delete"),
 
+    #  /assetmanage/subtitles/
+    url(r'^subtitles/$', views.SubtitlesView.as_view(), name="subtitles"),
+
+    #  /assetmanage/subtitle/1/
+    url(r'^subtitle/(?P<pk>[0-9]+)/$', views.SubtitleDetailsView.as_view(), name="subtitle_details"),
+
+    #  /assetmanage/subtitle/add/
+    url(r'^subtitle/add/$', views.SubtitleCreate.as_view(), name="subtitle_add"),
+
+    #  /assetmanage/subtitle/1/update/
+    url(r'^subtitle/(?P<pk>[0-9]+)/update/$', views.SubtitleUpdate.as_view(), name="subtitle_update"),
+
+    #  /assetmanage/subtitle/1/delete/
+    url(r'^subtitle/(?P<pk>[0-9]+)/delete/$', views.SubtitleDelete.as_view(), name="subtitle_delete"),
+
 ]
