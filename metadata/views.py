@@ -23,14 +23,6 @@ def index(request):
 
 @login_required(login_url="portal/login")
 def download_raw_xml(request, pk):
-    data = serializers.serialize("xml", [Metadata.objects.get(pk=pk), ])
-    response = HttpResponse(data, content_type='text/xml')
-    response['Content-Disposition'] = 'attachment; filename=metadata.xml'
-    return response
-
-
-@login_required(login_url="portal/login")
-def download_itunes_xml(request, pk):
     metadata = Metadata.objects.get(pk=pk)
     videos = metadata.video_set.all()
     meta_list = [metadata]

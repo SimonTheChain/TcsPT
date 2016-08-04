@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^metadata/(?P<pk>[0-9]+)/xml_raw/download/$', views.download_raw_xml, name="download_raw_xml"),
 
     #  /metadata/metadata/xml_itunes/download
-    url(r'^metadata/(?P<pk>[0-9]+)/xml_itunes/download/$', views.download_itunes_xml, name="download_itunes_xml"),
+    # url(r'^metadata/(?P<pk>[0-9]+)/xml_itunes/download/$', views.download_itunes_xml, name="download_itunes_xml"),
 
     #  /metadata/metadatas/
     url(r'^metadata/$', views.MetadatasView.as_view(), name="metadatas"),
