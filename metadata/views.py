@@ -12,6 +12,7 @@ import xml.dom.minidom
 
 from .models import Metadata
 from projectmanage.models import Project
+from assetmanage.models import Video
 
 
 @login_required(login_url="portal/login")
@@ -25,7 +26,8 @@ def index(request):
 def download_raw_xml(request, pk):
     #  create the objects to process
     metadata = Metadata.objects.get(pk=pk)
-    videos = metadata.video_set.filter('''?''')
+    project_source = metadata.project.pk
+    videos = Video.objects.filter(project=project_source)
     meta_list = [metadata, ]
 
     #  convert tables to xml
