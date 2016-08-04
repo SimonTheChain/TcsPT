@@ -5,8 +5,8 @@
 {% block body %}
 
     <div class="tab20">
-        <h3>Provider: {{ metadata.project.provider.name }}</h3>
-        <h3>Project: {{ metadata.project.title }}</h3>
+        <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' metadata.project.provider.id %}">{{ metadata.project.provider.name }}</a></h4>
+        <h4 class="tab20">Project: <a href="{% url 'projectmanage:project_details' metadata.project.id %}">{{ metadata.project.title }}</a></h4>
     </div>
 
     <div class="tab40">
@@ -17,36 +17,36 @@
     <div class="tab20">
         <br><h4>General Details:</h4>
         <div class="tab40">
-            <p>Studio release title: {{ metadata.studio_release_title }}</p>
-            <p>Theatrical release date: {{ metadata.release_date }}</p>
-            <p>Production company: {{ metadata.production_company }}</p>
-            <br><p>Title EN: {{ metadata.title_en }}</p>
-            <p>Synopsis long EN: {{ metadata.synopsis_long_en }}</p>
-            <p>Synopsis short EN: {{ metadata.synopsis_short_en }}</p>
-            <br><p>Title FR: {{ metadata.title_fr }}</p>
-            <p>Synopsis long FR: {{ metadata.synopsis_long_fr }}</p>
-            <p>Synopsis short FR: {{ metadata.synopsis_short_fr }}</p>
+            <p><strong>Studio release title:</strong> {{ metadata.studio_release_title }}</p>
+            <p><strong>Theatrical release date:</strong> {{ metadata.release_date }}</p>
+            <p><strong>Production company:</strong> {{ metadata.production_company }}</p>
+            <br><p><strong>Title EN:</strong> {{ metadata.title_en }}</p>
+            <p><strong>Synopsis long EN:</strong> {{ metadata.synopsis_long_en }}</p>
+            <p><strong>Synopsis short EN:</strong> {{ metadata.synopsis_short_en }}</p>
+            <br><p><strong>Title FR:</strong> {{ metadata.title_fr }}</p>
+            <p><strong>Synopsis long FR:</strong> {{ metadata.synopsis_long_fr }}</p>
+            <p><strong>Synopsis short FR:</strong> {{ metadata.synopsis_short_fr }}</p>
         </div>
     </div>
     <div class="tab20">
         <br><h4>iTunes Details:</h4>
         <div class="tab40">
-            <p>EST start date: {{ metadata.itunes_est_start_date }}</p>
-            <p>EST end date: {{ metadata.itunes_est_end_date }}</p>
-            <p>VOD start date: {{ metadata.itunes_vod_start_date }}</p>
-            <p>VOD end date: {{ metadata.itunes_vod_end_date }}</p>
-            <p>SD price tier: {{ metadata.itunes_sd_price_tier }}</p>
-            <p>HD price tier: {{ metadata.itunes_hd_price_tier }}</p>
+            <p><strong>EST start date:</strong> {{ metadata.itunes_est_start_date }}</p>
+            <p><strong>EST end date:</strong> {{ metadata.itunes_est_end_date }}</p>
+            <p><strong>VOD start date:</strong> {{ metadata.itunes_vod_start_date }}</p>
+            <p><strong>VOD end date:</strong> {{ metadata.itunes_vod_end_date }}</p>
+            <p><strong>SD price tier:</strong> {{ metadata.itunes_sd_price_tier }}</p>
+            <p><strong>HD price tier:</strong> {{ metadata.itunes_hd_price_tier }}</p>
         </div>
     </div>
     <div class="tab20">
         <br><h4>Sasktel Details:</h4>
         <div class="tab40">
-            <p>Licensing start date: {{ metadata.sasktel_license_start_date }}</p>
-            <p>Licensing end date: {{ metadata.sasktel_license_end_date }}</p>
-            <p>Sasktel rating: {{ metadata.sasktel_rating }}</p>
-            <p>SD price: {{ metadata.sasktel_sd_price }}</p>
-            <p>HD price: {{ metadata.sasktel_hd_price }}</p>
+            <p><strong>Licensing start date:</strong> {{ metadata.sasktel_license_start_date }}</p>
+            <p><strong>Licensing end date:</strong> {{ metadata.sasktel_license_end_date }}</p>
+            <p><strong>Sasktel rating:</strong> {{ metadata.sasktel_rating }}</p>
+            <p><strong>SD price:</strong> {{ metadata.sasktel_sd_price }}</p>
+            <p><strong>HD price:</strong> {{ metadata.sasktel_hd_price }}</p>
         </div>
     </div>
 

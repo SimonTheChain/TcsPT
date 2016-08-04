@@ -23,9 +23,9 @@ class Metadata(models.Model):
     itunes_hd_price_tier = models.IntegerField(default=0, blank=True)
     sasktel_license_start_date = models.DateField(default=date.today, blank=True, null=True)
     sasktel_license_end_date = models.DateField(default=date.today, blank=True, null=True)
-    sasktel_rating = models.CharField(max_length=10, default="", blank=True)
-    sasktel_sd_price = models.FloatField(default=0, blank=True)
-    sasktel_hd_price = models.FloatField(default=0, blank=True)
+    sasktel_rating = models.CharField(max_length=10, default="NR", blank=True)
+    sasktel_sd_price = models.FloatField(default=5.95)
+    sasktel_hd_price = models.FloatField(default=6.95)
     project = models.OneToOneField(Project, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
