@@ -52,27 +52,26 @@
     {% endif %}
 
     <br><h4 class="tab20">Assets:</h4>
+    <ul>
     {% if project.video_set.all %}
-        <ul>
             {% for video in project.video_set.all %}
 
                     <li class="tab40"><a href="{% url 'assetmanage:video_details' video.id %}">{{ video.file_name }}</a></li>
 
             {% endfor %}
 
-            <br><li class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
-
-        </ul>
-    {% else %}
-
-        <ul>
-
-            <li class="tab40">No assets to display</li>
-            <br><li class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
-
-        </ul>
-
     {% endif %}
+    {% if project.audio_set.all %}
+            {% for audio in project.audio_set.all %}
+
+                    <li class="tab40"><a href="{% url 'assetmanage:audio_details' audio.id %}">{{ audio.file_name }}</a></li>
+
+            {% endfor %}
+    {% endif %}
+
+            <br><li class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
+
+    </ul>
 
     <br><h4 class="tab20">Rejections:</h4>
     {% if project.rejection_set.all %}

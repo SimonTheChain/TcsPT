@@ -123,8 +123,8 @@ class Audio(models.Model):
     status = models.CharField(max_length=25, choices=ASSET_STATUS, default="active")
     project = models.ForeignKey(Project, default=1)
 
-    # def get_absolute_url(self):
-    #     return reverse("assetmanage:audio_details", kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse("assetmanage:audio_details", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.file_name

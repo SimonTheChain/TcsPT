@@ -7,6 +7,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core import serializers
 from django.http import HttpResponse
+import xml.dom.minidom
 import os
 
 from .models import Video, Audio, Subtitle, Image, Note
@@ -26,8 +27,19 @@ def asset_select(request):
 @login_required(login_url="portal/login")
 def download_video_xml(request, pk):
     data = serializers.serialize("xml", [Video.objects.get(pk=pk), ])
+    dom = xml.dom.minidom.parseString(data).toprettyxml()
     filename = os.path.splitext(Video.objects.get(pk=pk).file_name)[0]
-    response = HttpResponse(data, content_type='text/xml')
+    response = HttpResponse(dom, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=%s.xml' % filename
+    return response
+
+
+@login_required(login_url="portal/login")
+def download_audio_xml(request, pk):
+    data = serializers.serialize("xml", [Audio.objects.get(pk=pk), ])
+    dom = xml.dom.minidom.parseString(data).toprettyxml()
+    filename = os.path.splitext(Audio.objects.get(pk=pk).file_name)[0]
+    response = HttpResponse(dom, content_type='text/xml')
     response['Content-Disposition'] = 'attachment; filename=%s.xml' % filename
     return response
 
@@ -96,3 +108,75 @@ class VideoDelete(LoginRequiredMixin, DeleteView):
     redirect_field_name = 'redirect_to'
     model = Video
     success_url = reverse_lazy("assetmanage:videos")
+
+
+class AudiosView(LoginRequiredMixin, generic.ListView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = "assetmanage/audios.html"
+    context_object_name = "audios_list"
+
+    def get_queryset(self):
+        return Audio.objects.all()
+
+
+class AudioDetailsView(LoginRequiredMixin, generic.DetailView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Audio
+    template_name = "assetmanage/audio_details.html"
+
+
+class AudioCreate(LoginRequiredMixin, CreateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Audio
+    fields = [
+        "project",
+        "type",
+        "file_name",
+        "file_path",
+        "file_size",
+        "file_md5",
+        "locale",
+        "channel_1",
+        "channel_2",
+        "channel_3",
+        "channel_4",
+        "channel_5",
+        "channel_6",
+        "channel_7",
+        "channel_8",
+        "status",
+    ]
+
+
+class AudioUpdate(LoginRequiredMixin, UpdateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Audio
+    fields = [
+        "project",
+        "type",
+        "file_name",
+        "file_path",
+        "file_size",
+        "file_md5",
+        "locale",
+        "channel_1",
+        "channel_2",
+        "channel_3",
+        "channel_4",
+        "channel_5",
+        "channel_6",
+        "channel_7",
+        "channel_8",
+        "status",
+    ]
+
+
+class AudioDelete(LoginRequiredMixin, DeleteView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Audio
+    success_url = reverse_lazy("assetmanage:audios")

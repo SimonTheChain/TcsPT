@@ -1,0 +1,26 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Audios{% endblock %}
+
+{% block body %}
+
+    {% if audios_list %}
+        <h3 class="tab20">List of audios ({{ audios_list.count }}):</h3>
+
+        <ul>
+
+            {% for audio in audios_list %}
+                <li><a href="{% url 'assetmanage:audio_details' audio.id %}">{{ audio.file_name }}</a></li>
+            {% endfor %}
+            <br><li><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
+
+        </ul>
+
+    {% else %}
+        <h3 class="tab20">No audios to display</h3>
+
+        <br><p class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></p>
+
+    {% endif %}
+
+{% endblock %}

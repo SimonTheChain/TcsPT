@@ -16,6 +16,9 @@ urlpatterns = [
     #  /assetmanage/video/xml/download
     url(r'^video/(?P<pk>[0-9]+)/xml/download/$', views.download_video_xml, name="download_video_xml"),
 
+    #  /assetmanage/audio/xml/download
+    url(r'^audio/(?P<pk>[0-9]+)/xml/download/$', views.download_audio_xml, name="download_audio_xml"),
+
     #  /assetmanage/videos/
     url(r'^videos/$', views.VideosView.as_view(), name="videos"),
 
@@ -30,5 +33,20 @@ urlpatterns = [
 
     #  /assetmanage/video/1/delete/
     url(r'^video/(?P<pk>[0-9]+)/delete/$', views.VideoDelete.as_view(), name="video_delete"),
+
+    #  /assetmanage/audios/
+    url(r'^audios/$', views.AudiosView.as_view(), name="audios"),
+
+    #  /assetmanage/audio/1/
+    url(r'^audio/(?P<pk>[0-9]+)/$', views.AudioDetailsView.as_view(), name="audio_details"),
+
+    #  /assetmanage/audio/add/
+    url(r'^audio/add/$', views.AudioCreate.as_view(), name="audio_add"),
+
+    #  /assetmanage/audio/1/update/
+    url(r'^audio/(?P<pk>[0-9]+)/update/$', views.AudioUpdate.as_view(), name="audio_update"),
+
+    #  /assetmanage/audio/1/delete/
+    url(r'^audio/(?P<pk>[0-9]+)/delete/$', views.AudioDelete.as_view(), name="audio_delete"),
 
 ]

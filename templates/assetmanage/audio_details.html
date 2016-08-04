@@ -1,0 +1,53 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Audio Details{% endblock %}
+
+{% block body %}
+
+    {% if audio.status == "active" %}
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              {{ audio.get_status_display }}
+          </div>
+        </div>
+
+    {% else %}
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              <span style="color:black">{{ audio.get_status_display }}</span>
+          </div>
+        </div>
+
+    {% endif %}
+
+    <div>
+        <h3 class="tab20">Filename: {{ audio.file_name }}</h3>
+        <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' audio.project.provider.id %}">{{ audio.project.provider.name }}</a></h4>
+        <h4 class="tab20">Project: <a href="{% url 'projectmanage:project_details' audio.project.id %}">{{ audio.project.title }}</a></h4>
+        <h5 class="tab40"><a href="{% url 'assetmanage:audio_update' audio.id %}">Edit</a></h5>
+        <h5 class="tab40"><a href="{% url 'assetmanage:audio_delete' audio.id %}">Delete</a></h5>
+        <h5 class="tab40"><a href="{% url 'assetmanage:download_audio_xml' audio.id %}">Download xml</a></h5>
+    </div>
+
+    <div>
+        <br><h4 class="tab20">File Details:</h4>
+        <p class="tab40">Path: {{ audio.file_path }}</p>
+        <p class="tab40">Size: {{ audio.file_size|filesizeformat }}</p>
+        <p class="tab40">Md5 Checksum: {{ audio.file_md5 }}</p>
+
+        <br><h4 class="tab20">Video Details:</h4>
+        <p class="tab40">Asset Type: {{ audio.get_type_display }}</p>
+        <p class="tab40">Locale: {{ audio.get_locale_display }}</p>
+        <p class="tab40">Channel 1: {{ audio.get_channel_1_display }}</p>
+        <p class="tab40">Channel 2: {{ audio.get_channel_2_display }}</p>
+        <p class="tab40">Channel 3: {{ audio.get_channel_3_display }}</p>
+        <p class="tab40">Channel 4: {{ audio.get_channel_4_display }}</p>
+        <p class="tab40">Channel 5: {{ audio.get_channel_5_display }}</p>
+        <p class="tab40">Channel 6: {{ audio.get_channel_6_display }}</p>
+        <p class="tab40">Channel 7: {{ audio.get_channel_7_display }}</p>
+        <p class="tab40">Channel 8: {{ audio.get_channel_8_display }}</p>
+    </div>
+
+{% endblock %}
