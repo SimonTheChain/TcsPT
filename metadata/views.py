@@ -7,9 +7,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.core import serializers
 from django.http import HttpResponse
+from itertools import chain
 
 from .models import Metadata
 from projectmanage.models import Project
+from assetmanage.models import Video
 
 
 @login_required(login_url="portal/login")
@@ -22,6 +24,20 @@ def index(request):
 @login_required(login_url="portal/login")
 def download_raw_xml(request, pk):
     data = serializers.serialize("xml", [Metadata.objects.get(pk=pk), ])
+    response = HttpResponse(data, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=metadata.xml'
+    return response
+
+
+@login_required(login_url="portal/login")
+def download_itunes_xml(request, pk):
+    metadata = Metadata.objects.get(pk=pk)
+    videos = metadata.video_set.all()
+    meta_list = [metadata]
+
+    combined = list(chain(meta_list, videos))
+
+    data = serializers.serialize("xml", combined)
     response = HttpResponse(data, content_type='text/xml')
     response['Content-Disposition'] = 'attachment; filename=metadata.xml'
     return response
