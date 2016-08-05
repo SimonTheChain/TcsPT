@@ -19,7 +19,7 @@ from assetmanage.models import Video, Audio, Subtitle
 def index(request):
     time_now = timezone.now()
     projects = Project.objects.all()
-    return render(request, "metadata/index.html", {"time_now": time_now, "projects": projects})
+    return render(request, "metadata/index.html", {"time_now": time_now, "projects": projects, })
 
 
 @login_required(login_url="portal/login")

@@ -20,109 +20,117 @@
     </div>
 
     <div>
+    <div class="container-fluid">
         <br><h4 class="tab20">Production Workflow Done:</h4>
-        <ul>
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "prequaldone" or project.status == "qcdone" or project.status == "packdone" or project.status == "metadone" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-success">{{ project.title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
 
         <br><h4 class="tab20">Data Wrangling Workflow Done:</h4>
-        <ul>
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "datadownloaded" or project.status == "datacopied" or project.status == "datauploaded" or project.status == "dataarchived" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-success">{{ project.title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
+    </div>
 
-        <br><h4 class="tab20">Ready for Production Workflow:</h4>
-        <ul>
+    <div class="container-fluid">
+        <br><br><h4 class="tab20">Ready for Production Workflow:</h4>
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "prequalready" or project.status == "qcready" or project.status == "packready" or project.status == "metaready" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-primary">{{ project.title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
 
         <br><h4 class="tab20">Ready for Data Wrangling Workflow:</h4>
-        <ul>
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "datadownready" or project.status == "datacopyready" or project.status == "dataupready" or project.status == "dataarchready" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-primary">{{ project.title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
+    </div>
 
-        <br><h4 class="tab20">Production Workflow in Progress:</h4>
-        <ul>
+    <div class="container-fluid">
+        <br><br><h4 class="tab20">Production Workflow in Progress:</h4>
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "prequalprogress" or project.status == "qcprogress" or project.status == "packprogress" or project.status == "metaprogress" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-info">{{ project.title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
 
         <br><h4 class="tab20">Data Wrangling Workflow in Progress:</h4>
-        <ul>
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "datadownloading" or project.status == "datacopyinng" or project.status == "datauploading" or project.status == "dataarchiving" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-info">{{ project.title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
+    </div>
 
-        <br><h4 class="tab20">In Pre-Production:</h4>
-        <ul>
+    <div class="container-fluid">
+        <br><br><h4 class="tab20">In Pre-Production:</h4>
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "preprod" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-default">{{ project.title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
 
         <br><h4 class="tab20">Completed:</h4>
-        <ul>
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "completed" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-default">{{ project.title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
+    </div>
 
     </div>
 

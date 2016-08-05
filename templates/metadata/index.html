@@ -20,44 +20,47 @@
     </div>
 
     <div>
-        <br><h3 class="tab20">Ready for Metadata:</h3>
-        <ul>
+        <br><h4 class="tab20">Ready for Metadata:</h4>
+
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "metaready" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'metadata:metadata_details' project.metadata.id %}" class="btn btn-primary">{{ project.metadata.studio_release_title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
 
-        <br><h3 class="tab20">Metadata in progress:</h3>
-        <ul>
+        <br><h4 class="tab20">Metadata in progress:</h4>
+
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "metaprogress" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'metadata:metadata_details' project.metadata.id %}" class="btn btn-info">{{ project.metadata.studio_release_title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
 
-        <br><h3 class="tab20">Metadata done:</h3>
-        <ul>
+        <br><h4 class="tab20">Metadata done:</h4>
+
+        <div class="btn-group-vertical tab40" role="group">
         {% for project in projects %}
 
             {% if project.status == "metadone" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' pk=project.pk %}">{{ project.title }}</a></li>
+                    <a href="{% url 'metadata:metadata_details' project.metadata.id %}" class="btn btn-success">{{ project.metadata.studio_release_title }}</a>
 
             {% endif %}
 
         {% endfor %}
-        </ul>
+        </div>
     </div>
 
 {% endblock %}

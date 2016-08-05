@@ -16,12 +16,12 @@
 
     <div>
         <br><h4 class="tab20">Generate Xml:</h4>
-        <div class="list-group">
-            <a href="{% url 'metadata:download_raw_xml' metadata.id %}" class="list-group-item active">Raw</a>
-            <a href="#" class="list-group-item">iTunes</a>
-            <a href="#" class="list-group-item">Google</a>
-            <a href="#" class="list-group-item">Sasktel</a>
-            <a href="#" class="list-group-item">Netflix</a>
+        <div class="btn-group-vertical tab40" role="group">
+            <a href="{% url 'metadata:download_raw_xml' metadata.id %}" class="btn btn-primary">Raw</a>
+            <a href="#" class="btn btn-default">iTunes</a>
+            <a href="#" class="btn btn-default"">Google</a>
+            <a href="#" class="btn btn-default"">Sasktel</a>
+            <a href="#" class="btn btn-default"">Netflix</a>
         </div>
     </div>
 
