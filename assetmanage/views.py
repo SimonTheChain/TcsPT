@@ -44,6 +44,16 @@ def download_audio_xml(request, pk):
     return response
 
 
+@login_required(login_url="portal/login")
+def download_subtitle_xml(request, pk):
+    data = serializers.serialize("xml", [Subtitle.objects.get(pk=pk), ])
+    dom = xml.dom.minidom.parseString(data).toprettyxml()
+    filename = os.path.splitext(Subtitle.objects.get(pk=pk).file_name)[0]
+    response = HttpResponse(dom, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=%s.xml' % filename
+    return response
+
+
 class VideosView(LoginRequiredMixin, generic.ListView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'

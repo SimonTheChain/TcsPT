@@ -12,7 +12,7 @@ import xml.dom.minidom
 
 from .models import Metadata
 from projectmanage.models import Project
-from assetmanage.models import Video, Audio
+from assetmanage.models import Video, Audio, Subtitle
 
 
 @login_required(login_url="portal/login")
@@ -29,10 +29,11 @@ def download_raw_xml(request, pk):
     project_source = metadata.project.pk
     videos = Video.objects.filter(project=project_source)
     audios = Audio.objects.filter(project=project_source)
+    subs = Subtitle.objects.filter(project=project_source)
     meta_list = [metadata, ]
 
     #  convert tables to xml
-    combined = list(chain(meta_list, videos, audios))
+    combined = list(chain(meta_list, videos, audios, subs, ))
     data = serializers.serialize("xml", combined)
     dom = xml.dom.minidom.parseString(data).toprettyxml()
 

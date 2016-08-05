@@ -18,6 +18,9 @@ urlpatterns = [
 
     #  /assetmanage/audio/xml/download
     url(r'^audio/(?P<pk>[0-9]+)/xml/download/$', views.download_audio_xml, name="download_audio_xml"),
+    
+    #  /assetmanage/subtitle/xml/download
+    url(r'^subtitle/(?P<pk>[0-9]+)/xml/download/$', views.download_subtitle_xml, name="download_subtitle_xml"),
 
     #  /assetmanage/videos/
     url(r'^videos/$', views.VideosView.as_view(), name="videos"),

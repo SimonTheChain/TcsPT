@@ -9,6 +9,10 @@ body{
     border-radius: 0;
 }
 
+.nav-pills{
+    padding-top: 5px;
+}
+
 .tab20{
     margin-left: 20px;
 }

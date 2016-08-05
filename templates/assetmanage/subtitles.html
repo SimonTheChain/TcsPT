@@ -1,0 +1,26 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Subtitles{% endblock %}
+
+{% block body %}
+
+    {% if subtitles_list %}
+        <h3 class="tab20">List of subtitles ({{ subtitles_list.count }}):</h3>
+
+        <ul>
+
+            {% for sub in subtitles_list %}
+                <li><a href="{% url 'assetmanage:subtitle_details' sub.id %}">{{ sub.file_name }}</a></li>
+            {% endfor %}
+            <br><li><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
+
+        </ul>
+
+    {% else %}
+        <h3 class="tab20">No Subtitles to display</h3>
+
+        <br><p class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></p>
+
+    {% endif %}
+
+{% endblock %}

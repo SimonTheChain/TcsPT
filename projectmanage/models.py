@@ -4,6 +4,8 @@ from django.core.urlresolvers import reverse
 
 
 PROJECT_STATUS = (
+        ("preprod", "In Pre-Production"),
+        ("completed", "Completed"),
         ("Prequal", (
             ("prequalready", "Ready for Prequal"),
             ("prequalprogress", "Prequal in progress"),

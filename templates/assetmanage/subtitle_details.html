@@ -1,0 +1,45 @@
+{% extends "assetmanage/base.html" %}
+
+{% block title %}TcsPT - Subtitle Details{% endblock %}
+
+{% block body %}
+
+    {% if subtitle.status == "active" %}
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              {{ subtitle.get_status_display }}
+          </div>
+        </div>
+
+    {% else %}
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              <span style="color:black">{{ subtitle.get_status_display }}</span>
+          </div>
+        </div>
+
+    {% endif %}
+
+    <div>
+        <h3 class="tab20">Filename: {{ subtitle.file_name }}</h3>
+        <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' subtitle.project.provider.id %}">{{ subtitle.project.provider.name }}</a></h4>
+        <h4 class="tab20">Project: <a href="{% url 'projectmanage:project_details' subtitle.project.id %}">{{ subtitle.project.title }}</a></h4>
+        <h5 class="tab40"><a href="{% url 'assetmanage:subtitle_update' subtitle.id %}">Edit</a></h5>
+        <h5 class="tab40"><a href="{% url 'assetmanage:subtitle_delete' subtitle.id %}">Delete</a></h5>
+        <h5 class="tab40"><a href="{% url 'assetmanage:download_subtitle_xml' subtitle.id %}">Download xml</a></h5>
+    </div>
+
+    <div>
+        <br><h4 class="tab20">File Details:</h4>
+        <p class="tab40">Path: {{ subtitle.file_path }}</p>
+        <p class="tab40">Size: {{ subtitle.file_size|filesizeformat }}</p>
+        <p class="tab40">Md5 Checksum: {{ subtitle.file_md5 }}</p>
+
+        <br><h4 class="tab20">Subtitle Details:</h4>
+        <p class="tab40">Asset Type: {{ subtitle.get_type_display }}</p>
+        <p class="tab40">Locale: {{ subtitle.get_locale_display }}</p>
+    </div>
+
+{% endblock %}

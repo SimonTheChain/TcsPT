@@ -68,6 +68,13 @@
 
             {% endfor %}
     {% endif %}
+    {% if project.subtitle_set.all %}
+            {% for sub in project.subtitle_set.all %}
+
+                    <li class="tab40"><a href="{% url 'assetmanage:subtitle_details' sub.id %}">{{ sub.file_name }}</a></li>
+
+            {% endfor %}
+    {% endif %}
 
             <br><li class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
 

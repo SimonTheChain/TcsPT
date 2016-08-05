@@ -95,7 +95,6 @@ class Video(models.Model):
     crop_left = models.IntegerField(default=4)
     type = models.CharField(max_length=25, choices=VIDEO_TYPES, default="feature")
     status = models.CharField(max_length=25, choices=ASSET_STATUS, default="active")
-    metadata = models.ForeignKey(Metadata, default=1, related_name="video_set")
     project = models.ForeignKey(Project, default=1)
 
     def get_absolute_url(self):
