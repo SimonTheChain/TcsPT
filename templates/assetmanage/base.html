@@ -58,8 +58,16 @@
                         <li role="presentation"><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>  Images</a></li>
                         <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  Notes</a></li>
 
-                        <li role="presentation">
-                            <a href="{% url 'assetmanage:asset_select' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong>Asset</strong></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong>Add</strong><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li role="presentation"><a href="{% url 'assetmanage:video_add' %}"><strong>Video</strong></a></li>
+                            <li role="presentation"><a href="{% url 'assetmanage:audio_add' %}"><strong>Audio</strong></a></li>
+                            <li role="presentation"><a href="{% url 'assetmanage:subtitle_add' %}"><strong>Subtitle</strong></a></li>
+                            <li role="presentation"><a href="#">Image</a></li>
+                            <li role="presentation"><a href="#">Note</a></li>
+                        </ul>
                     </ul>
             </div>
             <div class="nav navbar-nav navbar-right">
@@ -71,7 +79,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <strong>Communications</strong> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'news:post_list' %}"><strong>News</strong></a></a></li>
+                        <li role="presentation"><a href="{% url 'news:post_list' %}"><strong>News</strong></a></li>
                         <li role="presentation"><a href="#">Wiki</a></li>
                         <li role="presentation"><a href="#">Forums</a></li>
                         <li role="presentation"><a href="#">Chat</a></li>

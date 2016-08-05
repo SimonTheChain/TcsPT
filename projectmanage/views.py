@@ -12,8 +12,22 @@ from .models import Provider, Project, Rejection
 @login_required(login_url="portal/login")
 def index(request):
     time_now = timezone.now()
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by("title")
     return render(request, "projectmanage/index.html", {"time_now": time_now, "projects": projects})
+
+
+@login_required(login_url="portal/login")
+def index_providers(request):
+    time_now = timezone.now()
+    providers = Provider.objects.all().order_by("name")
+    return render(request, "projectmanage/index_providers.html", {"time_now": time_now, "providers": providers})
+
+
+@login_required(login_url="portal/login")
+def index_rejections(request):
+    time_now = timezone.now()
+    rejections = Rejection.objects.all().order_by("project")
+    return render(request, "projectmanage/index_rejections.html", {"time_now": time_now, "rejections": rejections})
 
 
 @login_required(login_url="portal/login")

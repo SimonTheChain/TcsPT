@@ -9,6 +9,13 @@ urlpatterns = [
     #  /projectmanage/
     url(r'^$', views.index, name="index"),
 
+    #  /projectmanage/index_providers
+    url(r'^index_providers$', views.index_providers, name="index_providers"),
+
+    #  /projectmanage/index_rejections
+    url(r'^index_rejections$', views.index_rejections, name="index_rejections"),
+
+
     #  /projectmanage/providers/
     url(r'^providers/$', views.ProvidersView.as_view(), name="providers"),
 
