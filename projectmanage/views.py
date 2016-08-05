@@ -5,8 +5,12 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core import serializers
+from django.http import HttpResponse
+import xml.dom.minidom
 
 from .models import Provider, Project, Rejection
+from assetmanage.models import Video, Audio, Subtitle
 
 
 @login_required(login_url="portal/login")
@@ -33,6 +37,33 @@ def index_rejections(request):
 @login_required(login_url="portal/login")
 def search(request):
     return render(request, 'projectmanage/search.html')
+
+
+@login_required(login_url="portal/login")
+def download_video_xml(request, pk):
+    data = serializers.serialize("xml", [Video(project_id=pk), ])
+    dom = xml.dom.minidom.parseString(data).toprettyxml()
+    response = HttpResponse(dom, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=video.xml'
+    return response
+
+
+@login_required(login_url="portal/login")
+def download_audio_xml(request, pk):
+    data = serializers.serialize("xml", [Audio(project_id=pk), ])
+    dom = xml.dom.minidom.parseString(data).toprettyxml()
+    response = HttpResponse(dom, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=audio.xml'
+    return response
+
+
+@login_required(login_url="portal/login")
+def download_subtitle_xml(request, pk):
+    data = serializers.serialize("xml", [Subtitle(project_id=pk), ])
+    dom = xml.dom.minidom.parseString(data).toprettyxml()
+    response = HttpResponse(dom, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=subtitle.xml'
+    return response
 
 
 class ProvidersView(LoginRequiredMixin, generic.ListView):

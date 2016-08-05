@@ -15,6 +15,14 @@ urlpatterns = [
     #  /projectmanage/index_rejections
     url(r'^index_rejections$', views.index_rejections, name="index_rejections"),
 
+    #  /projectmanage/video/xml/download
+    url(r'^project/(?P<pk>[0-9]+)/xml/video/download/$', views.download_video_xml, name="download_video_xml"),
+
+    #  /projectmanage/audio/xml/download
+    url(r'^project/(?P<pk>[0-9]+)/xml/audio/download/$', views.download_audio_xml, name="download_audio_xml"),
+
+    #  /projectmanage/subtitle/xml/download
+    url(r'^project/(?P<pk>[0-9]+)/xml/subtitle/download/$', views.download_subtitle_xml, name="download_subtitle_xml"),
 
     #  /projectmanage/providers/
     url(r'^providers/$', views.ProvidersView.as_view(), name="providers"),
