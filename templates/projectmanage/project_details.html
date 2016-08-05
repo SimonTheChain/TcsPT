@@ -61,56 +61,87 @@
     {% endif %}
 
     <br><h4 class="tab20">Assets:</h4>
-    <ul>
-    {% if project.video_set.all %}
-            {% for video in project.video_set.all %}
 
-                    <li class="tab40"><a href="{% url 'assetmanage:video_details' video.id %}">{{ video.file_name }}</a></li>
+    <div class="btn-group-vertical tab40" role="group">
+        {% for video in project.video_set.all %}
 
-            {% endfor %}
+            {% if video.status == "active" %}
 
-    {% endif %}
-    {% if project.audio_set.all %}
+                <a href="{% url 'assetmanage:video_details' video.id %}" class="btn btn-success">{{ video.file_name }}</a>
+
+            {% endif %}
+
+        {% endfor %}
+        {% if project.audio_set.all %}
             {% for audio in project.audio_set.all %}
+                {% if audio.status == "active" %}
 
-                    <li class="tab40"><a href="{% url 'assetmanage:audio_details' audio.id %}">{{ audio.file_name }}</a></li>
+                    <a href="{% url 'assetmanage:audio_details' audio.id %}" class="btn btn-success">{{ audio.file_name }}</a>
 
+                {% endif %}
             {% endfor %}
-    {% endif %}
-    {% if project.subtitle_set.all %}
-            {% for sub in project.subtitle_set.all %}
+        {% endif %}
+        {% if project.subtitle_set.all %}
+                {% for sub in project.subtitle_set.all %}
+                    {% if sub.status == "active" %}
 
-                    <li class="tab40"><a href="{% url 'assetmanage:subtitle_details' sub.id %}">{{ sub.file_name }}</a></li>
+                    <a href="{% url 'assetmanage:subtitle_details' sub.id %}" class="btn btn-success">{{ sub.file_name }}</a>
 
+                    {% endif %}
+                {% endfor %}
+        {% endif %}
+
+        {% for video in project.video_set.all %}
+
+            {% if video.status == "archived" %}
+
+                <a href="{% url 'assetmanage:video_details' video.id %}" class="btn btn-warning">{{ video.file_name }}</a>
+
+            {% endif %}
+
+        {% endfor %}
+        {% if project.audio_set.all %}
+            {% for audio in project.audio_set.all %}
+                {% if audio.status == "archived" %}
+
+                    <a href="{% url 'assetmanage:audio_details' audio.id %}" class="btn btn-warning">{{ audio.file_name }}</a>
+
+                {% endif %}
             {% endfor %}
-    {% endif %}
+        {% endif %}
+        {% if project.subtitle_set.all %}
+                {% for sub in project.subtitle_set.all %}
+                    {% if sub.status == "archived" %}
 
-            <br><li class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
+                    <a href="{% url 'assetmanage:subtitle_details' sub.id %}" class="btn btn-warning">{{ sub.file_name }}</a>
 
-    </ul>
+                    {% endif %}
+                {% endfor %}
+        {% endif %}
+
+        <a href="{% url 'assetmanage:asset_select' %}" class="btn btn-default">Add Asset</a>
+        </div>
 
     <br><h4 class="tab20">Rejections:</h4>
+    <div class="btn-group-vertical tab40" role="group">
+
     {% if project.rejection_set.all %}
-        <ul>
-            {% for rejection in project.rejection_set.all %}
+        {% for rejection in project.rejection_set.all %}
+            {% if rejection.status == "open" %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:rejection_details' rejection.id %}">{{ rejection.get_status_display }} - {{ rejection.reason }}</a></li>
+                <a href="{% url 'projectmanage:rejection_details' rejection.id %}" class="btn btn-danger">{{ rejection.reason }}</a>
 
-            {% endfor %}
+            {% endif %}
+        {% endfor %}
+        {% for rejection in project.rejection_set.all %}
+            {% if rejection.status == "closed" %}
 
-            <br><li class="tab40"><a href="{% url 'projectmanage:rejection_add' %}"><strong>Add Rejection</strong></a></li>
+                <a href="{% url 'projectmanage:rejection_details' rejection.id %}" class="btn btn-success">{{ rejection.reason }}</a>
 
-        </ul>
-    {% else %}
-
-        <ul>
-
-            <li class="tab40">No rejections to display</li>
-            <br><li class="tab40"><a href="{% url 'projectmanage:rejection_add' %}"><strong>Add Rejection</strong></a></li>
-
-        </ul>
-
+            {% endif %}
+        {% endfor %}
     {% endif %}
-
+    <a href="{% url 'projectmanage:rejection_add' %}" class="btn btn-default">Add Rejection</a>
+    </div>
 
 {% endblock %}
