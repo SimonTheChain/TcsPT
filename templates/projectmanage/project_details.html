@@ -48,7 +48,11 @@
         <div class="btn-group-vertical tab40" role="group">
             <a href="{% url 'projectmanage:project_update' project.id %}" class="btn btn-default">Edit</a>
             <a href="{% url 'projectmanage:project_delete' project.id %}" class="btn btn-danger">Delete</a>
-            <a href="{% url 'projectmanage:project_operator' project.id %}" class="btn btn-primary">Assigned to {{ project.operator.first_name }}</a>
+            {% if project.operator.first_name == "" %}
+            <a href="{% url 'projectmanage:project_operator' project.id %}" class="btn btn-primary">Operator: {{ project.operator.username }}</a>
+            {% else %}
+            <a href="{% url 'projectmanage:project_operator' project.id %}" class="btn btn-primary">Operator: {{ project.operator.first_name }}</a>
+            {% endif %}
             <a href="{% url 'projectmanage:project_status' project.id %}" class="btn btn-primary">Change Status</a>
         </div>
     </div>

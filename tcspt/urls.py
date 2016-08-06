@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^administration/', include("administration.urls", namespace="administration")),
     url(r'news/', include("news.urls", namespace="news")),
     url(r'metadata/', include("metadata.urls", namespace="metadata")),
+    url(r'^search/', include("haystack.urls")),
 ]
 
 if settings.DEBUG:

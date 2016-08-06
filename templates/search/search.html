@@ -1,0 +1,74 @@
+{% extends "portal/base.html" %}
+
+{% block title %}TcsPT - Search{% endblock %}
+
+{% block body %}
+
+    <div>
+        <h1 class="tab20">Technicolor Creative Services</h1>
+
+        <h2 class="tab40">Production Tools - Search</h2>
+    </div>
+
+    <br><div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <form method="get" action=".">
+                                <table>
+                                    {{ form.as_table }}
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <input type="submit" class="btn btn-success" value="Search">
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                {% if query %}
+                                    <h3>Results:</h3>
+
+                                    {% for result in page.object_list %}
+                                        {% if result.object.name %}
+                                        <p>
+                                            <a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a>
+                                        </p>
+                                        {% endif %}
+                                        {% if result.object.title %}
+                                        <p>
+                                            <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+                                        </p>
+                                        {% endif %}
+                                        {% if result.object.reason %}
+                                        <p>
+                                            <a href="{{ result.object.get_absolute_url }}">{{ result.object.reason }}</a>
+                                        </p>
+                                        {% endif %}
+                                        {% if result.object.file_name %}
+                                        <p>
+                                            <a href="{{ result.object.get_absolute_url }}">{{ result.object.file_name }}</a>
+                                        </p>
+                                        {% endif %}
+                                    {% empty %}
+                                        <p>No results found.</p>
+                                    {% endfor %}
+
+                                    {% if page.has_previous or page.has_next %}
+                                        <div>
+                                            {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                                            |
+                                            {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                                        </div>
+                                    {% endif %}
+                                {% else %}
+                                    {# Show some example queries to run, maybe query syntax, something else? #}
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}

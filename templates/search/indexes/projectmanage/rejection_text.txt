@@ -1,0 +1,4 @@
+{{ object.platform }}
+{{ object.reason }}
+{{ object.action }}
+{{ object.status }}

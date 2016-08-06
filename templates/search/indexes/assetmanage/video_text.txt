@@ -1,0 +1,5 @@
+{{ object.file_name }}
+{{ object.get_locale_display }}
+{{ object.get_format_display }}
+{{ object.get_type_display }}
+{{ object.status }}
