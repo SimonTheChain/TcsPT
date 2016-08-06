@@ -7,7 +7,6 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core import serializers
 from django.http import HttpResponse
-import xml.dom.minidom
 
 from .models import Provider, Project, Rejection
 from assetmanage.models import Video, Audio, Subtitle
@@ -108,7 +107,7 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Project
-    fields = ["title", "itunes", "google", "sasktel", "netflix", "status", "provider", "operator", ]
+    fields = ["title", "platform", "start_date", "due_date", "status", "provider", "operator", ]
 
 
 class ProviderUpdate(LoginRequiredMixin, UpdateView):
@@ -122,7 +121,7 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Project
-    fields = ["title", "itunes", "google", "sasktel", "netflix", "status", "provider", "operator", ]
+    fields = ["title", "platform", "start_date", "due_date", "status", "provider", "operator", ]
 
 
 class ProjectOperator(LoginRequiredMixin, UpdateView):

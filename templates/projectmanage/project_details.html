@@ -42,26 +42,35 @@
     <div class="container-fluid">
         <h3 class="tab20">Title: {{ project.title }}</h3>
         <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' project.provider.id %}">{{ project.provider.name }}</a></h4>
-        <h5 class="tab40"><a href="{% url 'projectmanage:project_update' project.id %}">Edit</a></h5>
-        <h5 class="tab40"><a href="{% url 'projectmanage:project_delete' project.id %}">Delete</a></h5>
-        <h5 class="tab40">Assigned to: <a href="{% url 'projectmanage:project_operator' project.id %}">{{ project.operator }}</a></h5>
-        <h5 class="tab40">Change <a href="{% url 'projectmanage:project_status' project.id %}">Status</a></h5>
     </div>
 
     <div class="container-fluid">
-        <br><p class="tab20"><strong>Deliver for:</strong></p>
-        <p class="tab40">iTunes: {{ project.itunes }}</p>
-        <p class="tab40">Google: {{ project.google }}</p>
-        <p class="tab40">Sasktel: {{ project.sasktel }}</p>
-        <p class="tab40">Netflix: {{ project.netflix }}</p>
+        <div class="btn-group-vertical tab40" role="group">
+            <a href="{% url 'projectmanage:project_update' project.id %}" class="btn btn-default">Edit</a>
+            <a href="{% url 'projectmanage:project_delete' project.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'projectmanage:project_operator' project.id %}" class="btn btn-primary">Assigned to {{ project.operator.first_name }}</a>
+            <a href="{% url 'projectmanage:project_status' project.id %}" class="btn btn-primary">Change Status</a>
+        </div>
     </div>
 
     <div class="container-fluid">
+        <br><h4 class="tab20">Details:</h4>
+        <div class="tab40">
+            <p><strong>Platform:</strong> {{ project.get_platform_display }}</p>
+            <p><strong>Start Date:</strong> {{ project.start_date }}</p>
+            <p><strong>Due Date:</strong> {{ project.due_date }}</p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <br><h4 class="tab20">Metadata:</h4>
+        <div class="btn-group-vertical tab40" role="group">
         {% if project.metadata.id %}
-            <br><h4 class="tab20"><a href="{% url 'metadata:metadata_details' project.metadata.id %}">Metadata</a></h4>
+            <a href="{% url 'metadata:metadata_details' project.metadata.id %}" class="btn btn-primary">Metadata</a>
         {% else %}
-            <br><h4 class="tab20"><a href="{% url 'metadata:metadata_add' %}">Create Metadata</a></h4>
+            <a href="{% url 'metadata:metadata_add' %}" class="btn btn-success">Create Metadata</a>
         {% endif %}
+        </div>
     </div>
 
     <div class="container-fluid">
