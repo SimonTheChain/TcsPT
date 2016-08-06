@@ -38,7 +38,7 @@
         {% for rejection in rejections %}
             {% if rejection.status == "closed" %}
 
-                <a href="{% url 'projectmanage:rejection_details' pk=rejection.pk %}" class="btn btn-default">{{ rejection.project.title }}</a>
+                <a href="{% url 'projectmanage:rejection_details' pk=rejection.pk %}" class="btn btn-success">{{ rejection.project.title }}</a>
 
             {% endif %}
         {% endfor %}

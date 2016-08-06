@@ -39,26 +39,30 @@
 
     {% endif %}
 
+    <div class="container-fluid">
+        <h3 class="tab20">Title: {{ project.title }}</h3>
+        <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' project.provider.id %}">{{ project.provider.name }}</a></h4>
+        <h5 class="tab40"><a href="{% url 'projectmanage:project_update' project.id %}">Edit</a></h5>
+        <h5 class="tab40"><a href="{% url 'projectmanage:project_delete' project.id %}">Delete</a></h5>
+        <h5 class="tab40">Assigned to: <a href="{% url 'projectmanage:project_operator' project.id %}">{{ project.operator }}</a></h5>
+        <h5 class="tab40">Change <a href="{% url 'projectmanage:project_status' project.id %}">Status</a></h5>
+    </div>
 
-    <h3 class="tab20">Title: {{ project.title }}</h3>
-    <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' project.provider.id %}">{{ project.provider.name }}</a></h4>
-    <h5 class="tab40"><a href="{% url 'projectmanage:project_update' project.id %}">Edit</a></h5>
-    <h5 class="tab40"><a href="{% url 'projectmanage:project_delete' project.id %}">Delete</a></h5>
-    <h5 class="tab40">Assigned to: <a href="{% url 'projectmanage:project_operator' project.id %}">{{ project.operator }}</a></h5>
-    <h5 class="tab40">Change <a href="{% url 'projectmanage:project_status' project.id %}">Status</a></h5>
+    <div class="container-fluid">
+        <br><p class="tab20"><strong>Deliver for:</strong></p>
+        <p class="tab40">iTunes: {{ project.itunes }}</p>
+        <p class="tab40">Google: {{ project.google }}</p>
+        <p class="tab40">Sasktel: {{ project.sasktel }}</p>
+        <p class="tab40">Netflix: {{ project.netflix }}</p>
+    </div>
 
-    <br><p class="tab20"><strong>Deliver for:</strong></p>
-    <p class="tab40">iTunes: {{ project.itunes }}</p>
-    <p class="tab40">Google: {{ project.google }}</p>
-    <p class="tab40">Sasktel: {{ project.sasktel }}</p>
-    <p class="tab40">Netflix: {{ project.netflix }}</p>
-
-
-    {% if project.metadata.id %}
-        <br><h4 class="tab20"><a href="{% url 'metadata:metadata_details' project.metadata.id %}">Metadata</a></h4>
-    {% else %}
-        <br><h4 class="tab20"><a href="{% url 'metadata:metadata_add' %}">Create Metadata</a></h4>
-    {% endif %}
+    <div class="container-fluid">
+        {% if project.metadata.id %}
+            <br><h4 class="tab20"><a href="{% url 'metadata:metadata_details' project.metadata.id %}">Metadata</a></h4>
+        {% else %}
+            <br><h4 class="tab20"><a href="{% url 'metadata:metadata_add' %}">Create Metadata</a></h4>
+        {% endif %}
+    </div>
 
     <div class="container-fluid">
         <br><h4 class="tab20">Assets:</h4>
@@ -125,16 +129,12 @@
     <div class="container-fluid">
         <br><h4 class="tab20">Add Asset:</h4>
         <div class="btn-group-vertical tab40" role="group">
-            <a href="{% url 'projectmanage:download_video_xml' project.id %}" class="btn btn-primary">Add Video (Download xml)</a>
-            <a href="#" class="btn btn-default">Add Video (Upload xml)</a>
-            <a href="{% url 'projectmanage:download_audio_xml' project.id %}" class="btn btn-primary">Add Audio (Download xml)</a>
-            <a href="#" class="btn btn-default">Add Audio (Upload xml)</a>
-            <a href="{% url 'projectmanage:download_subtitle_xml' project.id %}" class="btn btn-primary">Add Subtitle (Download xml)</a>
-            <a href="#" class="btn btn-default">Add Subtitle (Upload xml)</a>
-            <a href="#" class="btn btn-default">Add Image (Download xml)</a>
-            <a href="#" class="btn btn-default">Add Image (Upload xml)</a>
-            <a href="#" class="btn btn-default">Add Note (Download xml)</a>
-            <a href="#" class="btn btn-default">Add Note (Upload xml)</a>
+            <a href="{% url 'projectmanage:download_video_xml' project.id %}" class="btn btn-primary"><strong>Download Video xml</strong></a>
+            <a href="{% url 'projectmanage:download_audio_xml' project.id %}" class="btn btn-primary"><strong>Download Audio xml</strong></a>
+            <a href="{% url 'projectmanage:download_subtitle_xml' project.id %}" class="btn btn-primary"><strong>Download Subtitle xml</strong></a>
+            <a href="#" class="btn btn-primary">Download Image xml</a>
+            <a href="#" class="btn btn-primary">Download Note xml</a>
+            <a href="{% url 'assetmanage:asset_add_xml' %}" class="btn btn-default"><strong>Add Asset</strong></a>
         </div>
     </div>
 

@@ -1,0 +1,30 @@
+{% extends 'assetmanage/base.html' %}
+
+{% block title %}TcsPT - Upload xml{% endblock %}
+
+{% block body %}
+
+    <div class="tab20"><h3>Upload Xml</h3></div>
+    <div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <form action="" enctype="multipart/form-data" method="post">
+                        {% csrf_token %}
+                        <input type="file" class="btn btn-primary" name="xmlfile">
+
+                        <input type="submit" class="btn btn-success" value="Submit">
+                    </form>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

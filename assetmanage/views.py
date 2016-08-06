@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -9,8 +9,10 @@ from django.core import serializers
 from django.http import HttpResponse
 import xml.dom.minidom
 import os
+from django.views.generic.edit import FormView
+from .forms import FileFieldForm
 
-from .models import Video, Audio, Subtitle, Image, Note
+from .models import Video, Audio, Subtitle, Image, Note, Asset
 
 
 @login_required(login_url="portal/login")
@@ -52,6 +54,17 @@ def download_subtitle_xml(request, pk):
     response = HttpResponse(dom, content_type='text/xml')
     response['Content-Disposition'] = 'attachment; filename=%s.xml' % filename
     return response
+
+
+@login_required(login_url="portal/login")
+def upload_xml(request):
+    if request.method == "POST":
+        for obj in serializers.deserialize("xml", request.FILES['xmlfile']):
+            obj.save()
+        return redirect("assetmanage:index")
+
+    else:
+        return render(request, "assetmanage/xml_upload.html")
 
 
 class VideosView(LoginRequiredMixin, generic.ListView):
@@ -246,3 +259,42 @@ class SubtitleDelete(LoginRequiredMixin, DeleteView):
     redirect_field_name = 'redirect_to'
     model = Subtitle
     success_url = reverse_lazy("assetmanage:subtitles")
+
+
+class FileFieldView(LoginRequiredMixin, FormView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    form_class = FileFieldForm
+    template_name = "assetmanage/xml_upload.html"
+    success_url = "/assetmanage/index/"
+
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        files = request.FILES.getlist('file_field')
+        print("1")  # DEBUG
+
+        if form.is_valid():
+            print("2")  # DEBUG
+            for fichier in files:
+                if not fichier.endswith(".xml"):
+                    print("3")  # DEBUG
+                    raise form.ValidationError("Invalid file type; only xml files are supported.")
+
+                else:
+                    print("4")  # DEBUG
+                    for obj in serializers.deserialize("xml", fichier):
+                        obj.save()
+
+            return self.form_valid(form)
+
+        else:
+            print("5")  # DEBUG
+            return self.form_invalid(form)
+
+
+class AssetCreate(LoginRequiredMixin, CreateView):
+    login_url = '/portal/login/'
+    redirect_field_name = 'redirect_to'
+    model = Asset
+    fields = ["fichier", ]

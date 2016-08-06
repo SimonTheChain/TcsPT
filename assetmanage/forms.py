@@ -22,3 +22,7 @@ class VideoForm(forms.ModelForm):
             "crop_left",
             "status"
         ]
+
+
+class FileFieldForm(forms.Form):
+    file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))

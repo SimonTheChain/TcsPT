@@ -2,6 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from projectmanage.models import Project
 from metadata.models import Metadata
+import os
 
 
 VIDEO_TYPES = (
@@ -118,7 +119,7 @@ class Audio(models.Model):
     channel_6 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
     channel_7 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
     channel_8 = models.CharField(max_length=25, choices=AUDIO_CHANNELS, default="noaudio")
-    type = models.CharField(max_length=25, choices=AUDIO_TYPES, default="feature")
+    type = models.CharField(max_length=25, choices=AUDIO_TYPES, default="feataltaudio")
     status = models.CharField(max_length=25, choices=ASSET_STATUS, default="active")
     project = models.ForeignKey(Project, default=1)
 
@@ -178,3 +179,13 @@ class Note(models.Model):
 
     def __str__(self):
         return self.file_name
+
+
+class Asset(models.Model):
+    fichier = models.FileField()
+
+    def get_absolute_url(self):
+        return reverse("assetmanage:index")
+
+    def __str__(self):
+        return os.path.basename(self.fichier.name)

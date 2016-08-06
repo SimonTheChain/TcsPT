@@ -13,6 +13,9 @@ urlpatterns = [
     #  /assetmanage/asset/select/
     url(r'^asset/select/$', views.asset_select, name="asset_select"),
 
+    #  /asset/add/xml/
+    url(r'^asset/add/xml/$', views.upload_xml, name="asset_add_xml"),
+
     #  /assetmanage/video/xml/download
     url(r'^video/(?P<pk>[0-9]+)/xml/download/$', views.download_video_xml, name="download_video_xml"),
 
