@@ -30,8 +30,8 @@
       <file leaf-file-name="search.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/search/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
+            <state relative-caret-position="44">
+              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -496,13 +496,6 @@
       <option name="presentableId" value="Default" />
       <updated>1469513682195</updated>
     </task>
-    <task id="LOCAL-00009" summary="Added models to assets">
-      <created>1469841786364</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1469841786364</updated>
-    </task>
     <task id="LOCAL-00010" summary="Added forms to assets">
       <created>1469843801675</created>
       <option name="number" value="00010" />
@@ -839,7 +832,14 @@
       <option name="project" value="LOCAL" />
       <updated>1470466968357</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Fixes to the search template">
+      <created>1470468104904</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1470468104904</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -898,7 +898,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added the ability to delete news posts" />
     <MESSAGE value="Made the navbar fixed and static&#10;Project status is now displayed as a progress bar" />
     <MESSAGE value="Added code to make the Rejection table accessible" />
     <MESSAGE value="Redesigned the database" />
@@ -923,7 +922,8 @@
     <MESSAGE value="Implemented the function to update the database via an xml" />
     <MESSAGE value="Project table is now single platform" />
     <MESSAGE value="Implemented haystack and whoosh" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented haystack and whoosh" />
+    <MESSAGE value="Fixes to the search template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes to the search template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1357,8 +1357,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/search/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
+        <state relative-caret-position="44">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
           <folding />
         </state>
       </provider>

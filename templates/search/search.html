@@ -30,31 +30,33 @@
                                 {% if query %}
                                     <h3>Results:</h3>
 
+                                    <ul>
+
                                     {% for result in page.object_list %}
 
                                         {% if result.object.name %}
-                                            <h4>Providers</h4>
+                                            <li><h4>Providers</h4></li>
                                             <p>
                                                 <a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a>
                                             </p>
                                         {% endif %}
 
                                         {% if result.object.title %}
-                                            <h4>Projects</h4>
+                                            <li><h4>Projects</h4></li>
                                             <p>
                                                 <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
                                             </p>
                                         {% endif %}
 
                                         {% if result.object.file_name %}
-                                            <h4>Assets</h4>
+                                            <li><h4>Assets</h4></li>
                                             <p>
                                             <a href="{{ result.object.get_absolute_url }}">{{ result.object.file_name }}</a>
                                             </p>
                                         {% endif %}
 
                                         {% if result.object.reason %}
-                                            <h4>Rejections</h4>
+                                            <li><h4>Rejections</h4></li>
                                             <p>
                                             <a href="{{ result.object.get_absolute_url }}">{{ result.object.reason }}</a>
                                             </p>
@@ -65,6 +67,8 @@
                                         <p>No results found.</p>
 
                                     {% endfor %}
+
+                                    </ul>
 
                                     {% if page.has_previous or page.has_next %}
                                         <div>
