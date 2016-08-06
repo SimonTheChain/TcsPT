@@ -30,57 +30,30 @@
                                 {% if query %}
                                     <h3>Results:</h3>
 
-                                    <ul>
-
-                                        {% for result in page.object_list %}
-
-                                            {% if forloop.counter == 1 %}
-
-                                                {% if result.object.name %}
-                                                    <li><h4>Providers</h4></li>
-                                                    {% for result in page.object_list %}
-                                                    <p>
-                                                        <a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a>
-                                                    </p>
-                                                    {% endfor %}
-                                                {% endif %}
-
-                                                {% if result.object.title %}
-                                                    <li><h4>Projects</h4></li>
-                                                    {% for result in page.object_list %}
-                                                    <p>
-                                                        <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
-                                                    </p>
-                                                    {% endfor %}
-                                                {% endif %}
-
-                                                {% if result.object.file_name %}
-                                                    <li><h4>Assets</h4></li>
-                                                    {% for result in page.object_list %}
-                                                    <p>
-                                                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.file_name }}</a>
-                                                    </p>
-                                                    {% endfor %}
-                                                {% endif %}
-
-                                                {% if result.object.reason %}
-                                                    <li><h4>Rejections</h4></li>
-                                                    {% for result in page.object_list %}
-                                                    <p>
-                                                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.reason }}</a>
-                                                    </p>
-                                                    {% endfor %}
-                                                {% endif %}
-
-                                            {% endif %}
-
-                                        {% empty %}
-
-                                            <p>No results found.</p>
-
-                                        {% endfor %}
-
-                                    </ul>
+                                    {% for result in page.object_list %}
+                                        {% if result.object.name %}
+                                        <p>
+                                            <a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a>
+                                        </p>
+                                        {% endif %}
+                                        {% if result.object.title %}
+                                        <p>
+                                            <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+                                        </p>
+                                        {% endif %}
+                                        {% if result.object.reason %}
+                                        <p>
+                                            <a href="{{ result.object.get_absolute_url }}">{{ result.object.reason }}</a>
+                                        </p>
+                                        {% endif %}
+                                        {% if result.object.file_name %}
+                                        <p>
+                                            <a href="{{ result.object.get_absolute_url }}">{{ result.object.file_name }}</a>
+                                        </p>
+                                        {% endif %}
+                                    {% empty %}
+                                        <p>No results found.</p>
+                                    {% endfor %}
 
                                     {% if page.has_previous or page.has_next %}
                                         <div>
