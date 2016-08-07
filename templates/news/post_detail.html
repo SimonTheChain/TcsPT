@@ -4,12 +4,11 @@
 
 {% block body %}
 
-    <div>
-
+    <div class="container-fluid">
         <h3 class="tab20">Post Details</h3>
     </div>
 
-    <div class="post">
+    <div class="post container-fluid">
 
         <br><h4 class="tab20">{{ post.title }}</h4>
 
@@ -23,59 +22,64 @@
         {% else %}
             {% if user.is_staff %}
 
-            <a class="btn btn-default tab20" href="{% url 'news:post_publish' pk=post.pk %}">Publish</a>
+
+                <div class="container-fluid">
+                    <a class="btn btn-success tab20" href="{% url 'news:post_publish' pk=post.pk %}">Publish</a>
+                </div>
 
             {% endif %}
 
         {% endif %}
 
-        <br><p class="tab40">{{ post.text|linebreaksbr }}</p>
 
-        {% if post.name == "" %}
+            <br><p class="tab40">{{ post.text|linebreaksbr }}</p>
 
-            <p class="tab40">Author: <strong>{{ post.author }}</strong></p>
+            {% if post.name == "" %}
 
-        {% else %}
-
-            <p class="tab40">Author: <strong>{{ post.name }}</strong></p>
-
-        {% endif %}
-
-        {% if user.is_staff %}
-            <div class="tab40">
-            <a class="btn btn-default" href="{% url 'news:post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><a class="btn btn-default" href="{% url 'news:post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-            </div>
-        {% endif %}
-
-    </div>
-
-    <hr>
-
-    <a class="btn btn-default tab20" href="{% url 'news:add_comment' pk=post.pk %}">Add comment</a>
-
-    {% for comment in post.comments.all %}
-
-        <div class="comment">
-            <div class="date">{{ comment.created_date|timezone:"America/Montreal" }}</div>
-
-            <p class="tab20">{{ comment.text|linebreaks }}</p>
-
-            {% if comment.name == "" %}
-
-                <p class="tab40">Author: <strong>{{ comment.author }}</strong></p>
+                <p class="tab40">Author: <strong>{{ post.author }}</strong></p>
 
             {% else %}
 
-                <p class="tab40">Author: <strong>{{ comment.name }}</strong></p>
+                <p class="tab40">Author: <strong>{{ post.name }}</strong></p>
 
             {% endif %}
 
-        </div>
+            {% if user.is_staff %}
+                <div class="tab40">
+                <a class="btn btn-default" href="{% url 'news:post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><a class="btn btn-danger" href="{% url 'news:post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+            {% endif %}
 
-    {% empty %}
 
-        <p class="tab40">No comments</p>
+    </div>
 
-    {% endfor %}
+    <br><div class="container-fluid">
+        <a class="btn btn-primary tab20" href="{% url 'news:add_comment' pk=post.pk %}">Add comment</a>
+
+        {% for comment in post.comments.all %}
+
+            <div class="comment">
+                <div class="date">{{ comment.created_date|timezone:"America/Montreal" }}</div>
+
+                <p class="tab20">{{ comment.text|linebreaks }}</p>
+
+                {% if comment.name == "" %}
+
+                    <p>Author: <strong>{{ comment.author }}</strong></p>
+
+                {% else %}
+
+                    <p>Author: <strong>{{ comment.name }}</strong></p>
+
+                {% endif %}
+
+            </div>
+
+        {% empty %}
+
+            <p class="tab40">No comments</p>
+
+        {% endfor %}
+    </div>
 
 {% endblock %}

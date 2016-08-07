@@ -1,19 +1,26 @@
 {% extends 'news/base.html' %}
 
+{% block title %}TcsPT - News Drafts{% endblock %}
+
 {% block body %}
 
-    <div>
+    <div class="container-fluid">
         <br><h3 class="tab20">Drafts</h3>
     </div>
 
     {% load tz %}
     {% for post in posts %}
 
-        <div>
-            <br><h4 class="tab20"><a href="{% url 'news:post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
-            <p class="tab20">created: {{ post.created_date|timezone:"America/Montreal" }}</p>
-            <p class="tab20">published: {{ post.published_date|timezone:"America/Montreal" }}</p>
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <a href="{% url 'news:post_detail' pk=post.pk %}" class="btn btn-primary">{{ post.title }}</a>
+            </div>
+        </div>
+
+        <br><div class="container-fluid">
+            <p class="tab20"><strong>Created:</strong> {{ post.created_date|timezone:"America/Montreal" }}</p>
             <p class="tab40">{{ post.text|linebreaksbr }}</p>
+            <p class="tab40">Author:<strong>{{ post.name }}</strong></p>
         </div>
 
     {% endfor %}

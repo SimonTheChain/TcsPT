@@ -10,7 +10,7 @@ from .forms import PostForm, CommentForm
 def post_list(request):
     time_now = timezone.now()
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'news/post_list.html', {'posts': posts, "time_now": time_now})
+    return render(request, 'news/index.html', {'posts': posts, "time_now": time_now})
 
 
 @login_required(login_url="portal/login")

@@ -4,13 +4,13 @@
 
 {% block body %}
 
-    <div>
+    <div class="container-fluid">
         <h1 class="tab20">Technicolor Creative Services</h1>
 
         <h2 class="tab40">Production Tools - Administration</h2>
     </div>
 
-    <div>
+    <div class="container-fluid">
         {% load tz %}
         <br><p class="tab20"><strong>Los Angeles:</strong> {{ time_now|timezone:"America/Los_Angeles" }}</p>
         <p class="tab20"><strong>Montreal:</strong> {{ time_now|timezone:"America/Montreal" }}</p>
@@ -19,15 +19,14 @@
         <p class="tab20"><strong>Sydney:</strong> {{ time_now|timezone:"Australia/Sydney" }}</p>
     </div>
 
-    <div>
-        <br><h4 class="tab20">Quick Links:</h4>
-        <ul>
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Groups</a></li>
-            <li><a href="{% url 'administration:database' %}">Database</a></li>
-            <br><li><a href="#"><strong>Add User</strong></a></li>
-            <li><a href="#"><strong>Add Group</strong></a></li>
-        </ul>
+    <div class="container-fluid">
+        <br><h3 class="tab20">Database:</h3>
+        <div class="btn-group-vertical tab40" role="group">
+
+            <a href="{% url 'administration:project_database_image' %}" class="btn btn-primary">Project</a>
+            <a href="{% url 'administration:global_database_image' %}" class="btn btn-primary">Global</a>
+
+        </div>
     </div>
 
 {% endblock %}
