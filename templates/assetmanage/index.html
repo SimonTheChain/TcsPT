@@ -4,13 +4,13 @@
 
 {% block body %}
 
-    <div>
+    <div class="container-fluid">
         <h1 class="tab20">Technicolor Creative Services</h1>
 
         <h2 class="tab40">Production Tools - Assets</h2>
     </div>
 
-    <div>
+    <div class="container-fluid">
         {% load tz %}
         <br><p class="tab20"><strong>Los Angeles:</strong> {{ time_now|timezone:"America/Los_Angeles" }}</p>
         <p class="tab20"><strong>Montreal:</strong> {{ time_now|timezone:"America/Montreal" }}</p>
@@ -19,16 +19,15 @@
         <p class="tab20"><strong>Sydney:</strong> {{ time_now|timezone:"Australia/Sydney" }}</p>
     </div>
 
-    <div>
-        <br><h4 class="tab20">Quick Links:</h4>
-        <ul>
-            <li><a href="{% url 'assetmanage:videos' %}">Videos</a></li>
-            <li><a href="#">Audios</a></li>
-            <li><a href="#">Subtitles</a></li>
-            <li><a href="">Images</a></li>
-            <li><a href="#">Notes</a></li>
-            <br><li><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
-        </ul>
+    <br><div class="container-fluid">
+        <div class="btn-group-vertical tab40" role="group">
+            <a href="{% url 'assetmanage:videos' %}" class="btn btn-primary">Videos</a>
+            <a href="{% url 'assetmanage:audios' %}" class="btn btn-primary">Audios</a>
+            <a href="{% url 'assetmanage:subtitles' %}" class="btn btn-primary">Subtitles</a>
+            <a href="#" class="btn btn-primary">Images</a>
+            <a href="#" class="btn btn-primary">Notes</a>
+            <a href="{% url 'assetmanage:asset_add_xml' %}" class="btn btn-default">Add Asset</a>
+        </div>
     </div>
 
 {% endblock %}

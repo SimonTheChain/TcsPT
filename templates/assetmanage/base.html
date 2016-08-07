@@ -50,27 +50,72 @@
                 </div>
 
             </form>
-            <div class="nav navbar-nav navbar-left">
-                    <ul class="nav nav-pills">
-                        <li role="presentation"><a href="{% url 'assetmanage:videos' %}"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>  <strong>Videos</strong></a></li>
-                        <li role="presentation"><a href="{% url 'assetmanage:audios' %}"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>  <strong>Audios</strong></a></li>
-                        <li role="presentation"><a href="{% url 'assetmanage:subtitles' %}"><span class="glyphicon glyphicon-subtitles" aria-hidden="true"></span>  <strong>Subtitles</strong></a></li>
-                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>  Images</a></li>
-                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  Notes</a></li>
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong>Add</strong><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li role="presentation"><a href="{% url 'assetmanage:video_add' %}"><strong>Video</strong></a></li>
-                            <li role="presentation"><a href="{% url 'assetmanage:audio_add' %}"><strong>Audio</strong></a></li>
-                            <li role="presentation"><a href="{% url 'assetmanage:subtitle_add' %}"><strong>Subtitle</strong></a></li>
-                            <li role="presentation"><a href="#">Image</a></li>
-                            <li role="presentation"><a href="#">Note</a></li>
-                            <li role="presentation"><a href="{% url 'assetmanage:asset_add_xml' %}"><strong>Xml</strong></a></li>
-                        </ul>
+            <div class="nav navbar-nav">
+                <ul class="nav nav-pills">
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-film" aria-hidden="true"></span>  <strong>Videos</strong> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'assetmanage:videos' %}"><strong>Home</strong></a></li>
+                        <li><a href="#">Browse</a></li>
+                        <li><a href="#">Filters</a></li>
                     </ul>
+
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>  <strong>Audios</strong> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'assetmanage:audios' %}"><strong>Home</strong></a></li>
+                        <li><a href="#">Browse</a></li>
+                        <li><a href="#">Filters</a></li>
+                    </ul>
+
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-subtitles" aria-hidden="true"></span>  <strong>Subtitles</strong> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'assetmanage:subtitles' %}"><strong>Home</strong></a></li>
+                        <li><a href="#">Browse</a></li>
+                        <li><a href="#">Filters</a></li>
+                    </ul>
+
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>  Images <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Browse</a></li>
+                        <li><a href="#">Filters</a></li>
+                    </ul>
+
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>  Notes <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Browse</a></li>
+                        <li><a href="#">Filters</a></li>
+                    </ul>
+
+                </ul>
             </div>
+
+            <div class="nav navbar-nav navbar-left">
+                <ul class="nav nav-pills">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong>Add</strong><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="{% url 'assetmanage:video_add' %}"><strong>Video</strong></a></li>
+                    <li role="presentation"><a href="{% url 'assetmanage:audio_add' %}"><strong>Audio</strong></a></li>
+                    <li role="presentation"><a href="{% url 'assetmanage:subtitle_add' %}"><strong>Subtitle</strong></a></li>
+                    <li role="presentation"><a href="#">Image</a></li>
+                    <li role="presentation"><a href="#">Note</a></li>
+                    <li role="presentation"><a href="{% url 'assetmanage:asset_add_xml' %}"><strong>Xml</strong></a></li>
+                </ul>
+            </ul>
+            </div>
+
             <div class="nav navbar-nav navbar-right">
                 <ul class="nav nav-pills">
                     <li role="presentation">
@@ -114,7 +159,7 @@
 
         </div>
 
-        </div>
+    </div>
 </nav>
 
 {% block body %}

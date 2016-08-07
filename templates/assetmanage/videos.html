@@ -4,22 +4,61 @@
 
 {% block body %}
 
+    <div class="container-fluid">
+
+        <h1 class="tab20">Technicolor Creative Services</h1>
+        <h2 class="tab40">Production Tools - Videos</h2>
+
+    </div>
+
     {% if videos_list %}
-        <h3 class="tab20">List of videos ({{ videos_list.count }}):</h3>
+        <br><div class="container-fluid">
+        <h4>Active Videos:</h4>
 
-        <ul>
+            <div class="btn-group-vertical tab40" role="group">
 
-            {% for video in videos_list %}
-                <li><a href="{% url 'assetmanage:video_details' video.id %}">{{ video.file_name }}</a></li>
-            {% endfor %}
-            <br><li><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
+                {% for video in videos_list %}
 
-        </ul>
+                    {% if video.status == "active" %}
+
+                        <a href="{% url 'assetmanage:video_details' video.id %}" class="btn btn-success">{{ video.file_name }}</a>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <br><div class="container-fluid">
+        <h4>Archived Videos:</h4>
+
+            <div class="btn-group-vertical tab40" role="group">
+
+                {% for video in videos_list %}
+
+                    {% if video.status == "archived" %}
+
+                        <a href="{% url 'assetmanage:video_details' video.id %}" class="btn btn-warning">{{ video.file_name }}</a>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+        </div>
 
     {% else %}
-        <h3 class="tab20">No videos to display</h3>
 
-        <br><p class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></p>
+        <br><div class="container-fluid">
+        <h4>No Videos to Display</h4>
+
+            <div class="btn-group-vertical tab40" role="group">
+
+                <a href="{% url 'assetmanage:asset_add_xml' %}" class="btn btn-default">Add Asset</a>
+
+            </div>
+        </div>
 
     {% endif %}
 

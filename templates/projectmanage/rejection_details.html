@@ -23,16 +23,22 @@
     {% endif %}
 
 
-    <div>
+    <div class="container-fluid">
         <h3 class="tab20">Title: <a href="{% url 'projectmanage:project_details' rejection.project.id %}">{{ rejection.project.title }}</a></h3>
         <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' rejection.project.provider.id %}">{{ rejection.project.provider.name }}</a></h4>
-        <h5 class="tab40"><a href="{% url 'projectmanage:rejection_update' rejection.id %}">Edit</a></h5>
-        <h5 class="tab40"><a href="{% url 'projectmanage:rejection_delete' rejection.id %}">Delete</a></h5>
+    </div>
 
-        <br><p class="tab20"><strong>Details:</strong></p>
-        <p class="tab40">Platform: {{ rejection.platform }}</p>
-        <p class="tab40">Reason: {{ rejection.reason }}</p>
-        <p class="tab40">Action: {{ rejection.action }}</p>
+    <div class="container-fluid">
+        <div class="btn-group-vertical tab40" role="group">
+            <a href="{% url 'projectmanage:rejection_update' rejection.id %}" class="btn btn-default">Edit</a>
+            <a href="{% url 'projectmanage:rejection_delete' rejection.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+
+        <br><h4 class="tab20">Details:</h4>
+        <p class="tab40"><strong>Reason:</strong> {{ rejection.reason }}</p>
+        <p class="tab40"><strong>Details:</strong> {{ rejection.details }}</p>
+        <p class="tab40"><strong>Action:</strong> {{ rejection.action }}</p>
     </div>
 
 {% endblock %}

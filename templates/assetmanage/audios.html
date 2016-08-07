@@ -3,23 +3,61 @@
 {% block title %}TcsPT - Audios{% endblock %}
 
 {% block body %}
+    
+    <div class="container-fluid">
+        <h1 class="tab20">Technicolor Creative Services</h1>
+
+        <h2 class="tab40">Production Tools - Audios</h2>
+    </div>
 
     {% if audios_list %}
-        <h3 class="tab20">List of audios ({{ audios_list.count }}):</h3>
+        <br><div class="container-fluid">
+        <h4>Active Audios:</h4>
 
-        <ul>
+            <div class="btn-group-vertical tab40" role="group">
 
-            {% for audio in audios_list %}
-                <li><a href="{% url 'assetmanage:audio_details' audio.id %}">{{ audio.file_name }}</a></li>
-            {% endfor %}
-            <br><li><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></li>
+                {% for audio in audios_list %}
 
-        </ul>
+                    {% if audio.status == "active" %}
+
+                        <a href="{% url 'assetmanage:audio_details' audio.id %}" class="btn btn-success">{{ audio.file_name }}</a>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <br><div class="container-fluid">
+        <h4>Archived Audios:</h4>
+
+            <div class="btn-group-vertical tab40" role="group">
+
+                {% for audio in audios_list %}
+
+                    {% if audio.status == "archived" %}
+
+                        <a href="{% url 'assetmanage:audio_details' audio.id %}" class="btn btn-warning">{{ audio.file_name }}</a>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+        </div>
 
     {% else %}
-        <h3 class="tab20">No audios to display</h3>
 
-        <br><p class="tab40"><a href="{% url 'assetmanage:asset_select' %}"><strong>Add Asset</strong></a></p>
+        <br><div class="container-fluid">
+        <h4>No Audios to Display</h4>
+
+            <div class="btn-group-vertical tab40" role="group">
+
+                <a href="{% url 'assetmanage:asset_add_xml' %}" class="btn btn-default">Add Asset</a>
+
+            </div>
+        </div>
 
     {% endif %}
 

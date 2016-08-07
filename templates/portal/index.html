@@ -4,13 +4,13 @@
 
 {% block body %}
 
-    <div>
+    <div class="container-fluid">
         <h1 class="tab20">Technicolor Creative Services</h1>
 
         <h2 class="tab40">Production Tools</h2>
     </div>
 
-    <div>
+    <div class="container-fluid">
         {% load tz %}
         <br><p class="tab20"><strong>Los Angeles:</strong> {{ time_now|timezone:"America/Los_Angeles" }}</p>
         <p class="tab20"><strong>Montreal:</strong> {{ time_now|timezone:"America/Montreal" }}</p>
@@ -19,28 +19,30 @@
         <p class="tab20"><strong>Sydney:</strong> {{ time_now|timezone:"Australia/Sydney" }}</p>
     </div>
 
-    <div>
+    <div class="container-fluid">
         <br><h3 class="tab20">Latest <a href="{% url 'news:post_list' %}">News:</a></h3>
-        {% load tz %}
-        {% for post in posts %}
-            {% if forloop.counter <= 3 %}
-            <div>
-                <h4 class="tab40"><a href="{% url 'news:post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
-                <p class="tab40">published: {{ post.published_date|timezone:"America/Montreal" }}</p>
-            </div>
-            {% endif %}
 
-        {% endfor %}
+        <div class="btn-group-vertical tab40" role="group">
+            {% for post in posts %}
+
+                {% if forloop.counter <= 3 %}
+
+                    <a href="{% url 'news:post_detail' pk=post.pk %}" class="btn btn-primary">{{ post.title }}</a>
+
+                {% endif %}
+
+            {% endfor %}
+        </div>
     </div>
 
-    <div>
+    <div class="container-fluid">
         <br><h3 class="tab20">About:</h3>
         <p class="tab40"><strong>Welcome to Technicolor Creative Services Production Tools.</strong></p>
         <p class="tab40">The objective of this site is to provide each department of the DSC with a unique set of tools, designed to answer their specific needs, while sharing information through a common database.</p>
         <p class="tab40">A desktop application will be developed to handle file operations (renaming, size retrieval, calculating checksum, etc.); to update the database accordingly, xml forms will be exchanged with the site.</p>
     </div>
 
-    <div>
+    <div class="container-fluid">
         <br><h4 class="tab20">Components:</h4>
 
         <ul>

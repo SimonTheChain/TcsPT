@@ -4,29 +4,30 @@
 
 {% block body %}
 
-    <div class="tab20">
-        <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' metadata.project.provider.id %}">{{ metadata.project.provider.name }}</a></h4>
+    <div class="container-fluid">
+        <h3 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' metadata.project.provider.id %}">{{ metadata.project.provider.name }}</a></h3>
         <h4 class="tab20">Project: <a href="{% url 'projectmanage:project_details' metadata.project.id %}">{{ metadata.project.title }}</a></h4>
     </div>
 
-    <div class="tab40">
-        <h5><a href="{% url 'metadata:metadata_update' metadata.id %}">Edit</a></h5>
-        <h5><a href="{% url 'metadata:metadata_delete' metadata.id %}">Delete</a></h5>
-    </div>
-
-    <div>
-        <br><h4 class="tab20">Generate Xml:</h4>
+    <div class="container-fluid">
         <div class="btn-group-vertical tab40" role="group">
-            <a href="{% url 'metadata:download_raw_xml' metadata.id %}" class="btn btn-primary">Raw</a>
-            <a href="#" class="btn btn-default">iTunes</a>
-            <a href="#" class="btn btn-default"">Google</a>
-            <a href="#" class="btn btn-default"">Sasktel</a>
-            <a href="#" class="btn btn-default"">Netflix</a>
+            <a href="{% url 'metadata:metadata_update' metadata.id %}" class="btn btn-default">Edit</a>
+            <a href="{% url 'metadata:metadata_delete' metadata.id %}" class="btn btn-danger">Delete</a>
         </div>
     </div>
 
-    <div class="tab20">
-        <br><h4><a href="{% url 'metadata:metadata_general' metadata.id %}">General Details:</a></h4>
+    <br><div class="container-fluid">
+        <h4>Generate Xml:</h4>
+        <div class="btn-group-vertical tab40" role="group">
+            <a href="{% url 'metadata:download_raw_xml' metadata.id %}" class="btn btn-primary">Raw</a>
+            <a href="#" class="btn btn-primary">iTunes</a>
+            <a href="#" class="btn btn-primary">Google</a>
+            <a href="#" class="btn btn-primary">Sasktel</a>
+        </div>
+    </div>
+
+    <br><div class="container-fluid">
+        <h4><a href="{% url 'metadata:metadata_general' metadata.id %}">General Details:</a></h4>
         <div class="tab40">
             <p><strong>Studio release title:</strong> {{ metadata.studio_release_title }}</p>
             <p><strong>Theatrical release date:</strong> {{ metadata.release_date }}</p>
@@ -39,8 +40,8 @@
             <p><strong>Synopsis short FR:</strong> {{ metadata.synopsis_short_fr }}</p>
         </div>
     </div>
-    <div class="tab20">
-        <br><h4><a href="{% url 'metadata:metadata_itunes' metadata.id %}">iTunes Details:</a></h4>
+    <br><div class="container-fluid">
+        <h4><a href="{% url 'metadata:metadata_itunes' metadata.id %}">iTunes Details:</a></h4>
         <div class="tab40">
             <p><strong>EST start date:</strong> {{ metadata.itunes_est_start_date }}</p>
             <p><strong>EST end date:</strong> {{ metadata.itunes_est_end_date }}</p>
@@ -50,8 +51,8 @@
             <p><strong>HD price tier:</strong> {{ metadata.itunes_hd_price_tier }}</p>
         </div>
     </div>
-    <div class="tab20">
-        <br><h4><a href="{% url 'metadata:metadata_sasktel' metadata.id %}">Sasktel Details:</a></h4>
+    <br><div class="container-fluid">
+        <h4><a href="{% url 'metadata:metadata_sasktel' metadata.id %}">Sasktel Details:</a></h4>
         <div class="tab40">
             <p><strong>Licensing start date:</strong> {{ metadata.sasktel_license_start_date }}</p>
             <p><strong>Licensing end date:</strong> {{ metadata.sasktel_license_end_date }}</p>

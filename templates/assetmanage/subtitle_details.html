@@ -22,21 +22,28 @@
 
     {% endif %}
 
-    <div>
+    <div class="container-fluid">
         <h3 class="tab20">Filename: {{ subtitle.file_name }}</h3>
         <h4 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' subtitle.project.provider.id %}">{{ subtitle.project.provider.name }}</a></h4>
         <h4 class="tab20">Project: <a href="{% url 'projectmanage:project_details' subtitle.project.id %}">{{ subtitle.project.title }}</a></h4>
-        <h5 class="tab40"><a href="{% url 'assetmanage:subtitle_update' subtitle.id %}">Edit</a></h5>
-        <h5 class="tab40"><a href="{% url 'assetmanage:subtitle_delete' subtitle.id %}">Delete</a></h5>
-        <h5 class="tab40"><a href="{% url 'assetmanage:download_subtitle_xml' subtitle.id %}">Download xml</a></h5>
     </div>
 
-    <div>
+    <div class="container-fluid">
+        <div class="btn-group-vertical tab40" role="group">
+            <a href="{% url 'assetmanage:subtitle_update' subtitle.id %}" class="btn btn-default">Edit</a>
+            <a href="{% url 'assetmanage:subtitle_delete' subtitle.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'assetmanage:download_subtitle_xml' subtitle.id %}" class="btn btn-primary">Download xml</a>
+        </div>
+    </div>
+
+    <div class="container-fluid">
         <br><h4 class="tab20">File Details:</h4>
         <p class="tab40">Path: {{ subtitle.file_path }}</p>
         <p class="tab40">Size: {{ subtitle.file_size|filesizeformat }}</p>
         <p class="tab40">Md5 Checksum: {{ subtitle.file_md5 }}</p>
+    </div>
 
+    <div class="container-fluid">
         <br><h4 class="tab20">Subtitle Details:</h4>
         <p class="tab40">Asset Type: {{ subtitle.get_type_display }}</p>
         <p class="tab40">Locale: {{ subtitle.get_locale_display }}</p>
