@@ -17,9 +17,17 @@
     </div>
 
     <br><div class="container-fluid">
-        <h4>Generate Xml:</h4>
+        <h4>Download by Format:</h4>
         <div class="btn-group-vertical tab40" role="group">
-            <a href="{% url 'metadata:download_raw_xml' metadata.id %}" class="btn btn-primary">Raw</a>
+            <a href="{% url 'metadata:download_raw_xml' metadata.id %}" class="btn btn-primary">Xml</a>
+            <a href="{% url 'metadata:download_csv' metadata.id %}" class="btn btn-primary">Csv</a>
+            <a href="#" class="btn btn-primary">Pdf</a>
+        </div>
+    </div>
+
+    <br><div class="container-fluid">
+        <h4>Download by Platform:</h4>
+        <div class="btn-group-vertical tab40" role="group">
             <a href="#" class="btn btn-primary">iTunes</a>
             <a href="#" class="btn btn-primary">Google</a>
             <a href="#" class="btn btn-primary">Sasktel</a>

@@ -8,7 +8,9 @@ from django.core.urlresolvers import reverse_lazy
 from django.core import serializers
 from django.http import HttpResponse
 from itertools import chain
+from xml.etree import ElementTree
 import xml.dom.minidom
+import csv
 
 from .models import Metadata
 from projectmanage.models import Project
@@ -20,6 +22,34 @@ def index(request):
     time_now = timezone.now()
     projects = Project.objects.all()
     return render(request, "metadata/index.html", {"time_now": time_now, "projects": projects, })
+
+
+@login_required(login_url="portal/login")
+def download_csv(request, pk):
+    #  create the objects to process
+    metadata = Metadata.objects.get(pk=pk)
+    project_source = metadata.project.pk
+    videos = Video.objects.filter(project=project_source)
+    audios = Audio.objects.filter(project=project_source)
+    subs = Subtitle.objects.filter(project=project_source)
+    meta_list = [metadata, ]
+
+    #  convert tables to xml
+    combined = list(chain(meta_list, videos, audios, subs, ))
+    data = serializers.serialize("xml", combined)
+    root = ElementTree.fromstring(data)
+
+    #  create the HttpResponse object with the appropriate CSV header
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=metadata_%s.csv' % project_source
+
+    writer = csv.writer(response)
+
+    for element in root.findall(".//field"):
+        writer.writerow([element.attrib["name"], element.text])
+
+    #  send the csv for download
+    return response
 
 
 @login_required(login_url="portal/login")
@@ -39,7 +69,7 @@ def download_raw_xml(request, pk):
 
     #  send the xml for download
     response = HttpResponse(dom, content_type='text/xml')
-    response['Content-Disposition'] = 'attachment; filename=metadata.xml'
+    response['Content-Disposition'] = 'attachment; filename=metadata_%s.csv' % project_source
     return response
 
 
