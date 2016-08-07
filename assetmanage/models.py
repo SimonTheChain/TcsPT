@@ -179,13 +179,3 @@ class Note(models.Model):
 
     def __str__(self):
         return self.file_name
-
-
-class Asset(models.Model):
-    fichier = models.FileField()
-
-    def get_absolute_url(self):
-        return reverse("assetmanage:index")
-
-    def __str__(self):
-        return os.path.basename(self.fichier.name)

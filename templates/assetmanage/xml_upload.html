@@ -15,10 +15,9 @@
 
                     <form action="" enctype="multipart/form-data" method="post">
                         {% csrf_token %}
-                        <input type="file" class="btn btn-primary" name="xmlfile">
+                        <input type="file" class="btn btn-primary" name="xmlfile" multiple>
 
                         <input type="submit" class="btn btn-success" value="Submit">
-                    </form>
                     </form>
 
                 </div>

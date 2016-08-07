@@ -12,7 +12,7 @@ import os
 from django.views.generic.edit import FormView
 from .forms import FileFieldForm
 
-from .models import Video, Audio, Subtitle, Image, Note, Asset
+from .models import Video, Audio, Subtitle, Image, Note  # Asset
 
 
 @login_required(login_url="portal/login")
@@ -293,8 +293,8 @@ class FileFieldView(LoginRequiredMixin, FormView):
             return self.form_invalid(form)
 
 
-class AssetCreate(LoginRequiredMixin, CreateView):
-    login_url = '/portal/login/'
-    redirect_field_name = 'redirect_to'
-    model = Asset
-    fields = ["fichier", ]
+# class AssetCreate(LoginRequiredMixin, CreateView):
+#     login_url = '/portal/login/'
+#     redirect_field_name = 'redirect_to'
+#     model = Asset
+#     fields = ["fichier", ]
