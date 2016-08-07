@@ -4,37 +4,141 @@
 
 {% block body %}
 
-    <h3 class="tab20">Provider: {{ provider.name }}</h3>
+    <div class="container-fluid">
+        <h3 class="tab20">Provider: {{ provider.name }}</h3>
+    </div>
 
-    <h5 class="tab40"><a href="{% url 'projectmanage:provider_update' provider.id %}">Edit</a></h5>
-    <h5 class="tab40"><a href="{% url 'projectmanage:provider_delete' provider.id %}">Delete</a></h5>
+    <div class="container-fluid">
+        <div class="btn-group-vertical tab40" role="group">
+            <a href="{% url 'projectmanage:provider_update' provider.id %}" class="btn btn-default">Edit</a>
+            <a href="{% url 'projectmanage:provider_delete' provider.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
 
-    <br><h4 class="tab20">Details:</h4>
-    <p class="tab40">iTunes Code: {{ provider.itunes_code }}</p>
-    <p class="tab40">iTunes Connect Username: {{ provider.itc_user }}</p>
-    <p class="tab40">iTunes Connect Password: {{ provider.itc_password }}</p><br>
+    <div class="container-fluid">
+        <br><h4 class="tab20">Details:</h4>
+        <p class="tab40"><strong>iTunes Code:</strong> {{ provider.itunes_code }}</p>
+        <p class="tab40"><strong>iTunes Connect Username:</strong> {{ provider.itc_user }}</p>
+        <p class="tab40"><strong>iTunes Connect Password:</strong> {{ provider.itc_password }}</p>
+    </div>
 
-    <h4 class="tab20">Projects:</h4>
-    {% if provider.project_set.all %}
-        <ul>
+    <div class="container-fluid">
+        <br><h4 class="tab20">Projects:</h4>
+        <div class="btn-group-vertical tab40" role="group">
+        {% if provider.project_set.all %}
+
+            <div class="container-fluid">
+            <br><h4 class="tab20">Production Workflow Done:</h4>
+                <div class="btn-group-vertical tab40" role="group">
+                {% for project in provider.project_set.all %}
+
+                    {% if project.status == "prequaldone" or project.status == "qcdone" or project.status == "packdone" or project.status == "metadone" %}
+
+                        <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-success">{{ project.title }}</a>
+
+                    {% endif %}
+
+                {% endfor %}
+                </div>
+
+                <br><h4 class="tab20">Data Wrangling Workflow Done:</h4>
+                <div class="btn-group-vertical tab40" role="group">
+                {% for project in provider.project_set.all %}
+
+                    {% if project.status == "datadownloaded" or project.status == "datacopied" or project.status == "datauploaded" or project.status == "dataarchived" %}
+
+                            <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-success">{{ project.title }}</a>
+
+                    {% endif %}
+
+                {% endfor %}
+                </div>
+            </div>
+
+        <div class="container-fluid">
+            <br><br><h4 class="tab20">Ready for Production Workflow:</h4>
+            <div class="btn-group-vertical tab40" role="group">
             {% for project in provider.project_set.all %}
 
-                    <li class="tab40"><a href="{% url 'projectmanage:project_details' project.id %}">{{ project.title }}</a></li>
+                {% if project.status == "prequalready" or project.status == "qcready" or project.status == "packready" or project.status == "metaready" %}
+
+                        <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-primary">{{ project.title }}</a>
+
+                {% endif %}
+
+            {% endfor %}
+            </div>
+
+            <br><h4 class="tab20">Ready for Data Wrangling Workflow:</h4>
+            <div class="btn-group-vertical tab40" role="group">
+            {% for project in provider.project_set.all %}
+
+                {% if project.status == "datadownready" or project.status == "datacopyready" or project.status == "dataupready" or project.status == "dataarchready" %}
+
+                        <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-primary">{{ project.title }}</a>
+
+                {% endif %}
+
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <br><br><h4 class="tab20">Production Workflow in Progress:</h4>
+            <div class="btn-group-vertical tab40" role="group">
+            {% for project in provider.project_set.all %}
+
+                {% if project.status == "prequalprogress" or project.status == "qcprogress" or project.status == "packprogress" or project.status == "metaprogress" %}
+
+                        <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-info">{{ project.title }}</a>
+
+                {% endif %}
+
+            {% endfor %}
+            </div>
+
+            <br><h4 class="tab20">Data Wrangling Workflow in Progress:</h4>
+            <div class="btn-group-vertical tab40" role="group">
+            {% for project in provider.project_set.all %}
+
+                {% if project.status == "datadownloading" or project.status == "datacopyinng" or project.status == "datauploading" or project.status == "dataarchiving" %}
+
+                        <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-info">{{ project.title }}</a>
+
+                {% endif %}
+
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <br><br><h4 class="tab20">In Pre-Production:</h4>
+            <div class="btn-group-vertical tab40" role="group">
+            {% for project in provider.project_set.all %}
+
+                {% if project.status == "preprod" %}
+
+                        <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-default">{{ project.title }}</a>
+
+                {% endif %}
+
+            {% endfor %}
+            </div>
+
+            <br><h4 class="tab20">Completed:</h4>
+            <div class="btn-group-vertical tab40" role="group">
+            {% for project in provider.project_set.all %}
+
+                {% if project.status == "completed" %}
+
+                        <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-default">{{ project.title }}</a>
+
+                {% endif %}
 
             {% endfor %}
 
-            <br><li class="tab40"><a href="{% url 'projectmanage:project_add' %}"><strong>Add Project</strong></a></li>
-        </ul>
-
-    {% else %}
-
-        <ul>
-
-            <li class="tab40">No projects to display</li>
-            <br><li class="tab40"><a href="{% url 'projectmanage:project_add' %}"><strong>Add Project</strong></a></li>
-
-        </ul>
-
-    {% endif %}
+        {% endif %}
+        </div>
+    </div>
 
 {% endblock %}
