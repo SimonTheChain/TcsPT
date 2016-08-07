@@ -93,8 +93,8 @@ class Project(models.Model):
 
 
 class Rejection(models.Model):
-    platform = models.CharField(max_length=250, choices=PLATFORMS, default="itunes")
     reason = models.CharField(max_length=1000, default="")
+    details = models.TextField(default="")
     action = models.CharField(max_length=1000, default="", blank=True, null=True)
     status = models.CharField(max_length=25, choices=REJECTION_STATUS, default="open")
     project = models.ForeignKey(Project, on_delete=models.CASCADE)

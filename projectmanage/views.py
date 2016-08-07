@@ -173,14 +173,14 @@ class RejectionCreate(LoginRequiredMixin, CreateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Rejection
-    fields = ["project", "platform", "reason", "action", "status"]
+    fields = ["project", "reason", "details", "action", "status"]
 
 
 class RejectionUpdate(LoginRequiredMixin, UpdateView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
     model = Rejection
-    fields = ["project", "platform", "reason", "action", "status"]
+    fields = ["project", "reason", "details", "action", "status"]
 
 
 class RejectionDelete(LoginRequiredMixin, DeleteView):
