@@ -10,8 +10,8 @@ urlpatterns = [
     #  /metadata/
     url(r'^$', views.index, name="index"),
 
-    #  /metadata/metadata/1/xml_raw/download
-    url(r'^metadata/(?P<pk>[0-9]+)/xml_raw/download/$', views.download_raw_xml, name="download_raw_xml"),
+    #  /metadata/metadata/1/xml/download
+    url(r'^metadata/(?P<pk>[0-9]+)/xml/download/$', views.download_xml, name="download_xml"),
 
     #  /metadata/metadata/1/csv/download
     url(r'^metadata/(?P<pk>[0-9]+)/csv/download/$', views.download_csv, name="download_csv"),

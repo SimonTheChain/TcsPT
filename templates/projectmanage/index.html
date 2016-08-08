@@ -111,7 +111,7 @@
 
             {% if project.status == "preprod" %}
 
-                    <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-default">{{ project.title }}</a>
+                    <a href="{% url 'projectmanage:project_details' pk=project.pk %}" class="btn btn-warning">{{ project.title }}</a>
 
             {% endif %}
 

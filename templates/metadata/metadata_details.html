@@ -7,19 +7,26 @@
     <div class="container-fluid">
         <h3 class="tab20">Provider: <a href="{% url 'projectmanage:provider_details' metadata.project.provider.id %}">{{ metadata.project.provider.name }}</a></h3>
         <h4 class="tab20">Project: <a href="{% url 'projectmanage:project_details' metadata.project.id %}">{{ metadata.project.title }}</a></h4>
+        <h4 class="tab20">Platform: {{ metadata.project.get_platform_display }}</h4>
     </div>
 
     <div class="container-fluid">
         <div class="btn-group-vertical tab40" role="group">
             <a href="{% url 'metadata:metadata_update' metadata.id %}" class="btn btn-default">Edit</a>
             <a href="{% url 'metadata:metadata_delete' metadata.id %}" class="btn btn-danger">Delete</a>
+            {% if project.operator.first_name == "" %}
+            <a href="{% url 'projectmanage:project_operator' metadata.project.id %}" class="btn btn-primary">Operator: {{ metadata.project.operator.username }}</a>
+            {% else %}
+            <a href="{% url 'projectmanage:project_operator' metadata.project.id %}" class="btn btn-primary">Operator: {{ metadata.project.operator.first_name }}</a>
+            {% endif %}
+            <a href="{% url 'projectmanage:project_status' metadata.project.id %}" class="btn btn-primary">Change Status</a>
         </div>
     </div>
 
     <br><div class="container-fluid">
         <h4>Download by Format:</h4>
         <div class="btn-group-vertical tab40" role="group">
-            <a href="{% url 'metadata:download_raw_xml' metadata.id %}" class="btn btn-primary">Xml</a>
+            <a href="{% url 'metadata:download_xml' metadata.id %}" class="btn btn-primary">Xml</a>
             <a href="{% url 'metadata:download_csv' metadata.id %}" class="btn btn-primary">Csv</a>
             <a href="#" class="btn btn-primary">Pdf</a>
         </div>

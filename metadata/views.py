@@ -28,6 +28,7 @@ def index(request):
 def download_csv(request, pk):
     #  create the objects to process
     metadata = Metadata.objects.get(pk=pk)
+    project_title = metadata.project.title
     project_source = metadata.project.pk
     videos = Video.objects.filter(project=project_source)
     audios = Audio.objects.filter(project=project_source)
@@ -41,7 +42,7 @@ def download_csv(request, pk):
 
     #  create the HttpResponse object with the appropriate CSV header
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename=metadata_%s.csv' % project_source
+    response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % project_title
 
     writer = csv.writer(response)
 
@@ -53,9 +54,10 @@ def download_csv(request, pk):
 
 
 @login_required(login_url="portal/login")
-def download_raw_xml(request, pk):
+def download_xml(request, pk):
     #  create the objects to process
     metadata = Metadata.objects.get(pk=pk)
+    project_title = metadata.project.title
     project_source = metadata.project.pk
     videos = Video.objects.filter(project=project_source)
     audios = Audio.objects.filter(project=project_source)
@@ -69,7 +71,7 @@ def download_raw_xml(request, pk):
 
     #  send the xml for download
     response = HttpResponse(dom, content_type='text/xml')
-    response['Content-Disposition'] = 'attachment; filename=metadata_%s.csv' % project_source
+    response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % project_title
     return response
 
 
