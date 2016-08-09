@@ -42,7 +42,8 @@ def download_csv(request, pk):
 
     #  create the HttpResponse object with the appropriate CSV header
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % project_title
+    response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % \
+                                      project_title.replace(' ', '').lower()
 
     writer = csv.writer(response)
 
@@ -71,7 +72,8 @@ def download_xml(request, pk):
 
     #  send the xml for download
     response = HttpResponse(dom, content_type='text/xml')
-    response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % project_title
+    response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % \
+                                      project_title.replace(' ', '').lower()
     return response
 
 
