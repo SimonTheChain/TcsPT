@@ -40,25 +40,31 @@ def search(request):
 
 @login_required(login_url="portal/login")
 def download_video_xml(request, pk):
+    project = Project.objects.get(pk=pk)
     data = serializers.serialize("xml", [Video(project_id=pk), ])
+    filename = project.title.replace(' ', '').lower()
     response = HttpResponse(data, content_type='text/xml')
-    response['Content-Disposition'] = 'attachment; filename=video.xml'
+    response['Content-Disposition'] = 'attachment; filename=%s_video.xml' % filename
     return response
 
 
 @login_required(login_url="portal/login")
 def download_audio_xml(request, pk):
+    project = Project.objects.get(pk=pk)
     data = serializers.serialize("xml", [Audio(project_id=pk), ])
+    filename = project.title.replace(' ', '').lower()
     response = HttpResponse(data, content_type='text/xml')
-    response['Content-Disposition'] = 'attachment; filename=audio.xml'
+    response['Content-Disposition'] = 'attachment; filename=%s_audio.xml' % filename
     return response
 
 
 @login_required(login_url="portal/login")
 def download_subtitle_xml(request, pk):
+    project = Project.objects.get(pk=pk)
     data = serializers.serialize("xml", [Subtitle(project_id=pk), ])
+    filename = project.title.replace(' ', '').lower()
     response = HttpResponse(data, content_type='text/xml')
-    response['Content-Disposition'] = 'attachment; filename=subtitle.xml'
+    response['Content-Disposition'] = 'attachment; filename=%s_subtitle.xml' % filename
     return response
 
 
