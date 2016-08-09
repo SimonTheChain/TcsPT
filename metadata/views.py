@@ -1,20 +1,23 @@
-from django.shortcuts import render
+import csv
+import xml.dom.minidom
+from itertools import chain
+from xml.etree import ElementTree
+import io
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core import serializers
+from django.core.urlresolvers import reverse_lazy
+from django.http import HttpResponse
+from django.shortcuts import render
 from django.utils import timezone
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
-from django.core import serializers
-from django.http import HttpResponse
-from itertools import chain
-from xml.etree import ElementTree
-import xml.dom.minidom
-import csv
+from xlsxwriter.workbook import Workbook
 
-from .models import Metadata
-from projectmanage.models import Project
 from assetmanage.models import Video, Audio, Subtitle
+from projectmanage.models import Project
+from .models import Metadata
 
 
 @login_required(login_url="portal/login")
@@ -22,6 +25,29 @@ def index(request):
     time_now = timezone.now()
     projects = Project.objects.all()
     return render(request, "metadata/index.html", {"time_now": time_now, "projects": projects, })
+
+
+@login_required(login_url="portal/login")
+def download_xml(request, pk):
+    #  create the objects to process
+    metadata = Metadata.objects.get(pk=pk)
+    project_title = metadata.project.title
+    project_source = metadata.project.pk
+    videos = Video.objects.filter(project=project_source)
+    audios = Audio.objects.filter(project=project_source)
+    subs = Subtitle.objects.filter(project=project_source)
+    meta_list = [metadata, ]
+
+    #  convert tables to xml
+    combined = list(chain(meta_list, videos, audios, subs, ))
+    data = serializers.serialize("xml", combined)
+    dom = xml.dom.minidom.parseString(data).toprettyxml()
+
+    #  send the xml for download
+    response = HttpResponse(dom, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % \
+                                      project_title.replace(' ', '').lower()
+    return response
 
 
 @login_required(login_url="portal/login")
@@ -55,10 +81,10 @@ def download_csv(request, pk):
 
 
 @login_required(login_url="portal/login")
-def download_xml(request, pk):
+def download_xlsx(request, pk):
     #  create the objects to process
     metadata = Metadata.objects.get(pk=pk)
-    project_title = metadata.project.title
+    project_title = metadata.project.title.replace(" ", "").lower()
     project_source = metadata.project.pk
     videos = Video.objects.filter(project=project_source)
     audios = Audio.objects.filter(project=project_source)
@@ -67,13 +93,38 @@ def download_xml(request, pk):
 
     #  convert tables to xml
     combined = list(chain(meta_list, videos, audios, subs, ))
-    data = serializers.serialize("xml", combined)
-    dom = xml.dom.minidom.parseString(data).toprettyxml()
+    xmldata = serializers.serialize("xml", combined)
+    root = ElementTree.fromstring(xmldata)
 
-    #  send the xml for download
-    response = HttpResponse(dom, content_type='text/xml')
-    response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % \
+    #  create the HttpResponse object with the appropriate CSV header
+    temp_response = HttpResponse(content_type='text/csv')
+    temp_response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % \
                                       project_title.replace(' ', '').lower()
+    writer = csv.writer(temp_response)
+
+    for element in root.findall(".//field"):
+        writer.writerow([element.attrib["name"], element.text])
+
+    #  convert csv to xlsx
+    output = io.BytesIO()
+    wb = Workbook(output, {'in_memory': True})
+    ws = wb.add_worksheet("Metadata")  # % project_title.replace(' ', '').lower()
+    csvfile = temp_response.content.decode('utf-8')
+    table = csv.reader(io.StringIO(csvfile))
+
+    #  write each row from the csv file as text into the excel file
+    i = 0
+    for row in table:
+        ws.write_row(i, 0, row)
+        i += 1
+    wb.close()
+
+    #  send the csv for download
+    output.seek(0)
+    response = HttpResponse(
+        output.read(), content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+    response['Content-Disposition'] = "attachment; filename=%s_metadata.xlsx" % project_title
     return response
 
 
