@@ -45,7 +45,7 @@ def download_xml(request, pk):
 
     #  send the xml for download
     response = HttpResponse(dom, content_type='text/xml')
-    response['Content-Disposition'] = 'attachment; filename=%s_metadata.csv' % \
+    response['Content-Disposition'] = 'attachment; filename=%s_metadata.xml' % \
                                       project_title.replace(' ', '').lower()
     return response
 
