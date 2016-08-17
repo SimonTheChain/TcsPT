@@ -37,6 +37,9 @@ urlpatterns = [
     #  /metadata/metadata/1/general/
     url(r'^metadata/(?P<pk>[0-9]+)/general/$', views.MetadataGeneral.as_view(), name="metadata_general"),
 
+    #  /metadata/metadata/1/localization/
+    url(r'^metadata/(?P<pk>[0-9]+)/localization/$', views.MetadataLocalization.as_view(), name="metadata_localization"),
+
     #  /metadata/metadata/1/itunes/
     url(r'^metadata/(?P<pk>[0-9]+)/itunes/$', views.MetadataItunes.as_view(), name="metadata_itunes"),
 
