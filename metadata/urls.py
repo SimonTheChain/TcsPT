@@ -19,8 +19,8 @@ urlpatterns = [
     #  /metadata/metadata/1/csv/download
     url(r'^metadata/(?P<pk>[0-9]+)/xlsx/download/$', views.download_xlsx, name="download_xlsx"),
 
-    #  /metadata/metadata/xml_itunes/download
-    # url(r'^metadata/(?P<pk>[0-9]+)/xml_itunes/download/$', views.download_itunes_xml, name="download_itunes_xml"),
+    #  /metadata/metadata/itunes/download
+    url(r'^metadata/(?P<pk>[0-9]+)/itunes/download/$', views.download_itunes, name="download_itunes"),
 
     #  /metadata/metadatas/
     url(r'^metadata/$', views.MetadatasView.as_view(), name="metadatas"),

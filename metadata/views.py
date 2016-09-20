@@ -3,6 +3,7 @@ import xml.dom.minidom
 from itertools import chain
 from xml.etree import ElementTree
 import io
+import lxml.etree as etree
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -128,6 +129,36 @@ def download_xlsx(request, pk):
     return response
 
 
+@login_required(login_url="portal/login")
+def download_itunes(request, pk):
+    #  create the objects to process
+    metadata = Metadata.objects.get(pk=pk)
+    project_title = metadata.project.title
+    project_source = metadata.project.pk
+    videos = Video.objects.filter(project=project_source)
+    audios = Audio.objects.filter(project=project_source)
+    subs = Subtitle.objects.filter(project=project_source)
+    meta_list = [metadata, ]
+
+    #  convert tables to xml
+    combined = list(chain(meta_list, videos, audios, subs, ))
+    data1 = serializers.serialize("xml", combined)
+    data2 = str.encode(data1)
+    data3 = io.BytesIO(data2)
+    dom = etree.parse(data3)
+    xslt = etree.parse("metadata/xslt/FromDjangoToGoogle.xsl")
+    transform = etree.XSLT(xslt)
+    new_dom = transform(dom)
+
+    dom_results = etree.tostring(new_dom, pretty_print=True)
+
+    #  send the xml for download
+    response = HttpResponse(dom_results, content_type='text/xml')
+    response['Content-Disposition'] = 'attachment; filename=%s_metadata.xml' % \
+                                      project_title.replace(' ', '').lower()
+    return response
+
+
 class MetadatasView(LoginRequiredMixin, generic.ListView):
     login_url = '/portal/login/'
     redirect_field_name = 'redirect_to'
@@ -157,90 +188,11 @@ class MetadataCreate(LoginRequiredMixin, CreateView):
         "copyright_line",
         "release_date",
         "production_company",
-
-        # cast
-        "cast_1",
-        "cast_1_character_1",
-        "cast_1_character_2",
-        "cast_2",
-        "cast_2_character_1",
-        "cast_2_character_2",
-        "cast_3",
-        "cast_3_character_1",
-        "cast_3_character_2",
-        "cast_4",
-        "cast_4_character_1",
-        "cast_4_character_2",
-        "cast_5",
-        "cast_5_character_1",
-        "cast_5_character_2",
-        "cast_6",
-        "cast_6_character_1",
-        "cast_6_character_2",
-        "cast_7",
-        "cast_7_character_1",
-        "cast_7_character_2",
-        "cast_8",
-        "cast_8_character_1",
-        "cast_8_character_2",
-        "cast_9",
-        "cast_9_character_1",
-        "cast_9_character_2",
-        "cast_10",
-        "cast_10_character_1",
-        "cast_10_character_2",
-
-        # crew
-        "crew_1",
-        "crew_1_role_1",
-        "crew_1_role_2",
-        "crew_1_role_3",
-        "crew_1_role_4",
-        "crew_2",
-        "crew_2_role_1",
-        "crew_2_role_2",
-        "crew_2_role_3",
-        "crew_2_role_4",
-        "crew_3",
-        "crew_3_role_1",
-        "crew_3_role_2",
-        "crew_3_role_3",
-        "crew_3_role_4",
-        "crew_4",
-        "crew_4_role_1",
-        "crew_4_role_2",
-        "crew_4_role_3",
-        "crew_4_role_4",
-        "crew_5",
-        "crew_5_role_1",
-        "crew_5_role_2",
-        "crew_5_role_3",
-        "crew_5_role_4",
-        "crew_6",
-        "crew_6_role_1",
-        "crew_6_role_2",
-        "crew_6_role_3",
-        "crew_6_role_4",
-        "crew_7",
-        "crew_7_role_1",
-        "crew_7_role_2",
-        "crew_7_role_3",
-        "crew_7_role_4",
-        "crew_8",
-        "crew_8_role_1",
-        "crew_8_role_2",
-        "crew_8_role_3",
-        "crew_8_role_4",
-        "crew_9",
-        "crew_9_role_1",
-        "crew_9_role_2",
-        "crew_9_role_3",
-        "crew_9_role_4",
-        "crew_10",
-        "crew_10_role_1",
-        "crew_10_role_2",
-        "crew_10_role_3",
-        "crew_10_role_4",
+        "cast",
+        "crew",
+        "genres",
+        "chvrs_rating",
+        "rcq_rating",
 
         # localization
         "title_en",
@@ -264,15 +216,7 @@ class MetadataCreate(LoginRequiredMixin, CreateView):
         "itunes_home_video_date",
         "itunes_sd_price_tier",
         "itunes_hd_price_tier",
-        "itunes_genre_1",
-        "itunes_genre_2",
-        "itunes_genre_3",
-        "itunes_genre_4",
-        "itunes_rating_system_1",
-        "itunes_rating_system_2",
-        "itunes_rating_system_3",
-        "itunes_rating_system_4",
-        "itunes_rating_system_5",
+        "itunes_library",
 
         # sasktel info
         "sasktel_license_start_date",
@@ -295,90 +239,11 @@ class MetadataUpdate(LoginRequiredMixin, UpdateView):
         "copyright_line",
         "release_date",
         "production_company",
-
-        # cast
-        "cast_1",
-        "cast_1_character_1",
-        "cast_1_character_2",
-        "cast_2",
-        "cast_2_character_1",
-        "cast_2_character_2",
-        "cast_3",
-        "cast_3_character_1",
-        "cast_3_character_2",
-        "cast_4",
-        "cast_4_character_1",
-        "cast_4_character_2",
-        "cast_5",
-        "cast_5_character_1",
-        "cast_5_character_2",
-        "cast_6",
-        "cast_6_character_1",
-        "cast_6_character_2",
-        "cast_7",
-        "cast_7_character_1",
-        "cast_7_character_2",
-        "cast_8",
-        "cast_8_character_1",
-        "cast_8_character_2",
-        "cast_9",
-        "cast_9_character_1",
-        "cast_9_character_2",
-        "cast_10",
-        "cast_10_character_1",
-        "cast_10_character_2",
-
-        # crew
-        "crew_1",
-        "crew_1_role_1",
-        "crew_1_role_2",
-        "crew_1_role_3",
-        "crew_1_role_4",
-        "crew_2",
-        "crew_2_role_1",
-        "crew_2_role_2",
-        "crew_2_role_3",
-        "crew_2_role_4",
-        "crew_3",
-        "crew_3_role_1",
-        "crew_3_role_2",
-        "crew_3_role_3",
-        "crew_3_role_4",
-        "crew_4",
-        "crew_4_role_1",
-        "crew_4_role_2",
-        "crew_4_role_3",
-        "crew_4_role_4",
-        "crew_5",
-        "crew_5_role_1",
-        "crew_5_role_2",
-        "crew_5_role_3",
-        "crew_5_role_4",
-        "crew_6",
-        "crew_6_role_1",
-        "crew_6_role_2",
-        "crew_6_role_3",
-        "crew_6_role_4",
-        "crew_7",
-        "crew_7_role_1",
-        "crew_7_role_2",
-        "crew_7_role_3",
-        "crew_7_role_4",
-        "crew_8",
-        "crew_8_role_1",
-        "crew_8_role_2",
-        "crew_8_role_3",
-        "crew_8_role_4",
-        "crew_9",
-        "crew_9_role_1",
-        "crew_9_role_2",
-        "crew_9_role_3",
-        "crew_9_role_4",
-        "crew_10",
-        "crew_10_role_1",
-        "crew_10_role_2",
-        "crew_10_role_3",
-        "crew_10_role_4",
+        "cast",
+        "crew",
+        "genres",
+        "chvrs_rating",
+        "rcq_rating",
 
         # localization
         "title_en",
@@ -402,15 +267,7 @@ class MetadataUpdate(LoginRequiredMixin, UpdateView):
         "itunes_home_video_date",
         "itunes_sd_price_tier",
         "itunes_hd_price_tier",
-        "itunes_genre_1",
-        "itunes_genre_2",
-        "itunes_genre_3",
-        "itunes_genre_4",
-        "itunes_rating_system_1",
-        "itunes_rating_system_2",
-        "itunes_rating_system_3",
-        "itunes_rating_system_4",
-        "itunes_rating_system_5",
+        "itunes_library",
 
         # sasktel info
         "sasktel_license_start_date",
@@ -433,90 +290,11 @@ class MetadataGeneral(LoginRequiredMixin, UpdateView):
         "copyright_line",
         "release_date",
         "production_company",
-
-        # cast
-        "cast_1",
-        "cast_1_character_1",
-        "cast_1_character_2",
-        "cast_2",
-        "cast_2_character_1",
-        "cast_2_character_2",
-        "cast_3",
-        "cast_3_character_1",
-        "cast_3_character_2",
-        "cast_4",
-        "cast_4_character_1",
-        "cast_4_character_2",
-        "cast_5",
-        "cast_5_character_1",
-        "cast_5_character_2",
-        "cast_6",
-        "cast_6_character_1",
-        "cast_6_character_2",
-        "cast_7",
-        "cast_7_character_1",
-        "cast_7_character_2",
-        "cast_8",
-        "cast_8_character_1",
-        "cast_8_character_2",
-        "cast_9",
-        "cast_9_character_1",
-        "cast_9_character_2",
-        "cast_10",
-        "cast_10_character_1",
-        "cast_10_character_2",
-
-        # crew
-        "crew_1",
-        "crew_1_role_1",
-        "crew_1_role_2",
-        "crew_1_role_3",
-        "crew_1_role_4",
-        "crew_2",
-        "crew_2_role_1",
-        "crew_2_role_2",
-        "crew_2_role_3",
-        "crew_2_role_4",
-        "crew_3",
-        "crew_3_role_1",
-        "crew_3_role_2",
-        "crew_3_role_3",
-        "crew_3_role_4",
-        "crew_4",
-        "crew_4_role_1",
-        "crew_4_role_2",
-        "crew_4_role_3",
-        "crew_4_role_4",
-        "crew_5",
-        "crew_5_role_1",
-        "crew_5_role_2",
-        "crew_5_role_3",
-        "crew_5_role_4",
-        "crew_6",
-        "crew_6_role_1",
-        "crew_6_role_2",
-        "crew_6_role_3",
-        "crew_6_role_4",
-        "crew_7",
-        "crew_7_role_1",
-        "crew_7_role_2",
-        "crew_7_role_3",
-        "crew_7_role_4",
-        "crew_8",
-        "crew_8_role_1",
-        "crew_8_role_2",
-        "crew_8_role_3",
-        "crew_8_role_4",
-        "crew_9",
-        "crew_9_role_1",
-        "crew_9_role_2",
-        "crew_9_role_3",
-        "crew_9_role_4",
-        "crew_10",
-        "crew_10_role_1",
-        "crew_10_role_2",
-        "crew_10_role_3",
-        "crew_10_role_4",
+        "cast",
+        "crew",
+        "genres",
+        "chvrs_rating",
+        "rcq_rating",
     ]
 
 
@@ -552,15 +330,7 @@ class MetadataItunes(LoginRequiredMixin, UpdateView):
         "itunes_home_video_date",
         "itunes_sd_price_tier",
         "itunes_hd_price_tier",
-        "itunes_genre_1",
-        "itunes_genre_2",
-        "itunes_genre_3",
-        "itunes_genre_4",
-        "itunes_rating_system_1",
-        "itunes_rating_system_2",
-        "itunes_rating_system_3",
-        "itunes_rating_system_4",
-        "itunes_rating_system_5",
+        "itunes_library",
     ]
 
 

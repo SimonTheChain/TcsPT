@@ -182,6 +182,20 @@ CREW_ROLES = (
 )
 
 
+SASKTEL_AUDIO_TYPES = (
+    ("Dolby 5.1", "Dolby 5.1"),
+    ("Stereo", "Stereo"),
+)
+
+
+SASKTEL_SCREEN_FORMATS = (
+    ("Standard", "Standard"),
+    ("Widescreen", "Widescreen"),
+    ("Letterbox", "Letterbox"),
+    ("OAR", "OAR"),
+)
+
+
 class Metadata(models.Model):
 
     # generic info
@@ -191,90 +205,11 @@ class Metadata(models.Model):
     copyright_line = models.CharField(max_length=250, default="", blank=True)
     release_date = models.DateField(default=date.today, blank=True, null=True)
     production_company = models.CharField(max_length=250, default="", blank=True)
-
-    # cast
-    cast_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_1_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_1_character_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_2_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_2_character_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_3 = models.CharField(max_length=250, default="", blank=True)
-    cast_3_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_3_character_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_4 = models.CharField(max_length=250, default="", blank=True)
-    cast_4_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_4_character_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_5 = models.CharField(max_length=250, default="", blank=True)
-    cast_5_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_5_character_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_6 = models.CharField(max_length=250, default="", blank=True)
-    cast_6_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_6_character_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_7 = models.CharField(max_length=250, default="", blank=True)
-    cast_7_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_7_character_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_8 = models.CharField(max_length=250, default="", blank=True)
-    cast_8_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_8_character_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_9 = models.CharField(max_length=250, default="", blank=True)
-    cast_9_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_9_character_2 = models.CharField(max_length=250, default="", blank=True)
-    cast_10 = models.CharField(max_length=250, default="", blank=True)
-    cast_10_character_1 = models.CharField(max_length=250, default="", blank=True)
-    cast_10_character_2 = models.CharField(max_length=250, default="", blank=True)
-
-    # crew
-    crew_1 = models.CharField(max_length=250, default="", blank=True)
-    crew_1_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_1_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_1_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_1_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_2 = models.CharField(max_length=250, default="", blank=True)
-    crew_2_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_2_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_2_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_2_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_3 = models.CharField(max_length=250, default="", blank=True)
-    crew_3_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_3_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_3_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_3_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_4 = models.CharField(max_length=250, default="", blank=True)
-    crew_4_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_4_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_4_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_4_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_5 = models.CharField(max_length=250, default="", blank=True)
-    crew_5_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_5_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_5_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_5_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_6 = models.CharField(max_length=250, default="", blank=True)
-    crew_6_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_6_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_6_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_6_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_7 = models.CharField(max_length=250, default="", blank=True)
-    crew_7_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_7_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_7_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_7_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_8 = models.CharField(max_length=250, default="", blank=True)
-    crew_8_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_8_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_8_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_8_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_9 = models.CharField(max_length=250, default="", blank=True)
-    crew_9_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_9_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_9_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_9_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_10 = models.CharField(max_length=250, default="", blank=True)
-    crew_10_role_1 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_10_role_2 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_10_role_3 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
-    crew_10_role_4 = models.CharField(max_length=250, choices=CREW_ROLES, default="", blank=True)
+    cast = models.CharField(max_length=1000, default="", blank=True)
+    crew = models.CharField(max_length=1000, default="", blank=True)
+    genres = models.CharField(max_length=250, default="", blank=True)
+    chvrs_rating = models.CharField(max_length=250, default="", blank=True)
+    rcq_rating = models.CharField(max_length=250, default="", blank=True)
 
     # localization
     title_en = models.CharField(max_length=250, default="", blank=True)
@@ -298,22 +233,55 @@ class Metadata(models.Model):
     itunes_home_video_date = models.DateField(default=date.today, blank=True, null=True)
     itunes_sd_price_tier = models.IntegerField(default=0, blank=True)
     itunes_hd_price_tier = models.IntegerField(default=0, blank=True)
-    itunes_genre_1 = models.CharField(max_length=250, choices=ITUNES_GENRES, default="", blank=True)
-    itunes_genre_2 = models.CharField(max_length=250, choices=ITUNES_GENRES, default="", blank=True)
-    itunes_genre_3 = models.CharField(max_length=250, choices=ITUNES_GENRES, default="", blank=True)
-    itunes_genre_4 = models.CharField(max_length=250, choices=ITUNES_GENRES, default="", blank=True)
-    itunes_rating_system_1 = models.CharField(max_length=250, choices=ratings_sorted, default="", blank=True)
-    itunes_rating_system_2 = models.CharField(max_length=250, choices=ratings_sorted, default="", blank=True)
-    itunes_rating_system_3 = models.CharField(max_length=250, choices=ratings_sorted, default="", blank=True)
-    itunes_rating_system_4 = models.CharField(max_length=250, choices=ratings_sorted, default="", blank=True)
-    itunes_rating_system_5 = models.CharField(max_length=250, choices=ratings_sorted, default="", blank=True)
+    itunes_library = models.BooleanField(default=False)
+
+    # google info
+    google_channel = models.CharField(max_length=250, default="", blank=True)
+    google_custom_id = models.CharField(max_length=250, default="", blank=True)
+    google_genre_1 = models.CharField(max_length=250, default="", blank=True)
+    google_genre_2 = models.CharField(max_length=250, default="", blank=True)
+    google_genre_3 = models.CharField(max_length=250, default="", blank=True)
+    google_genre_4 = models.CharField(max_length=250, default="", blank=True)
+    google_rating_system_1 = models.CharField(max_length=250, default="", blank=True)
+    google_rating_system_2 = models.CharField(max_length=250, default="", blank=True)
+    google_rating_system_3 = models.CharField(max_length=250, default="", blank=True)
+    google_rating_system_4 = models.CharField(max_length=250, default="", blank=True)
+    google_video_order_id = models.CharField(max_length=250, default="", blank=True)
+    google_territories = models.CharField(max_length=250, default="", blank=True)
 
     # sasktel info
+    sasktel_billing_id = models.CharField(max_length=250, default="", blank=True)
+    sasktel_inventory_id = models.CharField(max_length=250, default="", blank=True)
+    sasktel_lineup_id = models.CharField(max_length=250, default="", blank=True)
+    sasktel_category_1 = models.CharField(max_length=250, default="", blank=True)
+    sasktel_category_2 = models.CharField(max_length=250, default="", blank=True)
+    sasktel_category_3 = models.CharField(max_length=250, default="", blank=True)
+    sasktel_category_4 = models.CharField(max_length=250, default="", blank=True)
+    sasktel_closed_captioning = models.BooleanField(default=True)
     sasktel_license_start_date = models.DateField(default=date.today, blank=True, null=True)
     sasktel_license_end_date = models.DateField(default=date.today, blank=True, null=True)
     sasktel_rating = models.CharField(max_length=10, default="NR", blank=True)
+    sasktel_run_time = models.CharField(max_length=250, default="", blank=True)
     sasktel_sd_price = models.FloatField(default=5.95)
     sasktel_hd_price = models.FloatField(default=6.95)
+    sasktel_title_long = models.CharField(max_length=40, default="", blank=True)
+    sasktel_title_brief = models.CharField(max_length=19, default="", blank=True)
+    sasktel_year = models.IntegerField(default=2016, blank=True)
+    sasktel_dvd_release = models.DateField(default=date.today, blank=True, null=True)
+    sasktel_canadian_content = models.BooleanField(default=False)
+    sasktel_copyright = models.CharField(max_length=250, default="", blank=True)
+    sasktel_feature_audio_type = models.CharField(
+        max_length=250, choices=SASKTEL_AUDIO_TYPES, default="Dolby 5.1", blank=True)
+    sasktel_feature_screen_format = models.CharField(
+        max_length=250, choices=SASKTEL_SCREEN_FORMATS, default="Widescreen", blank=True)
+    sasktel_feature_hd_content = models.BooleanField(default=True)
+    sasktel_feature_subtitle_language = models.CharField(max_length=2, default="", blank=True)
+    sasktel_trailer_audio_type = models.CharField(
+        max_length=250, choices=SASKTEL_AUDIO_TYPES, default="Stereo", blank=True)
+    sasktel_trailer_screen_format = models.CharField(
+        max_length=250, choices=SASKTEL_SCREEN_FORMATS, default="Widescreen", blank=True)
+    sasktel_trailer_hd_content = models.BooleanField(default=True)
+    sasktel_trailer_subtitle_language = models.CharField(max_length=2, default="", blank=True)
 
     # foreign key
     project = models.OneToOneField(Project, on_delete=models.CASCADE)
@@ -323,15 +291,3 @@ class Metadata(models.Model):
 
     def __str__(self):
         return self.studio_release_title
-
-
-class CastCrew(models.Model):
-    first_name = models.CharField(max_length=25, default="")
-    last_name = models.CharField(max_length=25, default="")
-    apple_id = models.IntegerField(default=0)
-
-    def get_absolute_url(self):
-        return reverse("assetmanage:asset_details", kwargs={"pk": self.pk})
-
-    def __str__(self):
-        return self.first_name + self.last_name

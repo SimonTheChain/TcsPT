@@ -36,7 +36,7 @@
     <br><div class="container-fluid">
         <h4>Download by Platform:</h4>
         <div class="btn-group-vertical tab40" role="group">
-            <a href="#" class="btn btn-primary">iTunes</a>
+            <a href="{% url 'metadata:download_itunes' metadata.id %}" class="btn btn-primary">iTunes</a>
             <a href="#" class="btn btn-primary">Google</a>
             <a href="#" class="btn btn-primary">Sasktel</a>
         </div>
@@ -51,88 +51,11 @@
             <p><strong>Copyright line:</strong> {{ metadata.copyright_line }}</p>
             <p><strong>Theatrical release date:</strong> {{ metadata.release_date }}</p>
             <p><strong>Production company:</strong> {{ metadata.production_company }}</p>
-
-            <br><p><strong>Cast member 1:</strong> {{ metadata.cast_1 }}</p>
-            <p><strong>Cast member 1 character 1:</strong> {{ metadata.cast_1_character_1 }}</p>
-            <p><strong>Cast member 1 character 2:</strong> {{ metadata.cast_1_character_2 }}</p>
-            <p><strong>Cast member 2:</strong> {{ metadata.cast_2 }}</p>
-            <p><strong>Cast member 2 character 1:</strong> {{ metadata.cast_2_character_1 }}</p>
-            <p><strong>Cast member 2 character 2:</strong> {{ metadata.cast_2_character_2 }}</p>
-            <p><strong>Cast member 3:</strong> {{ metadata.cast_3 }}</p>
-            <p><strong>Cast member 3 character 1:</strong> {{ metadata.cast_3_character_1 }}</p>
-            <p><strong>Cast member 3 character 2:</strong> {{ metadata.cast_3_character_2 }}</p>
-            <p><strong>Cast member 4:</strong> {{ metadata.cast_4 }}</p>
-            <p><strong>Cast member 4 character 1:</strong> {{ metadata.cast_4_character_1 }}</p>
-            <p><strong>Cast member 4 character 2:</strong> {{ metadata.cast_4_character_2 }}</p>
-            <p><strong>Cast member 5:</strong> {{ metadata.cast_5 }}</p>
-            <p><strong>Cast member 5 character 1:</strong> {{ metadata.cast_5_character_1 }}</p>
-            <p><strong>Cast member 5 character 2:</strong> {{ metadata.cast_5_character_2 }}</p>
-            <p><strong>Cast member 6:</strong> {{ metadata.cast_6 }}</p>
-            <p><strong>Cast member 6 character 1:</strong> {{ metadata.cast_6_character_1 }}</p>
-            <p><strong>Cast member 6 character 2:</strong> {{ metadata.cast_6_character_2 }}</p>
-            <p><strong>Cast member 7:</strong> {{ metadata.cast_7 }}</p>
-            <p><strong>Cast member 7 character 1:</strong> {{ metadata.cast_7_character_1 }}</p>
-            <p><strong>Cast member 7 character 2:</strong> {{ metadata.cast_7_character_2 }}</p>
-            <p><strong>Cast member 8:</strong> {{ metadata.cast_8 }}</p>
-            <p><strong>Cast member 8 character 1:</strong> {{ metadata.cast_8_character_1 }}</p>
-            <p><strong>Cast member 8 character 2:</strong> {{ metadata.cast_8_character_2 }}</p>
-            <p><strong>Cast member 9:</strong> {{ metadata.cast_9 }}</p>
-            <p><strong>Cast member 9 character 1:</strong> {{ metadata.cast_9_character_1 }}</p>
-            <p><strong>Cast member 9 character 2:</strong> {{ metadata.cast_9_character_2 }}</p>
-            <p><strong>Cast member 10:</strong> {{ metadata.cast_10 }}</p>
-            <p><strong>Cast member 10 character 1:</strong> {{ metadata.cast_10_character_1 }}</p>
-            <p><strong>Cast member 10 character 2:</strong> {{ metadata.cast_10_character_2 }}</p>
-
-            <br><p><strong>Crew member 1:</strong> {{ metadata.crew_1 }}</p>
-            <p><strong>Crew member 1 role 1:</strong> {{ metadata.crew_1_role_1 }}</p>
-            <p><strong>Crew member 1 role 2:</strong> {{ metadata.crew_1_role_2 }}</p>
-            <p><strong>Crew member 1 role 3:</strong> {{ metadata.crew_1_role_3 }}</p>
-            <p><strong>Crew member 1 role 4:</strong> {{ metadata.crew_1_role_4 }}</p>
-            <p><strong>Crew member 2:</strong> {{ metadata.crew_2 }}</p>
-            <p><strong>Crew member 2 role 1:</strong> {{ metadata.crew_2_role_1 }}</p>
-            <p><strong>Crew member 2 role 2:</strong> {{ metadata.crew_2_role_2 }}</p>
-            <p><strong>Crew member 2 role 3:</strong> {{ metadata.crew_2_role_3 }}</p>
-            <p><strong>Crew member 2 role 4:</strong> {{ metadata.crew_2_role_4 }}</p>
-            <p><strong>Crew member 3:</strong> {{ metadata.crew_3 }}</p>
-            <p><strong>Crew member 3 role 1:</strong> {{ metadata.crew_3_role_1 }}</p>
-            <p><strong>Crew member 3 role 2:</strong> {{ metadata.crew_3_role_2 }}</p>
-            <p><strong>Crew member 3 role 3:</strong> {{ metadata.crew_3_role_3 }}</p>
-            <p><strong>Crew member 3 role 4:</strong> {{ metadata.crew_3_role_4 }}</p>
-            <p><strong>Crew member 4:</strong> {{ metadata.crew_4 }}</p>
-            <p><strong>Crew member 4 role 1:</strong> {{ metadata.crew_4_role_1 }}</p>
-            <p><strong>Crew member 4 role 2:</strong> {{ metadata.crew_4_role_2 }}</p>
-            <p><strong>Crew member 4 role 3:</strong> {{ metadata.crew_4_role_3 }}</p>
-            <p><strong>Crew member 4 role 4:</strong> {{ metadata.crew_4_role_4 }}</p>
-            <p><strong>Crew member 5:</strong> {{ metadata.crew_5 }}</p>
-            <p><strong>Crew member 5 role 1:</strong> {{ metadata.crew_5_role_1 }}</p>
-            <p><strong>Crew member 5 role 2:</strong> {{ metadata.crew_5_role_2 }}</p>
-            <p><strong>Crew member 5 role 3:</strong> {{ metadata.crew_5_role_3 }}</p>
-            <p><strong>Crew member 5 role 4:</strong> {{ metadata.crew_5_role_4 }}</p>
-            <p><strong>Crew member 6:</strong> {{ metadata.crew_6 }}</p>
-            <p><strong>Crew member 6 role 1:</strong> {{ metadata.crew_6_role_1 }}</p>
-            <p><strong>Crew member 6 role 2:</strong> {{ metadata.crew_6_role_2 }}</p>
-            <p><strong>Crew member 6 role 3:</strong> {{ metadata.crew_6_role_3 }}</p>
-            <p><strong>Crew member 6 role 4:</strong> {{ metadata.crew_6_role_4 }}</p>
-            <p><strong>Crew member 7:</strong> {{ metadata.crew_7 }}</p>
-            <p><strong>Crew member 7 role 1:</strong> {{ metadata.crew_7_role_1 }}</p>
-            <p><strong>Crew member 7 role 2:</strong> {{ metadata.crew_7_role_2 }}</p>
-            <p><strong>Crew member 7 role 3:</strong> {{ metadata.crew_7_role_3 }}</p>
-            <p><strong>Crew member 7 role 4:</strong> {{ metadata.crew_7_role_4 }}</p>
-            <p><strong>Crew member 8:</strong> {{ metadata.crew_8 }}</p>
-            <p><strong>Crew member 8 role 1:</strong> {{ metadata.crew_8_role_1 }}</p>
-            <p><strong>Crew member 8 role 2:</strong> {{ metadata.crew_8_role_2 }}</p>
-            <p><strong>Crew member 8 role 3:</strong> {{ metadata.crew_8_role_3 }}</p>
-            <p><strong>Crew member 8 role 4:</strong> {{ metadata.crew_8_role_4 }}</p>
-            <p><strong>Crew member 9:</strong> {{ metadata.crew_9 }}</p>
-            <p><strong>Crew member 9 role 1:</strong> {{ metadata.crew_9_role_1 }}</p>
-            <p><strong>Crew member 9 role 2:</strong> {{ metadata.crew_9_role_2 }}</p>
-            <p><strong>Crew member 9 role 3:</strong> {{ metadata.crew_9_role_3 }}</p>
-            <p><strong>Crew member 9 role 4:</strong> {{ metadata.crew_9_role_4 }}</p>
-            <p><strong>Crew member 10:</strong> {{ metadata.crew_10 }}</p>
-            <p><strong>Crew member 10 role 1:</strong> {{ metadata.crew_10_role_1 }}</p>
-            <p><strong>Crew member 10 role 2:</strong> {{ metadata.crew_10_role_2 }}</p>
-            <p><strong>Crew member 10 role 3:</strong> {{ metadata.crew_10_role_3 }}</p>
-            <p><strong>Crew member 10 role 4:</strong> {{ metadata.crew_10_role_4 }}</p>
+            <p><strong>Cast:</strong> {{ metadata.cast }}</p>
+            <p><strong>Crew:</strong> {{ metadata.crew }}</p>
+            <p><strong>Genres:</strong> {{ metadata.genres }}</p>
+            <p><strong>CHVRS rating:</strong> {{ metadata.chvrs_rating }}</p>
+            <p><strong>RCQ rating:</strong> {{ metadata.rcq_rating }}</p>
         </div>
     </div>
     <br><div class="container-fluid">
@@ -162,15 +85,7 @@
             <p><strong>Home video start date:</strong> {{ metadata.itunes_home_video_date }}</p>
             <p><strong>SD price tier:</strong> {{ metadata.itunes_sd_price_tier }}</p>
             <p><strong>HD price tier:</strong> {{ metadata.itunes_hd_price_tier }}</p>
-            <p><strong>Genre:</strong> {{ metadata.get_itunes_genre_1_display }}</p>
-            <p><strong>Genre:</strong> {{ metadata.get_itunes_genre_2_display }}</p>
-            <p><strong>Genre:</strong> {{ metadata.get_itunes_genre_3_display }}</p>
-            <p><strong>Genre:</strong> {{ metadata.get_itunes_genre_4_display }}</p>
-            <p><strong>Rating system:</strong> {{ metadata.itunes_rating_system_1 }}</p>
-            <p><strong>Rating system:</strong> {{ metadata.itunes_rating_system_2 }}</p>
-            <p><strong>Rating system:</strong> {{ metadata.itunes_rating_system_3 }}</p>
-            <p><strong>Rating system:</strong> {{ metadata.itunes_rating_system_4 }}</p>
-            <p><strong>Rating system:</strong> {{ metadata.itunes_rating_system_5 }}</p>
+            <p><strong>Library title:</strong> {{ metadata.itunes_library }}</p>
         </div>
     </div>
     <br><div class="container-fluid">
